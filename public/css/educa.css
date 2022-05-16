@@ -3690,22 +3690,22 @@ section.single-teacher .single-teacher-item .description ul li:last-child {
   padding: 15px 0px 20px 0px;
 }
 .teachers-heading {
-  background-image: url(http://placehold.it/1700x380) !important;
+  background-image: url(../images/heading.png) !important;
 }
 .events-heading {
-  background-image: url(http://placehold.it/1700x380) !important;
+  background-image: url(../images/heading.png) !important;
 }
 .about-heading {
-  background-image: url(http://placehold.it/1700x380) !important;
+  background-image: url(../images/heading.png) !important;
 }
 .gallery-heading {
-  background-image: url(http://placehold.it/1700x380) !important;
+  background-image: url(../images/heading.png) !important;
 }
 .news-heading {
-  background-image: url(http://placehold.it/1700x380) !important;
+  background-image: url(../images/heading.png) !important;
 }
 .page-heading {
-  background-image: url(http://placehold.it/1700x380);
+  background-image: url(../images/heading.png);
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
