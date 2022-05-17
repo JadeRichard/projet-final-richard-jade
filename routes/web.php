@@ -1,5 +1,14 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\BannerController;
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\PictureController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -58,4 +67,23 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-// CRUD
+// ----- CRUD ----- //
+
+// Users 
+Route::resource('/dashboard/users', UserController::class);
+// Roles 
+Route::resource('/dashboard/roles', RoleController::class);
+// Banners 
+Route::resource('/dashboard/banners', BannerController::class);
+// Services 
+Route::resource('/dashboard/services', ServiceController::class);
+// Courses 
+Route::resource('/dashboard/courses', CourseController::class);
+// Teachers 
+Route::resource('/dashboard/teachers', TeacherController::class);
+// Events 
+Route::resource('/dashboard/events', EventController::class);
+// Articles 
+Route::resource('/dashboard/articles', ArticleController::class);
+// Pictures 
+Route::resource('/dashboard/pictures', PictureController::class);

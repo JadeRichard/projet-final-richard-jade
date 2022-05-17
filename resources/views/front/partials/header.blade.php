@@ -2,7 +2,7 @@
     <div id="main-header" class="main-header header-sticky">
         <div class="inner-header container clearfix">
             <div class="logo">
-                <a href="index.html"><img src={{ asset("images/logo.png") }} alt=""></a>
+                <a href={{ route("/") }}><img src={{ asset("images/logo.png") }} alt=""></a>
             </div>
             <div class="header-right-toggle pull-right hidden-md hidden-lg">
                 <a href="javascript:void(0)" class="side-menu-button"><i class="fa fa-bars"></i></a>
@@ -14,7 +14,13 @@
                     <li class="language">
                     <p><i class="fa fa-globe"></i>English</p>
                     </li>
-                    <li><a href="#">Apply Now</a></li>
+                    @if (Route::has('login'))
+                            @auth
+                                <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
+                            @else                        
+                                <li><a href="{{ route('login') }}">Login</a></li>
+                            @endauth
+                @endif
                 </ul>
             </div>
             <nav class="main-navigation text-left hidden-xs hidden-sm">
