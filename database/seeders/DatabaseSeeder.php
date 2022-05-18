@@ -21,6 +21,9 @@ class DatabaseSeeder extends Seeder
             ArticleSeeder::class,
             CourseSeeder::class,
             TeacherSeeder::class,
+            EventSeeder::class,
+            ServiceSeeder::class,
+            BannerSeeder::class,
         ]);
     }
 }

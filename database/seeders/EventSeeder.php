@@ -17,7 +17,7 @@ class EventSeeder extends Seeder
     {
         DB::table('events')->insert([
             'title' => 'Nice Event',
-            "desciption" => "This is a nice event",
+            "description" => "This is a nice event",
             "date" => "Monday 8am - 12am",
             "picture" => "events/event-1.png",
             "start_time" => "Dec 18",

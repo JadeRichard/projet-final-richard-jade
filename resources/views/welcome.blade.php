@@ -12,7 +12,7 @@
 
             @include('front.partials.header')
             @include('front.partials.banner')
-            @include('front.partials.welcome')
+            @include('front.partials.services')
             @include('front.partials.courses')
             @include('front.partials.testimonials')
             @include('front.partials.books')

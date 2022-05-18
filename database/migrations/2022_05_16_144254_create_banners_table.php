@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('banners', function (Blueprint $table) {
             $table->id();
+            $table->text('title');
+            $table->text('accent');
+            $table->text('description');
+            $table->text('button');
+            $table->text('picture');
             $table->timestamps();
         });
     }

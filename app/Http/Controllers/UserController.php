@@ -30,7 +30,6 @@ class UserController extends Controller
             'name' => 'required',
             'email' => 'required',
             'password' => 'required',
-            'picture' => 'required',
         ]);
         $users->name = $request->name;
         $users->email = $request->email;
@@ -61,7 +60,6 @@ class UserController extends Controller
             'name' => 'required',
             'email' => 'required',
             'password' => 'required',
-            'picture' => 'required',
         ]);
         $users->name = $request->name;
         $users->email = $request->email;

@@ -33,7 +33,7 @@ class CourseController extends Controller
             'duration' => 'required',
             'price' => 'required',
             'study_level' => 'required',
-            'Discipline' => 'required',
+            'discipline' => 'required',
         ]);
         $courses->title = $request->title;
         $courses->description = $request->description;
@@ -57,7 +57,7 @@ class CourseController extends Controller
     {
         $courses = Course::find($id);
         $categories = Category::all();
-        return view('/back/courses/edit', compact('courses', 'categories', 'tags'));
+        return view('/back/courses/edit', compact('courses', 'categories'));
     }
 
     public function update(Request $request, $id)
@@ -71,7 +71,7 @@ class CourseController extends Controller
             'duration' => 'required',
             'price' => 'required',
             'study_level' => 'required',
-            'Discipline' => 'required',
+            'discipline' => 'required',
         ]);
         $courses->title = $request->title;
         $courses->description = $request->description;
