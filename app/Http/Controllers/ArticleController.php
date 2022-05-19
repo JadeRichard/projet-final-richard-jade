@@ -44,8 +44,8 @@ class ArticleController extends Controller
         $request->file('picture')->storePublicly('images/', 'public');
         $articles->save();
 
-        $articles->categories()->attach($request->categories, ['article_id' => $articles->id]);
-        $articles->tags()->attach($request->tags, ['article_id' => $articles->id]);
+        /* $articles->categories()->attach($request->categories, ['article_id' => $articles->id]);
+        $articles->tags()->attach($request->tags, ['article_id' => $articles->id]); */
 
         return redirect()->route('articles.index')->with('message', 'Element article created');
     
@@ -79,8 +79,8 @@ class ArticleController extends Controller
         $request->file('picture')->storePublicly('images/', 'public');
         $articles->save();
 
-        $articles->categories()->attach($request->categories, ['article_id' => $articles->id]);
-        $articles->tags()->attach($request->tags, ['article_id' => $articles->id]);
+        /* $articles->categories()->attach($request->categories, ['article_id' => $articles->id]);
+        $articles->tags()->attach($request->tags, ['article_id' => $articles->id]); */
 
         return redirect()->route('articles.index')->with('message', 'Element article updated');
 
@@ -95,8 +95,8 @@ class ArticleController extends Controller
     public function destroy($id)
     {
         $articles = Article::find($id);
-        $articles->categories()->detach();
-        $articles->tags()->detach();
+        /* $articles->categories()->detach();
+        $articles->tags()->detach(); */
         $articles->delete();
         return redirect()->route('articles.index')->with('message', 'Element article deleted');
     }
