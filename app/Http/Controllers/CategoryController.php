@@ -51,7 +51,8 @@ class CategoryController extends Controller
         $categories->name = $request->name;
         $categories->save();
 
-        $categories->articles()->attach($request->articles, ['categorie_id' => $categories->id]);
+        $categories->articles()->attach($request->articles, ['category_id' => $categories->id]);
+        $categories->courses()->attach($request->courses, ['category_id' => $categories->id]);
         /* $categories->tags()->attach($request->tags, ['categorie_id' => $categories->id]); */
 
         return redirect()->route('categories.index')->with('message', 'Element categorie updated');
@@ -68,6 +69,7 @@ class CategoryController extends Controller
     {
         $categories = Category::find($id);
         $categories->articles()->detach();
+        $categories->courses()->detach();
         $categories->delete();
         return redirect()->route('categories.index')->with('message', 'Element categorie deleted');
     }

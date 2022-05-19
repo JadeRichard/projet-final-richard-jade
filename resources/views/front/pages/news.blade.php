@@ -48,9 +48,6 @@
 											<div class="accent-button">
 												<a href={{ route("single-post") }}>Continue Reading</a>
 											</div>
-											<div class="second-button">
-												<a href="#">Share <i class="fa fa-share-alt"></i></a>
-											</div>
 										</div>
 									</div>
 									<div class="classic-item">
@@ -66,9 +63,6 @@
 											<div class="accent-button">
 												<a href={{ route("single-post") }}>Continue Reading</a>
 											</div>
-											<div class="second-button">
-												<a href="#">Share <i class="fa fa-share-alt"></i></a>
-											</div>
 										</div>
 									</div>
 									<div class="classic-item">
@@ -83,9 +77,6 @@
 										<div class="buttons">
 											<div class="accent-button">
 												<a href={{ route("single-post") }}>Continue Reading</a>
-											</div>
-											<div class="second-button">
-												<a href="#">Share <i class="fa fa-share-alt"></i></a>
 											</div>
 										</div>
 									</div>
@@ -106,9 +97,6 @@
 										<div class="buttons">
 											<div class="accent-button">
 												<a href={{ route("single-post") }}>Continue Reading</a>
-											</div>
-											<div class="second-button">
-												<a href="#">Share <i class="fa fa-share-alt"></i></a>
 											</div>
 										</div>
 									</div>

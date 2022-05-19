@@ -15,6 +15,7 @@
                     <th scope='col'style="text-align: center;">Price</th>
                     <th scope='col'style="text-align: center;">Study Level</th>
                     <th scope='col'style="text-align: center;">Discipline</th>
+                    <th scope='col'style="text-align: center;">Categories</th>
                     <th scope='col'style="text-align: center;">Action</th>
                 </tr> 
             </thead>
@@ -29,6 +30,11 @@
                     <td style="text-align: center;">{{ $courses->price }}</td>
                     <td style="text-align: center;">{{ $courses->study_level }}</td>
                     <td style="text-align: center;">{{ $courses->discipline }}</td>
+                    <td style="text-align: center;">
+                        @foreach ($articles->categories as $categories)
+                            {{ $categories->name }}
+                        @endforeach
+                    </td>
                     <td> 
                         <td><a type="submit" class="btn btncus2" href="{{ route('courses.index') }}"  style="background-color: #A12C2F; color: white;">Back</button></td>
                     </td>

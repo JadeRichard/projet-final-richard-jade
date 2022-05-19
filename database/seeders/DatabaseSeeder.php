@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\ArticleCategory;
 use App\Models\ArticleTag;
+use App\Models\CategoryCourse;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -34,6 +35,7 @@ class DatabaseSeeder extends Seeder
         // call the ArticleCategoryFactory
         ArticleCategory::factory(20)->create();
         ArticleTag::factory(20)->create();
+        CategoryCourse::factory(20)->create();
         
 
     }

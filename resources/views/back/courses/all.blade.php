@@ -34,6 +34,7 @@
                     <th scope='col'style="text-align: center;">Price</th>
                     <th scope='col'style="text-align: center;">Study Level</th>
                     <th scope='col'style="text-align: center;">Discipline</th>
+                    <th scope='col'style="text-align: center;">Categories</th>
                     <th scope='col'style="text-align: center;">Action</th>
                 </tr>
             </thead>
@@ -49,6 +50,11 @@
                         <td style="text-align: center;">{{ $item->price }}</td>
                         <td style="text-align: center;">{{ $item->study_level }}</td>
                         <td style="text-align: center;">{{ $item->discipline }}</td>
+                        <td style="text-align: center;">
+                            @foreach ($item->categories as $categories)
+                                {{ $categories->name }},
+                            @endforeach
+                        </td>
                         <td style="text-align: center;"> 
                             <div class='d-flex justify-content-center'>
                                 <a class='btn btncus3 mx-2' style="background-color: #A12C2F; color: white;" href='{{ route('courses.edit', $item->id) }}' course='button'>Edit</a>

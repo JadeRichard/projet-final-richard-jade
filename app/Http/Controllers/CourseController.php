@@ -51,7 +51,7 @@ class CourseController extends Controller
         $request->file('picture')->storePublicly('images/', 'public');
         $courses->save();
 
-        /* $courses->categories()->attach($request->categories, ['course_id' => $courses->id]); */
+        $courses->categories()->attach($request->categories, ['course_id' => $courses->id]);
         return redirect()->route('courses.index')->with('message', 'Element course created');
     
     }
@@ -92,7 +92,7 @@ class CourseController extends Controller
         $request->file('picture')->storePublicly('images/', 'public');
         $courses->save();
 
-        /* $courses->categories()->attach($request->categories, ['course_id' => $courses->id]); */
+        $courses->categories()->attach($request->categories, ['course_id' => $courses->id]);
         return redirect()->route('courses.index')->with('message', 'Element course updated');
 
     }
@@ -106,7 +106,7 @@ class CourseController extends Controller
     public function destroy($id)
     {
         $courses = Course::find($id);
-        /* $courses->categories()->detach(); */
+        $courses->categories()->detach();
         $courses->delete();
         return redirect()->route('courses.index')->with('message', 'Element course deleted');
     }

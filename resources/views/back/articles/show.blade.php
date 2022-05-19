@@ -12,7 +12,8 @@
                     <th scope='col'style="text-align: center;">Description 1</th>
                     <th scope='col'style="text-align: center;">Description 2</th>
                     <th scope='col'style="text-align: center;">Date</th>
-
+                    <th scope='col'style="text-align: center;">Categories</th>                    
+                    <th scope='col'style="text-align: center;">Tags</th>
                     <th scope='col'style="text-align: center;">Action</th>
                 </tr> 
             </thead>

@@ -42,8 +42,8 @@
                                     value='{{ $categories->id }}'>
                                 <label style="padding-left: 15px" for='checkbox{{ $categories->id }}'>{{ $categories->name }}</label>
                             </div>
-                        @endforeach
-                    </td>
+                            @endforeach
+                        </td>
                         <td style="text-align: center;"> 
                             @foreach ($tags as $tags)
                             <div class='form-check'>

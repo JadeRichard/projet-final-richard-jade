@@ -24,6 +24,7 @@
                     <th scope='col'style="text-align: center;">Price</th>
                     <th scope='col'style="text-align: center;">Study Level</th>
                     <th scope='col'style="text-align: center;">Discipline</th>
+                    <th scope='col'style="text-align: center;">Categories</th>
                     <th scope='col'style="text-align: center;">Action</th>
                 </tr>
             </thead>
@@ -42,6 +43,15 @@
                             <td style="text-align: center;"> <input type="number" name="price" value="{{ old('price') }}"></td> 
                             <td style="text-align: center;"> <input type="text" name="study_level" value="{{ old('study_level') }}"></td> 
                             <td style="text-align: center;"> <input type="text" name="discipline" value="{{ old('discipline') }}"></td> 
+                            <td style="text-align: center;"> 
+                                @foreach ($categories as $categories)
+                                <div class='form-check'>
+                                    <input type='checkbox' id='checkbox{{ $categories->id }}' class='form-check-input' name='categories[]'
+                                        value='{{ $categories->id }}'>
+                                    <label style="padding-left: 15px" for='checkbox{{ $categories->id }}'>{{ $categories->name }}</label>
+                                </div>
+                                @endforeach
+                            </td>
                             <td style="text-align: center;"><button class="btn btncus2" type='submit'
                                 style="background-color: #A12C2F; color: white;">Create</button> </td>
                     </form>

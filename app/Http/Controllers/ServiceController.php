@@ -17,7 +17,13 @@ class ServiceController extends Controller
     public function create()
     {
         $services = Service::all();
-        return view('/back/services/create', compact('services'));
+
+        if (count($services) >= 4) {
+            return redirect()->back()->with('message', 'Cannot create more than five elements');
+        } else {
+            return view('/back/services/create', compact('services'));
+        }
+
     }
 
     public function store(Request $request)
@@ -69,7 +75,13 @@ class ServiceController extends Controller
     public function destroy($id)
     {
         $services = Service::find($id);
-        $services->delete();
-        return redirect()->route('services.index')->with('message', 'Element service deleted');
+        $servicesarray = Service::all();
+        if (count($servicesarray) > 1) {
+            $services->delete();
+            return redirect()->route('services.index')->with('message', 'Element service deleted');
+        } else {      
+            return redirect()->back()->with('message', 'Cannot delete all elements');
+        }
+        
     }
 }
