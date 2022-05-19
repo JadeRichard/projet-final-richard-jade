@@ -39,10 +39,9 @@
                             <td style="text-align: center;"> <input type="file" name="picture" value=""></td>
                             <td style="text-align: center;"> <input type="text" name="date" value="{{ old('date') }}"></td> 
                             <td style="text-align: center;"> <input type="text" name="duration" value="{{ old('duration') }}"></td> 
-                            <td style="text-align: center;"> <input type="text" name="price" value="{{ old('price') }}"></td> 
+                            <td style="text-align: center;"> <input type="number" name="price" value="{{ old('price') }}"></td> 
                             <td style="text-align: center;"> <input type="text" name="study_level" value="{{ old('study_level') }}"></td> 
                             <td style="text-align: center;"> <input type="text" name="discipline" value="{{ old('discipline') }}"></td> 
-                            <td style="text-align: center;"> <input type="file" name="picture" value=""></td>
                             <td style="text-align: center;"><button class="btn btncus2" type='submit'
                                 style="background-color: #A12C2F; color: white;">Create</button> </td>
                     </form>
