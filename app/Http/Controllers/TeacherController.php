@@ -39,7 +39,10 @@ class TeacherController extends Controller
         $teachers->skype = $request->skype;
         $teachers->role = $request->role;
         $teachers->updated_at = now();
-        File::delete("images/". $teachers->picture);
+        $destination = "images/" . $teachers->picture;
+        if (File::exists($destination)) {
+            File::delete($destination);
+        }
         $teachers->picture = $request->file("picture")->hashName();
         $request->file('picture')->storePublicly('images/', 'public');
         $teachers->save();
@@ -72,7 +75,10 @@ class TeacherController extends Controller
         $teachers->skype = $request->skype;
         $teachers->role = $request->role;
         $teachers->updated_at = now();
-        File::delete("images/". $teachers->picture);
+        $destination = "images/" . $teachers->picture;
+        if (File::exists($destination)) {
+            File::delete($destination);
+        }
         $teachers->picture = $request->file("picture")->hashName();
         $request->file('picture')->storePublicly('images/', 'public');
         $teachers->save();

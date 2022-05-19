@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class PictureSeeder extends Seeder
 {
@@ -14,6 +15,13 @@ class PictureSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('pictures')->insert([
+            'title' => 'Heading',
+            "picture" => "heading.png",
+        ]);
+        DB::table('pictures')->insert([
+            'title' => 'Footer',
+            "picture" => "footer-bg.png",
+        ]);
     }
 }

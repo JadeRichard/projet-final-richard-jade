@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             EventSeeder::class,
             ServiceSeeder::class,
             BannerSeeder::class,
+            PictureSeeder::class,
         ]);
     }
 }
