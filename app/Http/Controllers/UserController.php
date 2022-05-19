@@ -35,7 +35,11 @@ class UserController extends Controller
         $users->email = $request->email;
         $users->password = Hash::make($request->password);
         $users->updated_at = now();
-        File::delete("images/". $users->picture);
+        $destination = "images/" . $users->picture;
+        if (File::exists($destination)) {
+            File::delete($destination);
+        }
+        $users->image = $request->file("image")->hashName();
         $users->picture = $request->file("picture")->hashName();
         $request->file('picture')->storePublicly('images/', 'public');
         $users->save();
@@ -65,7 +69,10 @@ class UserController extends Controller
         $users->email = $request->email;
         $users->password = Hash::make($request->password);
         $users->updated_at = now();
-        File::delete("images/". $users->picture);
+        $destination = "images/" . $users->picture;
+        if (File::exists($destination)) {
+            File::delete($destination);
+        }
         $users->picture = $request->file("picture")->hashName();
         $request->file('picture')->storePublicly('images/', 'public');
         $users->save();

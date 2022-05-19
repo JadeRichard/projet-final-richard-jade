@@ -21,6 +21,7 @@
                     <th scope='col' style="text-align: center;">Password</th>
                     <th scope='col' style="text-align: center;">Role</th>
                     <th scope='col' style="text-align: center;">Picture</th>
+                    <th scope='col' style="text-align: center;">Action</th>
 
                 </tr>
             </thead>

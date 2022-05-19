@@ -43,7 +43,10 @@ class CourseController extends Controller
         $courses->study_level = $request->study_level;
         $courses->discipline = $request->discipline;
         $courses->updated_at = now();
-        File::delete("images/". $courses->picture);
+        $destination = "images/" . $courses->picture;
+        if (File::exists($destination)) {
+            File::delete($destination);
+        }
         $courses->picture = $request->file("picture")->hashName();
         $request->file('picture')->storePublicly('images/', 'public');
         $courses->save();
@@ -81,7 +84,10 @@ class CourseController extends Controller
         $courses->study_level = $request->study_level;
         $courses->discipline = $request->discipline;
         $courses->updated_at = now();
-        File::delete("images/". $courses->picture);
+        $destination = "images/" . $courses->picture;
+        if (File::exists($destination)) {
+            File::delete($destination);
+        }
         $courses->picture = $request->file("picture")->hashName();
         $request->file('picture')->storePublicly('images/', 'public');
         $courses->save();

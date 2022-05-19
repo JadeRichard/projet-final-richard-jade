@@ -20,14 +20,14 @@ class BannerSeeder extends Seeder
             'accent' => 'Features',
             'description' => 'Nunc eget tempor neque. Aenean non ex sed nibh euismod ornare. Nam congue nisi purus, sed luctus risus.',
             'button' => 'Buy Now',
-            'picture' => 'banners/banner-1.png',
+            'picture' => 'banner/banner-1.png',
         ]);
         DB::table('banners')->insert([
             'title' => 'Are you ready to study ? <br> We have the',
             'accent' => 'Solution',
             'description' => 'Nunc eget tempor neque. Aenean non ex sed nibh euismod ornare. Nam congue nisi purus, sed luctus risus.',
             'button' => 'Buy Now',
-            'picture' => 'banners/banner-2.png',
+            'picture' => 'banner/banner-2.png',
         ]);
     }
 }

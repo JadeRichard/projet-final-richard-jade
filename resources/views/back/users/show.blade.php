@@ -12,16 +12,20 @@
                     <th scope='col'style="text-align: center;">Password</th>
                     <th scope='col'style="text-align: center;">Role</th>
                     <th scope='col'style="text-align: center;">Picture</th>
+                    <th scope='col'style="text-align: center;">Action</th>
                 </tr> 
             </thead>
             <tbody>
                 <tr>
                     <th scope='row'>{{ $users->id }}</th>
-                    
-                        <td>{{ $users->name }}</td>
-                        <td>{{ $users->email }}</td>
-                        <td>{{ $users->password }}</td>
-                        {{-- <td>{{ $users->roles->name }}</td> --}}
+                        <td style="text-align: center;">{{ $users->name }}</td>
+                        <td style="text-align: center;">{{ $users->email }}</td>
+                        <td style="text-align: center;">{{ $users->password }}</td>
+                        <td style="text-align: center;">
+                            @foreach ($users->roles as $role)
+                                {{ $role->name }}
+                            @endforeach
+                        </td>
                         <td style="text-align: center;"><img src='{{ asset("images/". $users->picture) }}' width='100px' height='100px' alt='' class='img-fluid'></td>
 
                     <td> 

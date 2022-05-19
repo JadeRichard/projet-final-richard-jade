@@ -4,7 +4,7 @@
 
 
     <div style="margin: auto; width: 90%;">
-        <h1 class='my-5'>Users</h1>
+        <h1 class='my-5'>Banners</h1>
         @if (session()->has('message'))
             <div class='alert alert-success'>
                 {{ session()->get('message') }}
@@ -20,40 +20,35 @@
             </div>
         @endif
         
-        <a href="{{ route('users.create') }}" class="btn btncus mb-5" style="background-color: #A12C2F; color: white;">Create</a>
+        <a href="{{ route('banners.create') }}" class="btn btncus mb-5" style="background-color: #A12C2F; color: white;">Create</a>
 
         <table class='table'>
             <thead>
                 <tr>
                     <th scope='col'style="text-align: center;">#</th>
-                    <th scope='col'style="text-align: center;">Name</th>
-                    <th scope='col'style="text-align: center;">Email</th>
-                    <th scope='col'style="text-align: center;">Password</th>
-                    <th scope='col'style="text-align: center;">Roles</th>
+                    <th scope='col'style="text-align: center;">Title</th>
+                    <th scope='col'style="text-align: center;">Accent</th>
+                    <th scope='col'style="text-align: center;">Description</th>
+                    <th scope='col'style="text-align: center;">Button</th>
                     <th scope='col'style="text-align: center;">Picture</th>
                     <th scope='col'style="text-align: center;">Action</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($users as $item)
+                @foreach ($banners as $item)
                     <tr>
                         <th scope='row' style="text-align: center;">{{ $item->id }}</th>
-                        <td style="text-align: center;">{{ $item->name }}</td>
-                        <td style="text-align: center;">{{ $item->email }}</td>
-                        <td style="text-align: center;">{{ $item->password }}</td>
-                        <td style="text-align: center;"> 
-                            @foreach ($item->roles as $role)
-                                {{ $role->name }}
-                            @endforeach
-                        </td>
+                        <td style="text-align: center;">{{ $item->title }}</td>
+                        <td style="text-align: center;">{{ $item->accent }}</td>
+                        <td style="text-align: center;">{{ $item->description }}</td>
+                        <td style="text-align: center;">{{ $item->button }}</td>
                         <td style="text-align: center;"><img src='{{ asset("images/". $item->picture) }}' width='100px' height='100px' alt='' class='img-fluid'></td>
-                        </td>
                         <td style="text-align: center;"> 
                             <div class='d-flex justify-content-center'>
-                                <a class='btn btncus3 mx-2' style="background-color: #A12C2F; color: white;" href='{{ route('users.edit', $item->id) }}' role='button'>Edit</a>
-                                <a class='btn btncus3 mx-2' style="background-color: #A12C2F; color: white;" href='{{ route('users.show', $item->id) }}' role='button'>Read</a>
+                                <a class='btn btncus3 mx-2' style="background-color: #A12C2F; color: white;" href='{{ route('banners.edit', $item->id) }}' banner='button'>Edit</a>
+                                <a class='btn btncus3 mx-2' style="background-color: #A12C2F; color: white;" href='{{ route('banners.show', $item->id) }}' banner='button'>Read</a>
                                 
-                            <form action="{{ route('users.destroy', $item->id) }}" method="POST">
+                            <form action="{{ route('banners.destroy', $item->id) }}" method="POST">
                                 @csrf
                                 @method("DELETE")
                                 <button class="btn btncus2 mx-2" style="background-color: #A12C2F; color: white;" >Delete</button>

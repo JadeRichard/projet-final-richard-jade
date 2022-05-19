@@ -32,8 +32,7 @@
 
                     <td style="text-align: center;"> <input type="text" name="name" value="{{ old('name') }}"></td>
                     <td style="text-align: center;"> <input type="text" name="email" value="{{ old('email') }}"></td>
-                    <td style="text-align: center;"> <input type="text" name="password" value="{{ old('password') }}">
-                    </td>
+                    <td style="text-align: center;"> <input type="text" name="password" value="{{ old('password') }}"></td>
                     <td style="text-align: center;"> <input type="file" name="picture" value=""></td>
 
                     <td style="text-align: center;"><button class="btn btncus2" type='submit'

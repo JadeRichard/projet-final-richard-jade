@@ -28,14 +28,16 @@ class BannerController extends Controller
             'accent' => 'required',
             'description' => 'required',
             'button' => 'required',
-            'picture' => 'required',
         ]);
         $banners->title = $request->title;
         $banners->accent = $request->accent;
         $banners->description = $request->description;
         $banners->button = $request->button;
         $banners->updated_at = now();
-        File::delete("images/". $banners->picture);
+        $destination = "images/" . $banners->picture;
+        if (File::exists($destination)) {
+            File::delete($destination);
+        }
         $banners->picture = $request->file("picture")->hashName();
         $request->file('picture')->storePublicly('images/', 'public');
         $banners->save();
@@ -57,14 +59,16 @@ class BannerController extends Controller
             'accent' => 'required',
             'description' => 'required',
             'button' => 'required',
-            'picture' => 'required',
         ]);
         $banners->title = $request->title;
         $banners->accent = $request->accent;
         $banners->description = $request->description;
         $banners->button = $request->button;
         $banners->updated_at = now();
-        File::delete("images/". $banners->picture);
+        $destination = "images/" . $banners->picture;
+        if (File::exists($destination)) {
+            File::delete($destination);
+        }
         $banners->picture = $request->file("picture")->hashName();
         $request->file('picture')->storePublicly('images/', 'public');
         $banners->save();
