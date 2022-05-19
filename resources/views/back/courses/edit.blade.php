@@ -39,7 +39,7 @@
                         <td style="text-align: center;"> <input type="file" name="picture" value="{{ $courses->picture }}"></td>
                         <td style="text-align: center;"> <input type="text" name="date" value="{{ $courses->date }}"></td>
                         <td style="text-align: center;"> <input type="text" name="duration" value="{{ $courses->duration }}"></td>
-                        <td style="text-align: center;"> <input type="text" name="price" value="{{ $courses->price }}"></td>
+                        <td style="text-align: center;"> <input type="number" name="price" value="{{ $courses->price }}"></td>
                         <td style="text-align: center;"> <input type="text" name="study_level" value="{{ $courses->study_level }}"></td>
                         <td style="text-align: center;"> <input type="text" name="discipline" value="{{ $courses->discipline }}"></td>
                         <td style="text-align: center;"><button class="btn btncus2" type='submit'

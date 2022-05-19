@@ -88,8 +88,6 @@ class TeacherController extends Controller
     public function destroy($id)
     {
         $teachers = Teacher::find($id);
-        $teachers->categories()->detach();
-        $teachers->tags()->detach();
         $teachers->delete();
         return redirect()->route('teachers.index')->with('message', 'Element teacher deleted');
     }
