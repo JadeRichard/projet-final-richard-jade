@@ -31,6 +31,8 @@
                     <th scope='col'style="text-align: center;">Description 1</th>
                     <th scope='col'style="text-align: center;">Description 2</th>
                     <th scope='col'style="text-align: center;">Date</th>
+                    <th scope='col'style="text-align: center;">Categories</th>
+                    <th scope='col'style="text-align: center;">Tags</th>
                     <th scope='col'style="text-align: center;">Action</th>
                 </tr>
             </thead>
@@ -43,6 +45,16 @@
                         <td style="text-align: center;">{{ $item->description_1 }}</td>
                         <td style="text-align: center;">{{ $item->description_2 }}</td>
                         <td style="text-align: center;">{{ $item->date }}</td>
+                        <td style="text-align: center;">
+                            @foreach ($item->categories as $categories)
+                                {{ $categories->name }},
+                            @endforeach
+                        </td>
+                        <td style="text-align: center;">
+                            @foreach ($item->tags as $tags)
+                                {{ $tags->name }},
+                            @endforeach
+                        </td>
                         <td style="text-align: center;"> 
                             <div class='d-flex justify-content-center'>
                                 <a class='btn btncus3 mx-2' style="background-color: #A12C2F; color: white;" href='{{ route('articles.edit', $item->id) }}' article='button'>Edit</a>

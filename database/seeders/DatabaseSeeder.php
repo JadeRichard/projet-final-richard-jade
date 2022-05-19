@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\ArticleCategory;
+use App\Models\ArticleTag;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -25,6 +27,14 @@ class DatabaseSeeder extends Seeder
             ServiceSeeder::class,
             BannerSeeder::class,
             PictureSeeder::class,
+            CategorySeeder::class,
+            TagSeeder::class,
         ]);
+
+        // call the ArticleCategoryFactory
+        ArticleCategory::factory(20)->create();
+        ArticleTag::factory(20)->create();
+        
+
     }
 }

@@ -14,6 +14,6 @@ class ArticleCategorySeeder extends Seeder
      */
     public function run()
     {
-        //
+        
     }
 }

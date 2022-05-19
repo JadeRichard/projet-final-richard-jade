@@ -2,11 +2,13 @@
 
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\PictureController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\TagController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -87,3 +89,7 @@ Route::resource('/dashboard/events', EventController::class);
 Route::resource('/dashboard/articles', ArticleController::class);
 // Pictures 
 Route::resource('/dashboard/pictures', PictureController::class);
+// Categories 
+Route::resource('/dashboard/categories', CategoryController::class);
+// Tags 
+Route::resource('/dashboard/tags', TagController::class);

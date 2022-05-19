@@ -12,6 +12,7 @@
                     <th scope='col'style="text-align: center;">Description 1</th>
                     <th scope='col'style="text-align: center;">Description 2</th>
                     <th scope='col'style="text-align: center;">Date</th>
+
                     <th scope='col'style="text-align: center;">Action</th>
                 </tr> 
             </thead>
@@ -23,6 +24,16 @@
                     <td style="text-align: center;">{{ $articles->description_1 }}</td>
                     <td style="text-align: center;">{{ $articles->description_2 }}</td>
                     <td style="text-align: center;">{{ $articles->date }}</td>
+                    <td style="text-align: center;">
+                        @foreach ($articles->categories as $categories)
+                            {{ $categories->name }}
+                        @endforeach
+                    </td>
+                    <td style="text-align: center;">
+                        @foreach ($articles->tags as $tags)
+                            {{ $tags->name }}
+                        @endforeach
+                    </td>
                     <td> 
                         <td><a type="submit" class="btn btncus2" href="{{ route('articles.index') }}"  style="background-color: #A12C2F; color: white;">Back</button></td>
                     </td>

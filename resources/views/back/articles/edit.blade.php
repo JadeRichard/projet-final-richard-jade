@@ -35,6 +35,24 @@
                         <td style="text-align: center;"> <input type="text" name="description_1" value="{{ $articles->description_1 }}"></td>
                         <td style="text-align: center;"> <input type="text" name="description_2" value="{{ $articles->description_2 }}"></td>
                         <td style="text-align: center;"> <input type="text" name="date" value="{{ $articles->date }}"></td>
+                        <td style="text-align: center;"> 
+                            @foreach ($categories as $categories)
+                            <div class='form-check'>
+                                <input type='checkbox' id='checkbox{{ $categories->id }}' class='form-check-input' name='categories[]'
+                                    value='{{ $categories->id }}'>
+                                <label style="padding-left: 15px" for='checkbox{{ $categories->id }}'>{{ $categories->name }}</label>
+                            </div>
+                        @endforeach
+                    </td>
+                        <td style="text-align: center;"> 
+                            @foreach ($tags as $tags)
+                            <div class='form-check'>
+                                <input type='checkbox' id='checkbox{{ $tags->id }}' class='form-check-input' name='tags[]'
+                                    value='{{ $tags->id }}'>
+                                <label style="padding-left: 15px" for='checkbox{{ $tags->id }}'>{{ $tags->name }}</label>
+                            </div>
+                        @endforeach</td>
+
                         <td style="text-align: center;"><button class="btn btncus2" type='submit'
                                 style="background-color: #A12C2F; color: white;">Update</button></td>
                     </form>
