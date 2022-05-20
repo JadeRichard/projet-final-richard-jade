@@ -35,90 +35,29 @@
 						<div class="row">
 							<div class="col-md-8">
 								<div class="classic-posts">
+
+									@foreach ($articles as $news)
 									<div class="classic-item">
-										<a href={{ route("single-post") }}><img src={{ ("images/news/news-2.png") }} alt=""></a>
+										<a href={{ route("single-post") }}><img src={{ asset("images/" . $news->picture) }} alt=""></a>
 										<ul>
-											<li>Posted: <em>7 Oct 2015</em></li>
+											<li>Posted: <em>{{ $news->date }}</em></li>
 											<li>By: <em>Admin</em></li>
 											<li>Comments: <em>2</em></li>
 										</ul>
-										<a href={{ route("single-post") }}><h4>New University Finder: Compare</h4></a>
-										<p>Church-key ugh sriracha slow-carb, +1 you probably haven't heard of them put a bird on it single-origin coffee. Pork belly irony chia, fann pack taxidermy Intelligentsia Pitchfork cliche tote bag stumptown authentic umami asymetrical. Bitters rof party fanny pack, street art you probably haven't heard of them Echo Park disrupt.</p>
+										<a href={{ route("single-post") }}><h4>{{ $news->title }}</h4></a>
+										<p>{{ $news->description_1 }}</p>
 										<div class="buttons">
 											<div class="accent-button">
 												<a href={{ route("single-post") }}>Continue Reading</a>
 											</div>
 										</div>
 									</div>
-									<div class="classic-item">
-										<a href={{ route("single-post") }}><img src={{ ("images/news/news-2.png") }} alt=""></a>
-										<ul>
-											<li>Posted: <em>7 Oct 2015</em></li>
-											<li>By: <em>Admin</em></li>
-											<li>Comments: <em>2</em></li>
-										</ul>
-										<a href={{ route("single-post") }}><h4>How Do Students Use Rankings?</h4></a>
-										<p>Church-key ugh sriracha slow-carb, +1 you probably haven't heard of them put a bird on it single-origin coffee. Pork belly irony chia, fann pack taxidermy Intelligentsia Pitchfork cliche tote bag stumptown authentic umami asymetrical. Bitters rof party fanny pack, street art you probably haven't heard of them Echo Park disrupt.</p>
-										<div class="buttons">
-											<div class="accent-button">
-												<a href={{ route("single-post") }}>Continue Reading</a>
-											</div>
-										</div>
-									</div>
-									<div class="classic-item">
-										<a href={{ route("single-post") }}><img src={{ ("images/news/news-2.png") }} alt=""></a>
-										<ul>
-											<li>Posted: <em>7 Oct 2015</em></li>
-											<li>By: <em>Admin</em></li>
-											<li>Comments: <em>2</em></li>
-										</ul>
-										<a href={{ route("single-post") }}><h4>Thousands enjoy Brick City Weekend events</h4></a>
-										<p>Church-key ugh sriracha slow-carb, +1 you probably haven't heard of them put a bird on it single-origin coffee. Pork belly irony chia, fann pack taxidermy Intelligentsia Pitchfork cliche tote bag stumptown authentic umami asymetrical. Bitters rof party fanny pack, street art you probably haven't heard of them Echo Park disrupt.</p>
-										<div class="buttons">
-											<div class="accent-button">
-												<a href={{ route("single-post") }}>Continue Reading</a>
-											</div>
-										</div>
-									</div>
-									<div class="classic-item block-quote">
-										<i class="fa fa-quote-left"></i>
-										<p>Church key ugh sriracha slow-carb, you probably haven't heard of them put bird single origin coffee. Pork belly irony chia, fann pack taxidermy Intelligent tote bag.</p>
-										<h6>John Smith - Ceo Founder</h6>
-									</div>
-									<div class="classic-item">
-										<a href={{ route("single-post") }}><img src={{ ("images/news/news-2.png") }} alt=""></a>
-										<ul>
-											<li>Posted: <em>7 Oct 2015</em></li>
-											<li>By: <em>Admin</em></li>
-											<li>Comments: <em>2</em></li>
-										</ul>
-										<a href={{ route("single-post") }}><h4>visiting artists: giles bailey</h4></a>
-										<p>Church-key ugh sriracha slow-carb, +1 you probably haven't heard of them put a bird on it single-origin coffee. Pork belly irony chia, fann pack taxidermy Intelligentsia Pitchfork cliche tote bag stumptown authentic umami asymetrical. Bitters rof party fanny pack, street art you probably haven't heard of them Echo Park disrupt.</p>
-										<div class="buttons">
-											<div class="accent-button">
-												<a href={{ route("single-post") }}>Continue Reading</a>
-											</div>
-										</div>
-									</div>
+									@endforeach
+
 									<div class="pagination-navigation">
 										<div class="row">
 											<div class="col-md-6">
-												<div class="pagination">
-													<ul>
-														<li><a href="#">1</a></li>
-														<li class="active"><a href="#">2</a></li>
-														<li><a href="#">3</a></li>
-														<li><a href="#">4</a></li>
-													</ul>
-												</div>
-											</div>
-											<div class="col-md-6">
-												<div class="navigation">
-													<ul>
-														<li><a href="#"><i class="fa fa-arrow-left"></i></a></li>
-														<li><a href="#"><i class="fa fa-arrow-right"></i></a></li>
-													</ul>
-												</div>
+												{{ $articles->links('vendor.pagination.custom') }}
 											</div>
 										</div>
 									</div>

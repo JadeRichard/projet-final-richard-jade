@@ -12,6 +12,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\UserController;
+use App\Models\Article;
 use App\Models\Course;
 use App\Models\Event;
 use Illuminate\Support\Facades\Route;
@@ -56,7 +57,9 @@ Route::get('/teachers/singleteacher', function () {
 })->name('single-teacher');
 
 Route::get('/news', function () {
-    return view('front.pages.news');
+    $articles = Article::paginate(4);
+    $articlescount = Article::all();
+    return view('front.pages.news', compact('articles', 'articlescount'));
 })->name('news');
 
 Route::get('/news/singlepost', function () {
