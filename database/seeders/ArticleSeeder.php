@@ -21,6 +21,7 @@ class ArticleSeeder extends Seeder
             "description_2" => "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio pariatur perspiciatis, recusandae quia eum voluptatibus laudantium et consectetur itaque! Repellendus adipisci dolore quidem libero eos vel eaque dolor architecto? Incidunt sint impedit, id inventore dolorum debitis. Facilis provident quae laudantium odit magni praesentium adipisci optio atque minus. Exercitationem amet repudiandae quisquam laudantium? Minus sint accusamus ipsa, temporibus quisquam earum eum?",
             "date" => "10 mai 2018",
             "picture" => "news/news-1.png",
+            "user_id" => 3,
         ]);
         DB::table('articles')->insert([
             'title' => 'Really interesting article',
@@ -28,6 +29,7 @@ class ArticleSeeder extends Seeder
             "description_2" => "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio pariatur perspiciatis, recusandae quia eum voluptatibus laudantium et consectetur itaque! Repellendus adipisci dolore quidem libero eos vel eaque dolor architecto? Incidunt sint impedit, id inventore dolorum debitis. Facilis provident quae laudantium odit magni praesentium adipisci optio atque minus. Exercitationem amet repudiandae quisquam laudantium? Minus sint accusamus ipsa, temporibus quisquam earum eum?",
             "date" => "10 mai 2018",
             "picture" => "news/news-2.png",
+            "user_id" => 3,
         ]);
         DB::table('articles')->insert([
             'title' => 'Really interesting article',
@@ -35,6 +37,7 @@ class ArticleSeeder extends Seeder
             "description_2" => "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio pariatur perspiciatis, recusandae quia eum voluptatibus laudantium et consectetur itaque! Repellendus adipisci dolore quidem libero eos vel eaque dolor architecto? Incidunt sint impedit, id inventore dolorum debitis. Facilis provident quae laudantium odit magni praesentium adipisci optio atque minus. Exercitationem amet repudiandae quisquam laudantium? Minus sint accusamus ipsa, temporibus quisquam earum eum?",
             "date" => "10 mai 2018",
             "picture" => "news/news-3.png",
+            "user_id" => 3,
         ]);
         DB::table('articles')->insert([
             'title' => 'Really interesting article',
@@ -42,6 +45,7 @@ class ArticleSeeder extends Seeder
             "description_2" => "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio pariatur perspiciatis, recusandae quia eum voluptatibus laudantium et consectetur itaque! Repellendus adipisci dolore quidem libero eos vel eaque dolor architecto? Incidunt sint impedit, id inventore dolorum debitis. Facilis provident quae laudantium odit magni praesentium adipisci optio atque minus. Exercitationem amet repudiandae quisquam laudantium? Minus sint accusamus ipsa, temporibus quisquam earum eum?",
             "date" => "10 mai 2018",
             "picture" => "news/news-4.png",
+            "user_id" => 3,
         ]);
         DB::table('articles')->insert([
             'title' => 'Really interesting article',
@@ -49,6 +53,7 @@ class ArticleSeeder extends Seeder
             "description_2" => "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio pariatur perspiciatis, recusandae quia eum voluptatibus laudantium et consectetur itaque! Repellendus adipisci dolore quidem libero eos vel eaque dolor architecto? Incidunt sint impedit, id inventore dolorum debitis. Facilis provident quae laudantium odit magni praesentium adipisci optio atque minus. Exercitationem amet repudiandae quisquam laudantium? Minus sint accusamus ipsa, temporibus quisquam earum eum?",
             "date" => "10 mai 2018",
             "picture" => "news/news-2.png",
+            "user_id" => 3,
         ]);
         DB::table('articles')->insert([
             'title' => 'Really interesting article',
@@ -56,6 +61,7 @@ class ArticleSeeder extends Seeder
             "description_2" => "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio pariatur perspiciatis, recusandae quia eum voluptatibus laudantium et consectetur itaque! Repellendus adipisci dolore quidem libero eos vel eaque dolor architecto? Incidunt sint impedit, id inventore dolorum debitis. Facilis provident quae laudantium odit magni praesentium adipisci optio atque minus. Exercitationem amet repudiandae quisquam laudantium? Minus sint accusamus ipsa, temporibus quisquam earum eum?",
             "date" => "10 mai 2018",
             "picture" => "news/news-3.png",
+            "user_id" => 3,
         ]);
     }
 }

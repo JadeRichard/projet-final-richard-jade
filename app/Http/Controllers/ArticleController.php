@@ -38,6 +38,7 @@ class ArticleController extends Controller
         $articles->description_1 = $request->description_1;
         $articles->description_2 = $request->description_2;
         $articles->date = $request->date;
+        $articles->user_id = auth()->user()->id;
         $articles->updated_at = now();
         $destination = "images/" . $articles->picture;
         if (File::exists($destination)) {

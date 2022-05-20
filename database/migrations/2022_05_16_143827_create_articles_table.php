@@ -20,6 +20,7 @@ return new class extends Migration
             $table->text('description_2');
             $table->string('date');
             $table->string('picture');
+            $table->foreignId('user_id')->constrained('users', 'id');
             $table->timestamps();
         });
     }

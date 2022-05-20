@@ -39,7 +39,6 @@ class UserController extends Controller
         if (File::exists($destination)) {
             File::delete($destination);
         }
-        $users->image = $request->file("image")->hashName();
         $users->picture = $request->file("picture")->hashName();
         $request->file('picture')->storePublicly('images/', 'public');
         $users->save();

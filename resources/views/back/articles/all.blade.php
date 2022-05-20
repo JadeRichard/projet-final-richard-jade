@@ -33,6 +33,7 @@
                     <th scope='col'style="text-align: center;">Date</th>
                     <th scope='col'style="text-align: center;">Categories</th>
                     <th scope='col'style="text-align: center;">Tags</th>
+                    <th scope='col'style="text-align: center;">Author</th>
                     <th scope='col'style="text-align: center;">Action</th>
                 </tr>
             </thead>
@@ -55,6 +56,7 @@
                                 {{ $tags->name }},
                             @endforeach
                         </td>
+                        <td style="text-align: center;">{{ $item->user->name }}</td>
                         <td style="text-align: center;"> 
                             <div class='d-flex justify-content-center'>
                                 <a class='btn btncus3 mx-2' style="background-color: #A12C2F; color: white;" href='{{ route('articles.edit', $item->id) }}' article='button'>Edit</a>
