@@ -19,7 +19,7 @@ class ServiceController extends Controller
         $services = Service::all();
 
         if (count($services) >= 4) {
-            return redirect()->back()->with('message', 'Cannot create more than five elements');
+            return redirect()->back()->with('message', 'Cannot create more than four elements');
         } else {
             return view('/back/services/create', compact('services'));
         }

@@ -1950,6 +1950,7 @@ section.gallery-four .item .thumb-holder:hover .hover-content {
 }
 .courses-grid .course-item {
   margin-top: 30px;
+  height: 470px;
 }
 .courses-grid .course-item img {
   width: 100%;
@@ -1959,6 +1960,7 @@ section.gallery-four .item .thumb-holder:hover .hover-content {
 .courses-grid .course-item .down-content {
   border: 2px solid #eeeeee;
   margin-top: -12px;
+  height: 207px;
 }
 .courses-grid .course-item .down-content img {
   margin-left: 15px;

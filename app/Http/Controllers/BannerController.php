@@ -28,11 +28,13 @@ class BannerController extends Controller
             'accent' => 'required',
             'description' => 'required',
             'button' => 'required',
+            'priority' => 'required',
         ]);
         $banners->title = $request->title;
         $banners->accent = $request->accent;
         $banners->description = $request->description;
         $banners->button = $request->button;
+        $banners->priority = $request->priority;
         $banners->updated_at = now();
         $destination = "images/" . $banners->picture;
         if (File::exists($destination)) {
@@ -59,11 +61,13 @@ class BannerController extends Controller
             'accent' => 'required',
             'description' => 'required',
             'button' => 'required',
+            'priority' => 'required',
         ]);
         $banners->title = $request->title;
         $banners->accent = $request->accent;
         $banners->description = $request->description;
         $banners->button = $request->button;
+        $banners->priority = $request->priority;
         $banners->updated_at = now();
         $destination = "images/" . $banners->picture;
         if (File::exists($destination)) {

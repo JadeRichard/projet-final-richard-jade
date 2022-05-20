@@ -31,6 +31,7 @@
                     <th scope='col'style="text-align: center;">Description</th>
                     <th scope='col'style="text-align: center;">Button</th>
                     <th scope='col'style="text-align: center;">Picture</th>
+                    <th scope='col'style="text-align: center;">Priority</th>
                     <th scope='col'style="text-align: center;">Action</th>
                 </tr>
             </thead>
@@ -43,6 +44,7 @@
                         <td style="text-align: center;">{{ $item->description }}</td>
                         <td style="text-align: center;">{{ $item->button }}</td>
                         <td style="text-align: center;"><img src='{{ asset("images/". $item->picture) }}' width='100px' height='100px' alt='' class='img-fluid'></td>
+                        <td style="text-align: center;">{{ $item->priority }}</td>
                         <td style="text-align: center;"> 
                             <div class='d-flex justify-content-center'>
                                 <a class='btn btncus3 mx-2' style="background-color: #A12C2F; color: white;" href='{{ route('banners.edit', $item->id) }}' banner='button'>Edit</a>

@@ -35,7 +35,7 @@ class DatabaseSeeder extends Seeder
         // call the ArticleCategoryFactory
         ArticleCategory::factory(20)->create();
         ArticleTag::factory(20)->create();
-        CategoryCourse::factory(20)->create();
+        CategoryCourse::factory(25)->create();
         
 
     }

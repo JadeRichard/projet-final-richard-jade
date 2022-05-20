@@ -5,12 +5,14 @@ use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PictureController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\UserController;
+use App\Models\Course;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,12 +28,12 @@ use Illuminate\Support\Facades\Route;
 
 //PAGES
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('/');
+Route::get('/', [HomeController::class, 'index'])->name('/');
 
 Route::get('/courses', function () {
-    return view('front.pages.courses');
+    $courses = Course::paginate(9);
+    $coursescount = Course::all();
+    return view('front.pages.courses', compact('courses', 'coursescount'));
 })->name('courses');
 
 Route::get('/courses/singlecourse', function () {

@@ -39,14 +39,14 @@
                             <td style="text-align: center;"> <input type="file" name="picture" value=""></td>
                             <td style="text-align: center;"> 
                                 <div class='form-check'>
-                                    <input type='checkbox' id='checkbox_yes' class='form-check-input' name='roles[]'
-                                        value='{{ $role->id }}'>
-                                    <label for='checkbox{{ $role->id }}'>Yes</label>
+                                    <input type='checkbox' id='checkbox_yes' class='form-check-input' name='priority'
+                                        value='{{ 1 }}'>
+                                    <label for='checkbox_yes'>Yes</label>
                                 </div>
                                 <div class='form-check'>
-                                    <input type='checkbox' id='checkbox_no' class='form-check-input' name='roles[]'
-                                        value='{{ $role->id }}'>
-                                    <label for='checkbox{{ $role->id }}'>No</label>
+                                    <input type='checkbox' id='checkbox_no' class='form-check-input' name='priority'
+                                        value='{{ 0 }}'>
+                                    <label for='checkbox_no'>No</label>
                                 </div>
                             </td>
                             <td style="text-align: center;"><button class="btn btncus2" type='submit'

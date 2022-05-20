@@ -23,6 +23,7 @@ return new class extends Migration
             $table->float('price');
             $table->string('study_level');
             $table->string('discipline');
+            $table->boolean('popular');
             $table->timestamps();
         });
     }

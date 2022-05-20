@@ -18,7 +18,7 @@ class CategoryCourseFactory extends Factory
     {
         return [
             'category_id' => $this->faker->numberBetween(1, 11),
-            'course_id' => $this->faker->numberBetween(1, 6),
+            'course_id' => $this->faker->numberBetween(1, 12),
         ];
     }
 }
