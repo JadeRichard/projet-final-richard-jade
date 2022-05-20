@@ -41,7 +41,8 @@ class ArticlePolicy
      */
     public function create(User $user)
     {
-        //
+        // make it so only the users who have the role 'redactor' can create articles
+        return $user->hasRole('redactor');
     }
 
     /**
@@ -65,7 +66,11 @@ class ArticlePolicy
      */
     public function delete(User $user, Article $article)
     {
-        //
+       /*  // make it so only the users who have the role 'redactor' and the role 'admin' can delete articles
+        return $user->hasRole('redactor') || $user->hasRole('admin');
+        */
+        // make it so only the users who have the role 'admin' and the author of the article can delete articles
+        return $user->role == "admin" || $article->user_id == auth()->user()->id;
     }
 
     /**
