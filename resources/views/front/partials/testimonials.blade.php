@@ -35,24 +35,24 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="news-item">
-                            <a href="single-post.html"><img src="{{ asset("images/news/news-1.png") }}" style="height: 130px;" alt=""></a>
+                            <a href="single-post.html"><img src="{{ asset("images/" . $lastarticles[0]->picture) }}" style="height: 130px;" alt=""></a>
                             <ul>
-                                <li>7 Oct 2015</li>
-                                <li>By Admin</li>
+                                <li>{{ $lastarticles[0]->date }}</li>
+                                <li>By {{ $lastarticles[0]->user->name }}</li>
                                 <li>2 Comments</li>
                             </ul>
-                            <a href="single-post.html"><h4>New University Finder: Compare</h4></a>
-                            <p>Ugh chambray lumbersexual food truc artisan meditation sartorial post-ironic.</p>
+                            <a href="single-post.html"><h4>{{ $lastarticles[0]->title }}</h4></a>
+                            <p>{{ $lastarticles[0]->description_1 }}</p>
                         </div>
                         <div class="news-item">
-                            <a href="single-post.html"><img src="{{ asset("images/news/news-1.png") }}" style="height: 130px;" alt=""></a>
+                            <a href="single-post.html"><img src="{{ asset("images/" . $lastarticles[1]->picture) }}" style="height: 130px;" alt=""></a>
                             <ul>
-                                <li>7 Oct 2015</li>
-                                <li>By Admin</li>
+                                <li>{{ $lastarticles[1]->date }}</li>
+                                <li>By {{ $lastarticles[1]->user->name }}</li>
                                 <li>2 Comments</li>
                             </ul>
-                            <a href="single-post.html"><h4>How Do Students Use Rankings?</h4></a>
-                            <p>Ugh chambray lumbersexual food truc artisan meditation sartorial post-ironic.</p>
+                            <a href="single-post.html"><h4>{{ $lastarticles[1]->title }}</h4></a>
+                            <p>{{ $lastarticles[1]->description_1 }}</p>
                         </div>
                     </div>
                 </div>

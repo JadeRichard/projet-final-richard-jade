@@ -48,20 +48,6 @@
                                               <option>Latest</option>
                                         </select>
                                     </div>
-                                    <div class="input-select">
-                                        <select name="sorted" id="sorted">
-                                            <option value="-1">Sorted by</option>
-                                              <option>Price</option>
-                                              <option>Useless</option>
-                                              <option>Important</option>
-                                        </select>
-                                    </div>
-                                    <div class="grid-list">
-                                        <ul>
-                                            <li><a href="#"><i class="fa fa-list"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-th-large"></i></a></li>
-                                        </ul>
-                                    </div>
                                 </div>
                             </div>
                         </div>

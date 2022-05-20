@@ -43,7 +43,7 @@
                                     <input type='checkbox' id='checkbox{{ $role->id }}' class='form-check-input'
                                         name='roles[]' value='{{ $role->id }}'
                                         @if ($users->roles->contains($role)) checked @endif>
-                                    <label for='checkbox{{ $role->id }}'>{{ $role->name }}</label>
+                                    <label  style="padding-left: 15px" for='checkbox{{ $role->id }}'>{{ $role->name }}</label>
                                 </div>
                             @endforeach
                         </td>

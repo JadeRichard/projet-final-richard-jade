@@ -31,7 +31,8 @@ class HomeController extends Controller
         $lastteacher = Teacher::all()->last();
         $randomteacher_1 = Teacher::all()->random(1)->first();
         $randomteacher_2 = Teacher::all()->random(1)->first();
+        $lastarticles = Article::orderBy('id', 'desc')->take(2)->get();
 
-        return view('welcome', compact('banners', 'articles', 'categories', 'courses', 'tags', 'users', 'pictures', 'services', 'teachers', 'favcourses', 'firstteacher', 'lastteacher', 'randomteacher_1', 'randomteacher_2'));
+        return view('welcome', compact('banners', 'articles', 'categories', 'courses', 'tags', 'users', 'pictures', 'services', 'teachers', 'favcourses', 'firstteacher', 'lastteacher', 'randomteacher_1', 'randomteacher_2', 'lastarticles'));
     }
 }
