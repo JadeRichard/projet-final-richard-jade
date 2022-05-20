@@ -39,9 +39,9 @@
 										<div class="col-md-12">
 											<div class="item course-item">
 												<div class="up-content">
-													<a href="single-course.html"><h4>How to become a Powerful Speaker ?</h4></a>
+													<a href="single-course.html"><h4>{{ $courses->title }}</h4></a>
 													<p>Plaid you probably haven't heard of them fashion axe meditation</p>
-													<img src={{ asset("images/courses/courses-icon-2.png") }} alt="">
+													<img src="{{ asset('images/' . $courses->picture) }}" alt="">
 													<h6>Ernest Byrd</h6>
 													<div class="price-red">
 														<span>Free</span>
@@ -51,7 +51,7 @@
 												<div class="courses-slider">
 													<ul class="slides">
 													    <li data-thumb={{ asset("images/courses/courses-icon-2.png") }}>
-													      <img src={{ asset("images/courses/courses-1.png") }} alt="" />
+													      <img src="{{ asset('images/' . $courses->picture) }}" alt="" />
 													    </li>
 													    <li data-thumb={{ asset("images/courses/courses-icon-2.png") }}>
 													      <img src={{ asset("images/courses/courses-1.png") }} alt="" />
@@ -67,7 +67,7 @@
 											</div>
 											<div class="description">
 												<h4>Description</h4>
-												<p>Banjo fanny pack mixtape austin meh portland fashion axe cardigan freegan 3 wolf moon. pop up viral letterpress next level ethical scenester trust funde chia. Chia tilde williamsburg etsy, craft beer banksy high life deep v fanny pack. Mlks Kickstarter Wes Anderson before they sold out. Health goth seitan hashtag, Thundercats McSweeney's quinoa Pitchfork Tumblr flannel. Gentrify flannel fanny pack retro.<br><br>McSweeney's Carles squid, Wes Anderson pork belly post-ironic pop-up cardigan tattooed Marfa listiclete small Godard locavore plaid, mlkshk mumblecore viral Pinterest fingerstache four loko ugh Neutra banh mi food truck fap authentic. Whatever ennui McSweeney's forage salvia trust fund.</p>
+												<p>{{ $courses->description }}</p>
 											</div>
 											<div class="topics">
 												<h4>Topics Included</h4>
@@ -154,11 +154,11 @@
 										<h4>Course Information</h4>
 									</div>
 									<ul>
-										<li><span>Starts:</span>14 November 2015</li>
-										<li><span>Duration:</span>1 Month / 4 Weeks</li>
-										<li><span>Study Level:</span>Post Graduate</li>
-										<li><span>Disipline</span>Account &amp; Finance</li>
-										<li><span>Price:</span>$45 / month</li>
+										<li><span>Starts:</span>{{ $courses->date }}</li>
+										<li><span>Duration:</span>{{ $courses->duration }}</li>
+										<li><span>Study Level:</span>{{ $courses->study_level }}</li>
+										<li><span>Disipline</span>{{ $courses->discipline }}</li>
+										<li><span>Price:</span>${{ $courses->price }} / month</li>
 									</ul>
 								</div>
 								
@@ -167,12 +167,10 @@
 										<h4>Categories</h4>
 									</div>
 									<ul>
-										<li><a href="#"><i class="fa fa-angle-right"></i>Design</a></li>
-										<li><a href="#"><i class="fa fa-angle-right"></i>International</a></li>
-										<li><a href="#"><i class="fa fa-angle-right"></i>Learning</a></li>
-										<li><a href="#"><i class="fa fa-angle-right"></i>Read</a></li>
-										<li><a href="#"><i class="fa fa-angle-right"></i>Education</a></li>
-										<li><a href="#"><i class="fa fa-angle-right"></i>Finance</a></li>
+										@foreach ($courses->categories as $category)
+										<li><a href="#"><i class="fa fa-angle-right"></i>{{ $category->name }}</a></li>
+										@endforeach
+										
 									</ul>
 								</div>
 							</div>

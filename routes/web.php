@@ -38,9 +38,7 @@ Route::get('/courses', function () {
     return view('front.pages.courses', compact('courses', 'coursescount'));
 })->name('courses');
 
-Route::get('/courses/singlecourse', function () {
-    return view('front.pages.single-course');
-})->name('single-course');
+Route::get('/courses/{id}/singlecourse', [CourseController::class, 'singlecourse'])->name('singlecourse');
 
 Route::get('/events', function () {
     $events = Event::paginate(9);

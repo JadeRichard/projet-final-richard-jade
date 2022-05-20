@@ -12,24 +12,6 @@ class CourseController extends Controller
     public function index()
     {
         $courses = Course::all();
-
-
-        /* foreach ($courses as $course) {
-
-            // condition pour attacher une categorie par défaut si la categorie de la course est nulle 
-            if ($course->categories() == null) {
-                $course->categories()->attach(1);
-                
-            }
-
-            /* if ($course->categories <= 0) {
-                $courses->categories()->attach(1);
-            } 
-        } */
-
-        
-        
-
         return view('/back/courses/all', compact('courses'));
     }
 
@@ -119,6 +101,12 @@ class CourseController extends Controller
     {
         $courses = Course::find($id);
         return view('/back/courses/show', compact('courses'));
+    }
+
+    public function singlecourse($id)
+    {
+        $courses = Course::find($id);
+        return view('/front/pages/single-course', compact('courses'));
     }
 
     public function destroy($id)
