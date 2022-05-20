@@ -22,7 +22,106 @@ class EventSeeder extends Seeder
             "picture" => "events/event-1.png",
             "start_time" => "Dec 18",
             "end_time" => "Dec 28",
-            "location" => "Johnny Lane Milwaukee WI 532",
+            "location" => "Johnny Lane <br> Milwaukee WI 532",
+        ]);
+        DB::table('events')->insert([
+            'title' => 'Nice Event',
+            "description" => "This is a nice event",
+            "date" => "Monday 8am - 12am",
+            "picture" => "events/event-2.png",
+            "start_time" => "Dec 18",
+            "end_time" => "Dec 28",
+            "location" => "Johnny Lane <br> Milwaukee WI 532",
+        ]);
+        DB::table('events')->insert([
+            'title' => 'Nice Event',
+            "description" => "This is a nice event",
+            "date" => "Monday 8am - 12am",
+            "picture" => "events/event-3.png",
+            "start_time" => "Dec 18",
+            "end_time" => "Dec 28",
+            "location" => "Johnny Lane <br> Milwaukee WI 532",
+        ]);
+        DB::table('events')->insert([
+            'title' => 'Nice Event',
+            "description" => "This is a nice event",
+            "date" => "Monday 8am - 12am",
+            "picture" => "events/event-4.png",
+            "start_time" => "Dec 18",
+            "end_time" => "Dec 28",
+            "location" => "Johnny Lane <br> Milwaukee WI 532",
+        ]);
+        DB::table('events')->insert([
+            'title' => 'Nice Event',
+            "description" => "This is a nice event",
+            "date" => "Monday 8am - 12am",
+            "picture" => "events/event-5.png",
+            "start_time" => "Dec 18",
+            "end_time" => "Dec 28",
+            "location" => "Johnny Lane <br> Milwaukee WI 532",
+        ]);
+        DB::table('events')->insert([
+            'title' => 'Nice Event',
+            "description" => "This is a nice event",
+            "date" => "Monday 8am - 12am",
+            "picture" => "events/event-6.png",
+            "start_time" => "Dec 18",
+            "end_time" => "Dec 28",
+            "location" => "Johnny Lane <br> Milwaukee WI 532",
+        ]);
+        DB::table('events')->insert([
+            'title' => 'Nice Event',
+            "description" => "This is a nice event",
+            "date" => "Monday 8am - 12am",
+            "picture" => "events/event-1.png",
+            "start_time" => "Dec 18",
+            "end_time" => "Dec 28",
+            "location" => "Johnny Lane <br> Milwaukee WI 532",
+        ]);
+        DB::table('events')->insert([
+            'title' => 'Nice Event',
+            "description" => "This is a nice event",
+            "date" => "Monday 8am - 12am",
+            "picture" => "events/event-2.png",
+            "start_time" => "Dec 18",
+            "end_time" => "Dec 28",
+            "location" => "Johnny Lane <br> Milwaukee WI 532",
+        ]);
+        DB::table('events')->insert([
+            'title' => 'Nice Event',
+            "description" => "This is a nice event",
+            "date" => "Monday 8am - 12am",
+            "picture" => "events/event-3.png",
+            "start_time" => "Dec 18",
+            "end_time" => "Dec 28",
+            "location" => "Johnny Lane <br> Milwaukee WI 532",
+        ]);
+        DB::table('events')->insert([
+            'title' => 'Nice Event',
+            "description" => "This is a nice event",
+            "date" => "Monday 8am - 12am",
+            "picture" => "events/event-4.png",
+            "start_time" => "Dec 18",
+            "end_time" => "Dec 28",
+            "location" => "Johnny Lane <br> Milwaukee WI 532",
+        ]);
+        DB::table('events')->insert([
+            'title' => 'Nice Event',
+            "description" => "This is a nice event",
+            "date" => "Monday 8am - 12am",
+            "picture" => "events/event-5.png",
+            "start_time" => "Dec 18",
+            "end_time" => "Dec 28",
+            "location" => "Johnny Lane <br> Milwaukee WI 532",
+        ]);
+        DB::table('events')->insert([
+            'title' => 'Nice Event',
+            "description" => "This is a nice event",
+            "date" => "Monday 8am - 12am",
+            "picture" => "events/event-6.png",
+            "start_time" => "Dec 18",
+            "end_time" => "Dec 28",
+            "location" => "Johnny Lane <br> Milwaukee WI 532",
         ]);
     }
 }

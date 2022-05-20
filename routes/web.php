@@ -13,6 +13,7 @@ use App\Http\Controllers\TagController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\UserController;
 use App\Models\Course;
+use App\Models\Event;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,7 +42,9 @@ Route::get('/courses/singlecourse', function () {
 })->name('single-course');
 
 Route::get('/events', function () {
-    return view('front.pages.events');
+    $events = Event::paginate(9);
+    $eventscount = Event::all();
+    return view('front.pages.events' , compact('events', 'eventscount')); 
 })->name('events');
 
 Route::get('/teachers', function () {
