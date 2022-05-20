@@ -21,6 +21,7 @@ class BannerSeeder extends Seeder
             'description' => 'Nunc eget tempor neque. Aenean non ex sed nibh euismod ornare. Nam congue nisi purus, sed luctus risus.',
             'button' => 'Buy Now',
             'picture' => 'banner/banner-1.png',
+            'priority' => 0,
         ]);
         DB::table('banners')->insert([
             'title' => 'Are you ready to study ? <br> We have the',
@@ -28,6 +29,7 @@ class BannerSeeder extends Seeder
             'description' => 'Nunc eget tempor neque. Aenean non ex sed nibh euismod ornare. Nam congue nisi purus, sed luctus risus.',
             'button' => 'Buy Now',
             'picture' => 'banner/banner-2.png',
+            'priority' => 0,
         ]);
     }
 }

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->text('description');
             $table->text('button');
             $table->text('picture');
+            $table->boolean('priority');
             $table->timestamps();
         });
     }
