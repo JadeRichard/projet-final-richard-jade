@@ -6,11 +6,6 @@
     </div>
     <ul class="nav-list">
         <li>
-            <i class='bx bx-search'></i>
-            <input type="text" placeholder="Search...">
-            <span class="tooltip">Search</span>
-        </li>
-        <li>
             <a href="{{ route('dashboard') }}">
                 <i class='bx bx-grid-alt'></i>
                 <span class="links_name">Dashboard</span>
@@ -55,7 +50,7 @@
 
         <li>
             <a href="{{ route('teachers.index') }}">
-                <i class='bx bx-heart'></i>
+                <i class='bx bx-ghost'></i>
                 <span class="links_name">Teachers</span>
             </a>
             <span class="tooltip">Teachers</span>
@@ -63,7 +58,7 @@
 
         <li>
             <a href="{{ route('events.index') }}">
-                <i class='bx bx-heart'></i>
+                <i class='bx bx-square' ></i>
                 <span class="links_name">Events</span>
             </a>
             <span class="tooltip">Events</span>
@@ -71,7 +66,7 @@
 
         <li>
             <a href="{{ route('articles.index') }}">
-                <i class='bx bx-heart'></i>
+                <i class='bx bx-filter-alt' ></i>
                 <span class="links_name">Articles</span>
             </a>
             <span class="tooltip">Articles</span>
@@ -80,7 +75,7 @@
 
         <li>
             <a href="{{ route('categories.index') }}">
-                <i class='bx bx-heart'></i>
+                <i class='bx bx-extension' ></i>
                 <span class="links_name">Categories</span>
             </a>
             <span class="tooltip">Categories</span>
@@ -88,7 +83,7 @@
 
         <li>
             <a href="{{ route('tags.index') }}">
-                <i class='bx bx-heart'></i>
+                <i class='bx bx-clinic' ></i>
                 <span class="links_name">Tags</span>
             </a>
             <span class="tooltip">Tags</span>
@@ -96,7 +91,7 @@
 
         <li>
             <a href="{{ route('pictures.index') }}">
-                <i class='bx bx-heart'></i>
+                <i class='bx bx-scan' ></i>
                 <span class="links_name">Pictures</span>
             </a>
             <span class="tooltip">Pictures</span>
