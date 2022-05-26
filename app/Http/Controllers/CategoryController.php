@@ -10,12 +10,14 @@ class CategoryController extends Controller
 {
     public function index()
     {
+        $this->authorize('is-admin', Category::class);
         $categories = Category::all();
         return view('/back/categories/all', compact('categories'));
     }
 
     public function create()
     {
+        $this->authorize('is-admin', Category::class);
         $categories = Category::all();
         return view('/back/categories/create', compact('categories'));
     }
@@ -38,6 +40,7 @@ class CategoryController extends Controller
 
     public function edit($id)
     {
+        $this->authorize('is-admin', Category::class);
         $categories = Category::find($id);
         return view('/back/categories/edit', compact('categories'));
     }
@@ -61,6 +64,7 @@ class CategoryController extends Controller
 
     public function show($id)
     {
+        $this->authorize('is-admin', Category::class);
         $categories = Category::find($id);
         return view('/back/categories/show', compact('categories'));
     }

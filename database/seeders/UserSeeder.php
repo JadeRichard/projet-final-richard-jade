@@ -40,5 +40,66 @@ class UserSeeder extends Seeder
             'password' => Hash::make('123456'),
             'picture' => 'member.png',
         ]);
+        DB::table('users')->insert([
+            'name' => 'Lise Meitner',
+            'email' => 'lisemeitner@educa.com',
+            'password' => Hash::make('123456'),
+            'picture' => 'teachers/teacher-1.png',
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Saskia Noordman',
+            'email' => 'saskianoordman@educa.com',
+            'password' => Hash::make('123456'),
+            'picture' => 'teachers/teacher-2.png',
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Roger De Vries',
+            'email' => 'rogerdevries@educa.com',
+            'password' => Hash::make('123456'),
+            'picture' => 'teachers/teacher-3.png',
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Simon Bolivar',
+            'email' => 'simonbolivar@educa.com',
+            'password' => Hash::make('123456'),
+            'picture' => 'teachers/teacher-4.png',
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Noah Siskind',
+            'email' => 'noahsiskind@educa.com',
+            'password' => Hash::make('123456'),
+            'picture' => 'teachers/teacher-5.png',
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Louise Léonard',
+            'email' => 'louiseleonard@educa.com',
+            'password' => Hash::make('123456'),
+            'picture' => 'teachers/teacher-6.png',
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Karl Yvon-Sommer',
+            'email' => 'karlyvonsommer@educa.com',
+            'password' => Hash::make('123456'),
+            'picture' => 'teachers/teacher-7.png',
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Patricia Fonseca',
+            'email' => 'patriciafonseca@educa.com',
+            'password' => Hash::make('123456'),
+            'picture' => 'teachers/teacher-8.png',
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Marie-Claude Dufour',
+            'email' => 'mariedufour@educa.com',
+            'password' => Hash::make('123456'),
+            'picture' => 'teachers/teacher-9.png',
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Cristina Marquez',
+            'email' => 'cristinamarquez@educa.com',
+            'password' => Hash::make('123456'),
+            'picture' => 'teachers/teacher-10.png',
+        ]);
+        
     }
 }

@@ -9,12 +9,14 @@ class TagController extends Controller
 {
     public function index()
     {
+        $this->authorize('is-admin', Tag::class);
         $tags = Tag::all();
         return view('/back/tags/all', compact('tags'));
     }
 
     public function create()
     {
+        $this->authorize('is-admin', Tag::class);
         $tags = Tag::all();
         return view('/back/tags/create', compact('tags'));
     }
@@ -37,6 +39,7 @@ class TagController extends Controller
 
     public function edit($id)
     {
+        $this->authorize('is-admin', Tag::class);
         $tags = Tag::find($id);
         return view('/back/tags/edit', compact('tags'));
     }
@@ -59,6 +62,7 @@ class TagController extends Controller
 
     public function show($id)
     {
+        $this->authorize('is-admin', Tag::class);
         $tags = Tag::find($id);
         return view('/back/tags/show', compact('tags'));
     }

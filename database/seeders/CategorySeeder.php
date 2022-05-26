@@ -22,7 +22,7 @@ class CategorySeeder extends Seeder
             'name' => 'International',
         ]);
         DB::table('categories')->insert([
-            'name' => 'Leaning',
+            'name' => 'Learning',
         ]);
         DB::table('categories')->insert([
             'name' => 'Read',

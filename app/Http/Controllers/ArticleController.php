@@ -39,6 +39,8 @@ class ArticleController extends Controller
         $articles->description_2 = $request->description_2;
         $articles->date = $request->date;
         $articles->user_id = auth()->user()->id;
+        $articles->is_published = $request->is_published;
+        $request->is_published = false;
         $articles->updated_at = now();
         $destination = "images/" . $articles->picture;
         if (File::exists($destination)) {
@@ -77,6 +79,7 @@ class ArticleController extends Controller
         $articles->description_1 = $request->description_1;
         $articles->description_2 = $request->description_2;
         $articles->date = $request->date;
+        $articles->is_published = $request->is_published;
         $articles->updated_at = now();
         $destination = "images/" . $articles->picture;
         if (File::exists($destination)) {

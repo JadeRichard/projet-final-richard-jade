@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\Article;
+use App\Models\Teacher;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class ArticlePolicy
+class TeacherPolicy
 {
     use HandlesAuthorization;
 
@@ -25,12 +25,12 @@ class ArticlePolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Article  $article
+     * @param  \App\Models\Teacher  $teacher
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, Article $article)
+    public function view(User $user, Teacher $teacher)
     {
-
+        //
     }
 
     /**
@@ -41,41 +41,41 @@ class ArticlePolicy
      */
     public function create(User $user)
     {
-        return $user->hasRole('redactor');
+        return auth()->user()->id == 1;
     }
 
     /**
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Article  $article
+     * @param  \App\Models\Teacher  $teacher
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Article $article)
+    public function update(User $user, Teacher $teacher)
     {
-        return $user->id == $article->user_id || auth()->user()->id == 1;
+        return auth()->user()->id == 1 ||  $teacher->name == auth()->user()->name;
     }
 
     /**
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Article  $article
+     * @param  \App\Models\Teacher  $teacher
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Article $article)
+    public function delete(User $user, Teacher $teacher)
     {
-        return auth()->user()->id == 1 || $article->user_id == auth()->user()->id;
+        //
     }
 
     /**
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Article  $article
+     * @param  \App\Models\Teacher  $teacher
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, Article $article)
+    public function restore(User $user, Teacher $teacher)
     {
         //
     }
@@ -84,10 +84,10 @@ class ArticlePolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Article  $article
+     * @param  \App\Models\Teacher  $teacher
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, Article $article)
+    public function forceDelete(User $user, Teacher $teacher)
     {
         //
     }

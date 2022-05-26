@@ -20,7 +20,9 @@
             </div>
         @endif
         
+        @can('create', App\Models\Teacher::class)
         <a href="{{ route('teachers.create') }}" class="btn btncus mb-5" style="background-color: #A12C2F; color: white;">Create</a>
+        @endcan
 
         <table class='table'>
             <thead>
@@ -49,14 +51,18 @@
                         <td style="text-align: center;">{{ $item->role }}</td>
                         <td style="text-align: center;"> 
                             <div class='d-flex justify-content-center'>
+                                @can('update', $item)
                                 <a class='btn btncus3 mx-2' style="background-color: #A12C2F; color: white;" href='{{ route('teachers.edit', $item->id) }}' teacher='button'>Edit</a>
+                                @endcan
                                 <a class='btn btncus3 mx-2' style="background-color: #A12C2F; color: white;" href='{{ route('teachers.show', $item->id) }}' teacher='button'>Read</a>
                                 
+                            @can('delete', $item)
                             <form action="{{ route('teachers.destroy', $item->id) }}" method="POST">
                                 @csrf
                                 @method("DELETE")
                                 <button class="btn btncus2 mx-2" style="background-color: #A12C2F; color: white;" >Delete</button>
                             </form>
+                            @endcan
                             
                             </div>
                         </td>

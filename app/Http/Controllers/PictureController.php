@@ -10,12 +10,14 @@ class PictureController extends Controller
 {
     public function index()
     {
+        $this->authorize('is-admin', Picture::class);
         $pictures = Picture::all();
         return view('/back/pictures/all', compact('pictures'));
     }
 
     public function edit($id)
     {
+        $this->authorize('is-admin', Picture::class);
         $pictures = Picture::find($id);
         return view('/back/pictures/edit', compact('pictures'));
     }
@@ -42,6 +44,7 @@ class PictureController extends Controller
 
     public function show($id)
     {
+        $this->authorize('is-admin', Picture::class);
         $pictures = Picture::find($id);
         return view('/back/pictures/show', compact('pictures'));
     }

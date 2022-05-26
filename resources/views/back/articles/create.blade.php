@@ -61,6 +61,23 @@
                         @endforeach
                     </td>
 
+                    @if (auth()->user()->id == 1)
+                        <td style="text-align: center;">
+                            <div class='form-check'>
+                                <input type='checkbox' id='checkboxis_published' class='form-check-input'
+                                    name='is_published' value='1'>
+                                <label style="padding-left: 15px"
+                                    for='checkboxis_published'>Yes</label>
+                            </div>
+
+                            <div class='form-check'>
+                                <input type='checkbox' id='checkboxis_published' class='form-check-input'
+                                    name='is_published' value='0'>
+                                <label style="padding-left: 15px"
+                                    for='checkboxis_published'>No</label>
+                            </div>
+                        </td>
+                    @endif
 
                     <td style="text-align: center;"><button class="btn btncus2" type='submit'
                             style="background-color: #A12C2F; color: white;">Create</button> </td>

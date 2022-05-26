@@ -10,12 +10,14 @@ class BannerController extends Controller
 {
     public function index()
     {
+        $this->authorize('is-admin', Banner::class);
         $banners = Banner::all();
         return view('/back/banners/all', compact('banners'));
     }
 
     public function create()
     {
+        $this->authorize('is-admin', Banner::class);
         $banners = Banner::all();
         return view('/back/banners/create', compact('banners'));
     }
@@ -49,6 +51,7 @@ class BannerController extends Controller
 
     public function edit($id)
     {
+        $this->authorize('is-admin', Banner::class);
         $banners = Banner::find($id);
         return view('/back/banners/edit', compact('banners'));
     }
@@ -82,6 +85,7 @@ class BannerController extends Controller
 
     public function show($id)
     {
+        $this->authorize('is-admin', Banner::class);
         $banners = Banner::find($id);
         return view('/back/banners/show', compact('banners'));
     }

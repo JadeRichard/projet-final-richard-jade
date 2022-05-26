@@ -10,12 +10,14 @@ class RoleController extends Controller
 {
     public function index()
     {
+        $this->authorize('is-admin', Role::class);
         $roles = Role::all();
         return view('/back/roles/all', compact('roles'));
     }
 
     public function create()
     {
+        $this->authorize('is-admin', Role::class);
         $users = User::all();
         $roles = Role::all();
         return view('/back/roles/create', compact('users', 'roles'));
@@ -36,6 +38,7 @@ class RoleController extends Controller
 
     public function edit($id)
     {
+        $this->authorize('is-admin', Role::class);
         $roles = Role::find($id);
         return view('/back/roles/edit', compact('roles'));
     }
@@ -55,6 +58,7 @@ class RoleController extends Controller
 
     public function show($id)
     {
+        $this->authorize('is-admin', Role::class);
         $roles = Role::find($id);
         return view('/back/roles/show', compact('roles'));
     }

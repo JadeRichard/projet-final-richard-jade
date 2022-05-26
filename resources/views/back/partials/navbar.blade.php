@@ -12,13 +12,16 @@
             </a>
             <span class="tooltip">Dashboard</span>
         </li>
+        @if (auth()->user()->id == 1)
         <li>
             <a href="{{ route('users.index') }}">
                 <i class='bx bx-user'></i>
                 <span class="links_name">Users</span>
             </a>
             <span class="tooltip">Users</span>
-        </li>
+        </li>   
+        @endif
+        @if (auth()->user()->id == 1)
         <li>
             <a href="{{ route('roles.index') }}">
                 <i class='bx bx-chat'></i>
@@ -26,6 +29,8 @@
             </a>
             <span class="tooltip">Roles</span>
         </li>
+        @endif
+        @if (auth()->user()->id == 1)
         <li>
             <a href="{{ route('banners.index') }}">
                 <i class='bx bx-pie-chart-alt-2'></i>
@@ -33,6 +38,8 @@
             </a>
             <span class="tooltip">Banner</span>
         </li>
+        @endif
+        @if (auth()->user()->id == 1)
         <li>
             <a href="{{ route('services.index') }}">
                 <i class='bx bx-cart-alt'></i>
@@ -40,6 +47,9 @@
             </a>
             <span class="tooltip">Services</span>
         </li>
+        @endif
+
+        @if (auth()->user()->id == 1 || auth()->user()->roles()->first()->name == 'teacher')
         <li>
             <a href="{{ route('courses.index') }}">
                 <i class='bx bx-heart'></i>
@@ -47,7 +57,8 @@
             </a>
             <span class="tooltip">Courses</span>
         </li>
-
+        @endif
+        @if (auth()->user()->id == 1 || auth()->user()->roles()->first()->name == 'teacher')
         <li>
             <a href="{{ route('teachers.index') }}">
                 <i class='bx bx-ghost'></i>
@@ -55,7 +66,8 @@
             </a>
             <span class="tooltip">Teachers</span>
         </li>
-
+        @endif
+        @if (auth()->user()->id == 1)
         <li>
             <a href="{{ route('events.index') }}">
                 <i class='bx bx-square' ></i>
@@ -63,7 +75,8 @@
             </a>
             <span class="tooltip">Events</span>
         </li>
-
+        @endif
+        @if (auth()->user()->id == 1 || auth()->user()->roles()->first()->name == 'redactor')
         <li>
             <a href="{{ route('articles.index') }}">
                 <i class='bx bx-filter-alt' ></i>
@@ -71,8 +84,8 @@
             </a>
             <span class="tooltip">Articles</span>
         </li>
-
-
+        @endif
+        @if (auth()->user()->id == 1)
         <li>
             <a href="{{ route('categories.index') }}">
                 <i class='bx bx-extension' ></i>
@@ -80,15 +93,17 @@
             </a>
             <span class="tooltip">Categories</span>
         </li>
-
-        <li>
+        @endif
+        @if (auth()->user()->id == 1)
+        <li>    
             <a href="{{ route('tags.index') }}">
                 <i class='bx bx-clinic' ></i>
                 <span class="links_name">Tags</span>
             </a>
             <span class="tooltip">Tags</span>
         </li>
-
+        @endif
+        @if (auth()->user()->id == 1)
         <li>
             <a href="{{ route('pictures.index') }}">
                 <i class='bx bx-scan' ></i>
@@ -96,6 +111,7 @@
             </a>
             <span class="tooltip">Pictures</span>
         </li>
+        @endif
 
         <li class="profile">
             <div class="profile-details">

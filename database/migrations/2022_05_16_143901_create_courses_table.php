@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('study_level');
             $table->string('discipline');
             $table->boolean('popular');
+            $table->boolean('is_published')->default(true);
             $table->timestamps();
         });
     }

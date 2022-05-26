@@ -10,12 +10,14 @@ class ServiceController extends Controller
 {
     public function index()
     {
+        $this->authorize('is-admin', Service::class);
         $services = Service::all();
         return view('/back/services/all', compact('services'));
     }
 
     public function create()
     {
+        $this->authorize('is-admin', Service::class);
         $services = Service::all();
 
         if (count($services) >= 4) {
@@ -45,6 +47,7 @@ class ServiceController extends Controller
 
     public function edit($id)
     {
+        $this->authorize('is-admin', Service::class);
         $services = Service::find($id);
         return view('/back/services/edit', compact('services'));
     }
@@ -68,6 +71,7 @@ class ServiceController extends Controller
 
     public function show($id)
     {
+        $this->authorize('is-admin', Service::class);
         $services = Service::find($id);
         return view('/back/services/show', compact('services'));
     }
