@@ -23,6 +23,9 @@
                     <th scope='col' style="text-align: center;">Date</th>
                     <th scope='col' style="text-align: center;">Categories</th>
                     <th scope='col' style="text-align: center;">Tags</th>
+                    @if (auth()->user()->id == 1)
+                        <th scope='col' style="text-align: center;">Is published</th>
+                    @endif
                     <th scope='col' style="text-align: center;">Action</th>
                 </tr>
             </thead>
@@ -66,15 +69,13 @@
                             <div class='form-check'>
                                 <input type='checkbox' id='checkboxis_published' class='form-check-input'
                                     name='is_published' value='1'>
-                                <label style="padding-left: 15px"
-                                    for='checkboxis_published'>Yes</label>
+                                <label style="padding-left: 15px" for='checkboxis_published'>Yes</label>
                             </div>
 
                             <div class='form-check'>
                                 <input type='checkbox' id='checkboxis_published' class='form-check-input'
                                     name='is_published' value='0'>
-                                <label style="padding-left: 15px"
-                                    for='checkboxis_published'>No</label>
+                                <label style="padding-left: 15px" for='checkboxis_published'>No</label>
                             </div>
                         </td>
                     @endif

@@ -97,7 +97,7 @@
             </tbody>
         </table>
 
-        <h2>Non-published articles</h2>
+        <h2>Draft articles</h2>
 
         <table class='table'>
             <thead>

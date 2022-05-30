@@ -31,5 +31,29 @@ class BannerSeeder extends Seeder
             'picture' => 'banner/banner-2.png',
             'priority' => 0,
         ]);
+        DB::table('banners')->insert([
+            'title' => 'Next year more interesting ! <br> Check next',
+            'accent' => 'Features',
+            'description' => 'Nunc eget tempor neque. Aenean non ex sed nibh euismod ornare. Nam congue nisi purus, sed luctus risus.',
+            'button' => 'Buy Now',
+            'picture' => 'banner/banner-3.png',
+            'priority' => 0,
+        ]);
+        DB::table('banners')->insert([
+            'title' => 'Are you ready to study ? <br> We have the',
+            'accent' => 'Solution',
+            'description' => 'Nunc eget tempor neque. Aenean non ex sed nibh euismod ornare. Nam congue nisi purus, sed luctus risus.',
+            'button' => 'Buy Now',
+            'picture' => 'banner/banner-4.png',
+            'priority' => 1,
+        ]);
+        DB::table('banners')->insert([
+            'title' => 'Next year more interesting ! <br> Check next',
+            'accent' => 'Features',
+            'description' => 'Nunc eget tempor neque. Aenean non ex sed nibh euismod ornare. Nam congue nisi purus, sed luctus risus.',
+            'button' => 'Buy Now',
+            'picture' => 'banner/banner-5.png',
+            'priority' => 0,
+        ]);
     }
 }

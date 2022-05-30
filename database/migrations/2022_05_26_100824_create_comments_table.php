@@ -13,15 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('articles', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('description_1');
-            $table->text('description_2');
-            $table->string('date');
-            $table->string('picture');
-            $table->boolean('is_published')->default(true)->nullable();
-            $table->foreignId('user_id')->constrained('users', 'id');
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('article_id');
+            $table->string('picture')->nullable();
+            $table->text('name');
+            $table->text('email');
+            $table->text('content')->nullable();
+            $table->text('time');
             $table->timestamps();
         });
     }
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('articles');
+        Schema::dropIfExists('comments');
     }
 };

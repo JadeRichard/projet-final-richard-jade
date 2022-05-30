@@ -3,6 +3,7 @@
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\HomeController;
@@ -15,6 +16,7 @@ use App\Http\Controllers\UserController;
 use App\Models\Article;
 use App\Models\Course;
 use App\Models\Event;
+use App\Models\Teacher;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,7 +37,22 @@ Route::get('/', [HomeController::class, 'index'])->name('/');
 Route::get('/courses', function () {
     $courses = Course::paginate(9);
     $coursescount = Course::all();
-    return view('front.pages.courses', compact('courses', 'coursescount'));
+    $coursesfree = Course::where('price', 0)->get();
+    $coursesoldest = Course::orderBy('created_at', 'asc')->get();
+
+    // if select option 'category' is 'free', then show only free courses
+
+    if (request()->has('free')) {
+        $courses = Course::where('price', 0)->paginate(9);
+    }
+
+    // if select option is 'oldest', then show only oldest courses
+
+    if (request()->has('oldest')) {
+        $courses = Course::orderBy('created_at', 'asc')->paginate(9);
+    }
+    
+    return view('front.pages.courses', compact('courses', 'coursescount', 'coursesfree', 'coursesoldest'));
 })->name('courses');
 
 Route::get('/courses/{id}/singlecourse', [CourseController::class, 'singlecourse'])->name('singlecourse');
@@ -47,11 +64,14 @@ Route::get('/events', function () {
 })->name('events');
 
 Route::get('/teachers', function () {
-    return view('front.pages.teachers');
+    
+    $teachers = Teacher::paginate(9);
+    $teacherscount = Teacher::all();
+    return view('front.pages.teachers', compact('teachers', 'teacherscount'));
 })->name('teachers');
 
 Route::get('/teachers/singleteacher', function () {
-    return view('front.pages.single-teacher');
+    return view('front.pages.single-teacher', compact('teachers', 'teacherscount'));
 })->name('single-teacher');
 
 Route::get('/news', function () {
@@ -60,9 +80,9 @@ Route::get('/news', function () {
     return view('front.pages.news', compact('articles', 'articlescount'));
 })->name('news');
 
-Route::get('/news/singlepost', function () {
-    return view('front.pages.single-post');
-})->name('single-post');
+
+Route::get('/news/{id}/singlepost', [ArticleController::class, 'singlepost'])->name('singlepost');
+Route::post('/news/{id}', [ArticleController::class, 'singlepostcreate'])->name('singlepostcreate');
 
 
 Route::get('/contact', function () {
@@ -99,3 +119,5 @@ Route::resource('/dashboard/pictures', PictureController::class);
 Route::resource('/dashboard/categories', CategoryController::class);
 // Tags 
 Route::resource('/dashboard/tags', TagController::class);
+// Comments 
+Route::resource('/dashboard/comments', CommentController::class);

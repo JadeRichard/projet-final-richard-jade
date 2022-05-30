@@ -42,6 +42,8 @@ class CourseController extends Controller
         $courses->price = $request->price;
         $courses->study_level = $request->study_level;
         $courses->discipline = $request->discipline;
+        $courses->is_published = $request->is_published;
+        $request->is_published = false;
         $courses->updated_at = now();
         $destination = "images/" . $courses->picture;
         if (File::exists($destination)) {
@@ -83,6 +85,7 @@ class CourseController extends Controller
         $courses->price = $request->price;
         $courses->study_level = $request->study_level;
         $courses->discipline = $request->discipline;
+        $courses->is_published = $request->is_published;
         $courses->updated_at = now();
         $destination = "images/" . $courses->picture;
         if (File::exists($destination)) {

@@ -65,7 +65,10 @@ class CoursePolicy
      */
     public function delete(User $user, Course $course)
     {
-        //
+        // only the admin and the teachers can delete courses
+
+        return auth()->user()->id == 1;
+
     }
 
     /**

@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Tag;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
@@ -100,6 +102,36 @@ class ArticleController extends Controller
     {
         $articles = Article::find($id);
         return view('/back/articles/show', compact('articles'));
+    }
+
+    public function singlepost($id)
+    {
+        $articles = Article::find($id);
+        return view('/front/pages/single-post', compact('articles'));
+    }
+
+    public function singlepostcreate(Request $request, $id){
+        $articles = Article::find($id);
+        $comments = new Comment();
+        /* $request->validate([
+             'content' => 'required',
+        ]); */
+        $comments->article_id = $articles->id;
+        if(auth()->check()){
+            $comments->user_id = auth()->user()->id;
+            $comments->name = auth()->user()->name;
+            $comments->email = auth()->user()->email;
+            $comments->picture = auth()->user()->picture;
+        }else{
+            $comments->name = $request->name;
+            $comments->email = $request->email;
+            $comments->picture = "courses-icon.png";
+        }
+        $comments->content = $request->content;
+        $comments->time = \Carbon\Carbon::parse($comments->created_at)->diffForHumans();
+        $comments->updated_at = now();
+        $comments->save();
+        return redirect()->route('singlepost', $articles->id);
     }
 
     public function destroy($id)

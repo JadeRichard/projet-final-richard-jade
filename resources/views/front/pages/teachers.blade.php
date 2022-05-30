@@ -35,12 +35,14 @@
 				<section class="teachers-page">
 					<div class="container">
 						<div class="row">
+
+							@foreach ($teachers as $teachers)
 							<div class="col-md-3">
 								<div class="teacher-item">
-									<img src={{ asset("images/teachers/teacher-1.png") }} alt="">
+									<img src={{ asset("images/" . $teachers->picture) }} alt="">
 									<div class="down-content">
-										<a href={{ route("single-teacher") }}><h4>Samuel Delossantos</h4></a>
-										<span>Math Teacher</span>
+										<a href={{ route("single-teacher") }}><h4>{{ $teachers->name }}</h4></a>
+										<span>{{ $teachers->role }}</span>
 										<p>Ugh chambray lumbersexual food artisan meditation sartorial post ironic fans wes</p>
 										<ul>
 											<li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -51,207 +53,13 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-md-3">
-								<div class="teacher-item">
-									<img src={{ asset("images/teachers/teacher-1.png") }} alt="">
-									<div class="down-content">
-										<a href={{ route("single-teacher") }}><h4>Nick Smith</h4></a>
-										<span>Physic Teacher</span>
-										<p>Ugh chambray lumbersexual food artisan meditation sartorial post ironic fans wes</p>
-										<ul>
-											<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-											<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-											<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-											<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="teacher-item">
-									<img src={{ asset("images/teachers/teacher-1.png") }} alt="">
-									<div class="down-content">
-										<a href={{ route("single-teacher") }}><h4>John Rosado</h4></a>
-										<span>English Teacher</span>
-										<p>Ugh chambray lumbersexual food artisan meditation sartorial post ironic fans wes</p>
-										<ul>
-											<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-											<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-											<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-											<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="teacher-item">
-									<img src={{ asset("images/teachers/teacher-1.png") }} alt="">
-									<div class="down-content">
-										<a href={{ route("single-teacher") }}><h4>Maria Lehmann</h4></a>
-										<span>Design Teacher</span>
-										<p>Ugh chambray lumbersexual food artisan meditation sartorial post ironic fans wes</p>
-										<ul>
-											<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-											<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-											<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-											<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="teacher-item">
-									<img src={{ asset("images/teachers/teacher-1.png") }} alt="">
-									<div class="down-content">
-										<a href={{ route("single-teacher") }}><h4>Samuel Delossantos</h4></a>
-										<span>Math Teacher</span>
-										<p>Ugh chambray lumbersexual food artisan meditation sartorial post ironic fans wes</p>
-										<ul>
-											<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-											<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-											<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-											<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="teacher-item">
-									<img src={{ asset("images/teachers/teacher-1.png") }} alt="">
-									<div class="down-content">
-										<a href={{ route("single-teacher") }}><h4>John Rosado</h4></a>
-										<span>English Teacher</span>
-										<p>Ugh chambray lumbersexual food artisan meditation sartorial post ironic fans wes</p>
-										<ul>
-											<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-											<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-											<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-											<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="teacher-item">
-									<img src={{ asset("images/teachers/teacher-1.png") }} alt="">
-									<div class="down-content">
-										<a href={{ route("single-teacher") }}><h4>Samuel Delossantos</h4></a>
-										<span>Math Teacher</span>
-										<p>Ugh chambray lumbersexual food artisan meditation sartorial post ironic fans wes</p>
-										<ul>
-											<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-											<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-											<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-											<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="teacher-item">
-									<img src={{ asset("images/teachers/teacher-1.png") }} alt="">
-									<div class="down-content">
-										<a href={{ route("single-teacher") }}><h4>Maria Lehmann</h4></a>
-										<span>Design Teacher</span>
-										<p>Ugh chambray lumbersexual food artisan meditation sartorial post ironic fans wes</p>
-										<ul>
-											<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-											<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-											<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-											<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="teacher-item">
-									<img src={{ asset("images/teachers/teacher-1.png") }} alt="">
-									<div class="down-content">
-										<a href={{ route("single-teacher") }}><h4>Samuel Delossantos</h4></a>
-										<span>Math Teacher</span>
-										<p>Ugh chambray lumbersexual food artisan meditation sartorial post ironic fans wes</p>
-										<ul>
-											<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-											<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-											<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-											<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="teacher-item">
-									<img src={{ asset("images/teachers/teacher-1.png") }} alt="">
-									<div class="down-content">
-										<a href={{ route("single-teacher") }}><h4>Maria Lehmann</h4></a>
-										<span>Design Teacher</span>
-										<p>Ugh chambray lumbersexual food artisan meditation sartorial post ironic fans wes</p>
-										<ul>
-											<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-											<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-											<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-											<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="teacher-item">
-									<img src={{ asset("images/teachers/teacher-1.png") }} alt="">
-									<div class="down-content">
-										<a href={{ route("single-teacher") }}><h4>Samuel Delossantos</h4></a>
-										<span>Math Teacher</span>
-										<p>Ugh chambray lumbersexual food artisan meditation sartorial post ironic fans wes</p>
-										<ul>
-											<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-											<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-											<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-											<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="teacher-item">
-									<img src={{ asset("images/teachers/teacher-1.png") }} alt="">
-									<div class="down-content">
-										<a href={{ route("single-teacher") }}><h4>Nick Smith</h4></a>
-										<span>Physic Teacher</span>
-										<p>Ugh chambray lumbersexual food artisan meditation sartorial post ironic fans wes</p>
-										<ul>
-											<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-											<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-											<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-											<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
+							@endforeach
+
+							
 						</div>
 						<div class="row">
 							<div class="col-md-12">
-								<div class="pagination-navigation">
-									<div class="row">
-										<div class="col-md-6">
-											<div class="pagination">
-												<ul>
-													<li><a href="#">1</a></li>
-													<li class="active"><a href="#">2</a></li>
-													<li><a href="#">3</a></li>
-													<li><a href="#">4</a></li>
-												</ul>
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="navigation">
-												<ul>
-													<li><a href="#"><i class="fa fa-arrow-left"></i></a></li>
-													<li><a href="#"><i class="fa fa-arrow-right"></i></a></li>
-												</ul>
-											</div>
-										</div>
-									</div>
-								</div>
+								{{ $teachers->links('vendor.pagination.custom') }}
 							</div>
 						</div>
 					</div>

@@ -1,198 +1,147 @@
 @extends('front.layouts.app')
 
 @section('pages')
-    
     <div class="sidebar-menu-container" id="sidebar-menu-container">
+        <div class="sidebar-menu-push">
 
-		<div class="sidebar-menu-push">
+            <div class="sidebar-menu-overlay"></div>
 
-			<div class="sidebar-menu-overlay"></div>
+            <div class="sidebar-menu-inner">
 
-			<div class="sidebar-menu-inner">
+                @include('front.partials.header')
 
-				@include('front.partials.header')
+                <div class="page-heading news-heading">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h1>News</h1>
+                                <span>Salvia next level crucifix pickled heirloom synth</span>
+                                <div class="page-list">
+                                    <ul>
+                                        <li class="active"><a href="index.html">Home</a></li>
+                                        <li><i class="fa fa-angle-right"></i></li>
+                                        <li><a href="single-post.html">Single Post</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-				<div class="page-heading news-heading">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-12">
-								<h1>News</h1>
-								<span>Salvia next level crucifix pickled heirloom synth</span>
-								<div class="page-list">
-									<ul>
-										<li class="active"><a href="index.html">Home</a></li>
-										<li><i class="fa fa-angle-right"></i></li>
-										<li><a href="single-post.html">Single Post</a></li>
-									</ul>
-								</div>
-							</div>	
-						</div>
-					</div>
-				</div>
+                <section class="single-post">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="classic-posts">
+                                    <div class="single-item">
+                                        <img src={{ asset('images/' . $articles->picture) }} alt="">
+                                        <ul>
+                                            <li>Posted: <em>{{ $articles->date }}</em></li>
+                                            <li>By: <em>{{ $articles->user()->first()->name }}</em></li>
+                                            <li>Comments: <em>{{ count($articles->comments) }}</em></li>
+                                        </ul>
+                                        <a href="single-post.html">
+                                            <h4>{{ $articles->title }}</h4>
+                                        </a>
+                                        <p>{{ $articles->description_2 }}</p>
+                                        <div class="tags-share">
+                                            <div class="tag">
+                                                <i class="fa fa-tags"></i>
+                                                <p>Tags:</p><span>
+                                                    @foreach ($articles->tags as $item)
+                                                        <a href="#">{{ $item->name }}</a>,
+                                                    @endforeach
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="comments">
+                                    <div class="heading">
+                                        <h2>Comments</h2>
+                                    </div>
 
-				<section class="single-post">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-8">
-								<div class="classic-posts">
-									<div class="single-item">
-										<img src={{ asset("images/courses/courses-1.png") }} alt="">
-										<ul>
-											<li>Posted: <em>7 Oct 2015</em></li>
-											<li>By: <em>Admin</em></li>
-											<li>Comments: <em>2</em></li>
-										</ul>
-										<a href="single-post.html"><h4>New University Finder: Compare</h4></a>
-										<p>Church-key ugh sriracha slow-carb, +1 you probably haven't heard of them put a bird on it single-origin coffee. Pork belly irony chia, fann pack taxidermy Intelligentsia Pitchfork cliche tote bag stumptown authentic umami asymetrical. Bitters Distillery mixtape 90's Portland Brooklyn. Sriracha selfies gluten-free, wolf 8-bit blog Pinterest occupy Marfa seitan narwhal taxidermy sustainable DIY bespoke. Farm-to-table Odd Future raw denim leggings, Pitchfork actually cray health goth Pinterest hella Intelligentsia. Narwhal pug kogi, 3 wolf moon seitan chambray normcore swag VHS farm-to-table occupy High Life Schlitz. Skateboard Pinterest Vice Shoreditch gentrify fanny pack. Meggings street art fingerstache Neutra Kickstarter. Ennui small batch migas occupy, plaid typewriter jean shorts paleo.<br><br>Sriracha meditation Pitchfork, literally ugh whatever fap actually tote bag gentrify. Next level sartorial single-origin coffee, banjo drinking vinegar Godard meditation McSweeney's beard occupy hella American Apparel letterpress.<br><br>Vice pour-over banjo keffiyeh. Raw denim Kickstarter 8-bit Odd Future street art Carles. Synth cold-pressed master cleanse, next level aesthetic Helvetica Austin banh mi squid pickled. Actually fanny pack slow-carb stumptown pug, blog street art Schlitz Carles. Chambray kitsch biodiesel, cred Schlitz banjo readymade mumblecore.</p>
-										<div class="block"><em>Church key ugh sriracha slow-carb, you probably haven't heard of them put bird single origin coffee ork belly irony chia.</em></div>
-										<p>Authentic bespoke you probably haven't heard of them, Odd Future Pinterest jean shorts ugh Banksy kitsch shabby chic flannel PBR keffiyeh scenester. Migas cornhole cronut sriracha banh mi Pinterest Helvetica. Pickled taxidermy pop-up fashion axe, kale chips skateboard Blue Bottle. Blue Bottle occupy fanny pack hashtag, cronut brunch PBR Odd Future. Brooklyn cray fap cronut raw denim. Meggings quinoa 8-bit, blog actually roof party master cleanse iPhone four dollar toast. Banjo tofu dreamcatcher 90's letterpress vinyl meggings, health goth readymade McSweeney's raw denim.</p>
-										<div class="tags-share">
-											<div class="tag">
-												<i class="fa fa-tags"></i><p>Tags:</p><span><a href="#">School</a>, <a href="#">Students</a>, <a href="#">Classrooms</a></span>
-											</div>
-											<div class="share">
-												<div class="second-button">
-													<a href="#">Share <i class="fa fa-share-alt"></i></a>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="comments">
-									<div class="heading">
-										<h2>Comments</h2>
-									</div>
-									<div class="comment-item">
-										<img src="{{ asset("images/courses-icon.png") }}" alt="">
-										<h4>John Smith</h4>
-										<span>1 hour ago</span>
-										<div class="reply-button">
-											<a href="#">Reply</a>
-										</div>
-										<p>Blue Bottle occupy fanny pack hashtag, cronut brunch PBR Odd Future. Brooklyn cray fap Meggings quinoa 8-bit, blog actually roof party master cleanse iPhone four dollar toast.Tofu dreamcatcher 90's letterpress vinyl megging</p>
-									</div>
-									<div class="comment-item replied-comment">
-										<img src="{{ asset("images/courses-icon.png") }}" alt="">
-										<h4>Endris Flenderno</h4>
-										<span>1 hour ago</span>
-										<div class="reply-button">
-											<a href="#">Reply</a>
-										</div>
-										<p>Blue Bottle occupy fanny pack hashtag, cronut brunch PBR Odd Future. Brooklyn cray fap Meggings quinoa 8-bit, blog actually roof party master cleanse iPhone four dollar toast.Tofu dreamcatcher 90's letterpress vinyl megging</p>
-									</div>
-									<div class="comment-item replied-comment">
-										<img src="{{ asset("images/courses-icon.png") }}" alt="">
-										<h4>Marcos Marrison</h4>
-										<span>1 hour ago</span>
-										<div class="reply-button">
-											<a href="#">Reply</a>
-										</div>
-										<p>Blue Bottle occupy fanny pack hashtag, cronut brunch PBR Odd Future. Brooklyn cray fap Meggings quinoa 8-bit, blog actually roof party master cleanse iPhone four dollar toast.Tofu dreamcatcher 90's letterpress vinyl megging</p>
-									</div>
-									<div class="comment-item">
-										<img src="{{ asset("images/courses-icon.png") }}" alt="">
-										<h4>Robert Landerson</h4>
-										<span>1 hour ago</span>
-										<div class="reply-button">
-											<a href="#">Reply</a>
-										</div>
-										<p>Blue Bottle occupy fanny pack hashtag, cronut brunch PBR Odd Future. Brooklyn cray fap Meggings quinoa 8-bit, blog actually roof party master cleanse iPhone four dollar toast.Tofu dreamcatcher 90's letterpress vinyl megging</p>
-									</div>
-								</div>
-								<div class="leave-comment">
-									<div class="heading">
-										<h2>Leave a comment</h2>
-									</div>
-									<div class="comment-form">
-										<div class="row">
-											<div class="col-md-6">
-												<input type="text" id="name" name="s" placeholder="Full Name" value="">
-											</div>
-											<div class="col-md-6">
-												<input type="text" id="address" name="s" placeholder="E-mail Address" value="">
-											</div>
-											<div class="col-md-12">
-												<textarea id="message" class="message" name="message" placeholder="Write comment"></textarea>
-											</div>
-										</div>
-										<div class="accent-button">
-											<a href="#">Submit Comment</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-4">
-								<div class="side-bar">
-									<div class="search-box">
-										<input type="text" class="search" name="s" placeholder="Search..." value="">
-									</div>
-									<div class="categories">
-										<div class="widget-heading">
-											<h4>Categories</h4>
-										</div>
-										<ul>
-											<li><a href="#"><i class="fa fa-angle-right"></i>Design</a></li>
-											<li><a href="#"><i class="fa fa-angle-right"></i>International</a></li>
-											<li><a href="#"><i class="fa fa-angle-right"></i>Learning</a></li>
-											<li><a href="#"><i class="fa fa-angle-right"></i>Read</a></li>
-											<li><a href="#"><i class="fa fa-angle-right"></i>Education</a></li>
-											<li><a href="#"><i class="fa fa-angle-right"></i>Finance</a></li>
-										</ul>
-									</div>
-									<div class="recent-news">
-										<div class="widget-heading">
-											<h4>Recent News</h4>
-										</div>
-										<ul>
-											<li>
-												<a href="single-post.html"><img src="{{ ("images/courses-icon.png") }}" alt=""></a>
-												<a href="single-post.html"><h6>Visiting Artists: Giles Bailey</h6></a>
-												<span>7 October 2015</span>
-											</li>
-											<li>
-												<a href="single-post.html"><img src="{{ ("images/courses-icon.png") }}" alt=""></a>
-												<a href="single-post.html"><h6>How Students use Rankings?</h6></a>
-												<span>7 October 2015</span>
-											</li>
-											<li>
-												<a href="single-post.html"><img src="{{ ("images/courses-icon.png") }}" alt=""></a>
-												<a href="single-post.html"><h6>University Finder: Compare</h6></a>
-												<span>7 October 2015</span>
-											</li>
-										</ul>
-									</div>
-									<div class="tags">
-										<div class="widget-heading">
-											<h4>Tags</h4>
-										</div>
-										<ul>
-											<li><a href="#">Photography</a></li>
-											<li><a href="#">Design</a></li>
-											<li><a href="#">Envanto</a></li>
-											<li><a href="#">Course</a></li>
-											<li><a href="#">Education</a></li>
-											<li><a href="#">College</a></li>
-											<li><a href="#">Teachers</a></li>
-											<li><a href="#">Read</a></li>
-											<li><a href="#">Excursions</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
+                                    @foreach ($articles->comments as $item)
+                                        <div class="comment-item">
+											<img src="{{ asset('images/' . $item->picture) }}" alt="" width="100px">
+                                            
+                                            <h4>{{ $item->name }}</h4>
+                                            <span>{{ \Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</span>
+                                            <p>{{ $item->content }}</p>
+                                        </div>
+                                    @endforeach
 
-				@include('front.partials.action')
+                                </div>
+                                <div class="leave-comment">
+                                    <div class="heading">
+                                        <h2>Leave a comment</h2>
+                                    </div>
+                                    <div class="comment-form">
+                                        <form action='{{ route('singlepostcreate', $articles->id) }}' method='post'
+                                            enctype="multipart/form-data">
+                                            @csrf
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <input type="text" id="name" name="name" placeholder="Full Name"
+                                                        value="">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="text" id="address" name="email"
+                                                        placeholder="E-mail Address" value="">
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <textarea id="message" class="message" name="content" placeholder="Write comment"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="accent-button">
+                                                <button class="btn btncus2" type='submit'
+                                                    style="background-color: #A12C2F; color: white;">Submit</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="side-bar">
+                                    <div class="search-box">
+                                        <input type="text" class="search" name="s" placeholder="Search..." value="">
+                                    </div>
+                                    <div class="categories">
+                                        <div class="widget-heading">
+                                            <h4>Categories</h4>
+                                        </div>
+                                        <ul>
+                                            @foreach ($articles->categories as $item)
+                                                <li><a href="#"><i class="fa fa-angle-right"></i>{{ $item->name }}</a>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                    <div class="tags">
+                                        <div class="widget-heading">
+                                            <h4>Tags</h4>
+                                        </div>
+                                        <ul>
+                                            @foreach ($articles->tags as $item)
+                                                <li><a href="#">{{ $item->name }}</a></li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
-				@include('front.partials.footer')
+                @include('front.partials.action')
 
-			</div>
+                @include('front.partials.footer')
 
-		</div>
+            </div>
 
-		@include('front.partials.nav')
+        </div>
 
-	</div>
+        @include('front.partials.nav')
 
+    </div>
 @endsection
