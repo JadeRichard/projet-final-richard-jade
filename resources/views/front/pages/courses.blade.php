@@ -39,8 +39,8 @@
                                     </div>
                                     <div class="right-content">
                                         <div class="input-select">
-                                            <select name="category_c" id="category_c">
-                                                <option value="-1">Select Category</option>
+                                            <select name="changevalue" id="changevalue" onchange="changeValue();">
+                                                <option value="3">Select Category</option>
                                                 <option value="1">Free</option>
                                                 <option value="2">Timing</option>
                                             </select>
@@ -49,109 +49,182 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+
+                        <script>
+
+                            function changeValue() {
+                                var x = document.getElementById("changevalue").value;
+                                if (x == 1) {
+                                    document.getElementById("div_1").style.display = "block";
+                                    document.getElementById("div_2").style.display = "none";
+                                    document.getElementById("div_3").style.display = "none";
+                                } else if (x == 2) {
+                                    document.getElementById("div_1").style.display = "none";
+                                    document.getElementById("div_2").style.display = "block";
+                                    document.getElementById("div_3").style.display = "none";
+                                } else if (x == 3) {
+                                    document.getElementById("div_1").style.display = "none";
+                                    document.getElementById("div_2").style.display = "none";
+                                    document.getElementById("div_3").style.display = "block";
+                                } else {
+                                    document.getElementById("div_1").style.display = "none";
+                                    document.getElementById("div_2").style.display = "none";
+                                    document.getElementById("div_3").style.display = "block";
+                                }
+                            }
+
+                        </script>
+
+                        <div class="row row_cat">
 
 
-                            @if (request()->category_c == -1)
-                                @foreach ($courses as $course)
-                                    <div class="col-md-4">
-                                        <div class="item course-item">
-                                            <a href={{ route('singlecourse', $course->id) }}><img
-                                                    src={{ asset('images/' . $course->picture) }} alt=""></a>
-                                            <div class="down-content">
-                                                <img src={{ asset('images/courses/courses-icon.png') }} alt="">
-                                                <h6>Ernest Byrd</h6>
-                                                @if ($course->price == 0)
-                                                    <div class="price-yellow">
-                                                        <span>Free</span>
-                                                        <div class="base"></div>
-                                                    </div>
-                                                @else
-                                                    <div class="price-red">
-                                                        <span>${{ $course->price }}</span>
-                                                        <div class="base"></div>
-                                                    </div>
-                                                @endif
-
-                                                <a href={{ route('singlecourse', $course->id) }}>
-                                                    <h4>{{ $course->title }}</h4>
-                                                </a>
-                                                <p>{{ $course->description }}</p>
-                                                <div class="text-button">
-                                                    <a href={{ route('singlecourse', $course->id) }}>view more<i
-                                                            class="fa fa-arrow-right"></i></a>
+                            <div id="div_1" style="display: none;"> @foreach ($coursesfree as $course)
+                                <div class="col-md-4">
+                                    <div class="item course-item">
+                                        <a href={{ route('singlecourse', $course->id) }}><img
+                                                src={{ asset('images/' . $course->picture) }} alt=""></a>
+                                        <div class="down-content">
+                                            <img src={{ asset('images/courses/courses-icon.png') }} alt="">
+                                            <h6>Ernest Byrd</h6>
+                                            @if ($course->price == 0)
+                                                <div class="price-yellow">
+                                                    <span>Free</span>
+                                                    <div class="base"></div>
                                                 </div>
+                                            @else
+                                                <div class="price-red">
+                                                    <span>${{ $course->price }}</span>
+                                                    <div class="base"></div>
+                                                </div>
+                                            @endif
+
+                                            <a href={{ route('singlecourse', $course->id) }}>
+                                                <h4>{{ $course->title }}</h4>
+                                            </a>
+                                            <p>{{ $course->description }}</p>
+                                            <div class="text-button">
+                                                <a href={{ route('singlecourse', $course->id) }}>view more<i
+                                                        class="fa fa-arrow-right"></i></a>
                                             </div>
                                         </div>
                                     </div>
-                                @endforeach
-                            @elseif (request()->category_c = 1)
-                                @foreach ($coursesoldest as $course)
-                                    <div class="col-md-4">
-                                        <div class="item course-item">
-                                            <a href={{ route('singlecourse', $course->id) }}><img
-                                                    src={{ asset('images/' . $course->picture) }} alt=""></a>
-                                            <div class="down-content">
-                                                <img src={{ asset('images/courses/courses-icon.png') }} alt="">
-                                                <h6>Ernest Byrd</h6>
-                                                @if ($course->price == 0)
-                                                    <div class="price-yellow">
-                                                        <span>Free</span>
-                                                        <div class="base"></div>
-                                                    </div>
-                                                @else
-                                                    <div class="price-red">
-                                                        <span>${{ $course->price }}</span>
-                                                        <div class="base"></div>
-                                                    </div>
-                                                @endif
+                                </div>
+                            @endforeach </div>
 
-                                                <a href={{ route('singlecourse', $course->id) }}>
-                                                    <h4>{{ $course->title }}</h4>
-                                                </a>
-                                                <p>{{ $course->description }}</p>
-                                                <div class="text-button">
-                                                    <a href={{ route('singlecourse', $course->id) }}>view more<i
-                                                            class="fa fa-arrow-right"></i></a>
+                            <div id="div_2" style="display: none;"> 
+                                @foreach ($courseslongest as $course)
+                                <div class="col-md-4">
+                                    <div class="item course-item">
+                                        <a href={{ route('singlecourse', $course->id) }}><img
+                                                src={{ asset('images/' . $course->picture) }} alt=""></a>
+                                        <div class="down-content">
+                                            <img src={{ asset('images/courses/courses-icon.png') }} alt="">
+                                            <h6>Ernest Byrd</h6>
+                                            @if ($course->price == 0)
+                                                <div class="price-yellow">
+                                                    <span>Free</span>
+                                                    <div class="base"></div>
                                                 </div>
+                                            @else
+                                                <div class="price-red">
+                                                    <span>${{ $course->price }}</span>
+                                                    <div class="base"></div>
+                                                </div>
+                                            @endif
+
+                                            <a href={{ route('singlecourse', $course->id) }}>
+                                                <h4>{{ $course->title }}</h4>
+                                            </a>
+                                            <p>{{ $course->description }}</p>
+                                            <div class="text-button">
+                                                <a href={{ route('singlecourse', $course->id) }}>view more<i
+                                                        class="fa fa-arrow-right"></i></a>
                                             </div>
                                         </div>
                                     </div>
-                                @endforeach
-                            @elseif (request()->category_c = 2)
-                                @foreach ($courses->where('price', '=', 0) as $course)
-                                    <div class="col-md-4">
-                                        <div class="item course-item">
-                                            <a href={{ route('singlecourse', $course->id) }}><img
-                                                    src={{ asset('images/' . $course->picture) }} alt=""></a>
-                                            <div class="down-content">
-                                                <img src={{ asset('images/courses/courses-icon.png') }} alt="">
-                                                <h6>Ernest Byrd</h6>
-                                                @if ($course->price == 0)
-                                                    <div class="price-yellow">
-                                                        <span>Free</span>
-                                                        <div class="base"></div>
-                                                    </div>
-                                                @else
-                                                    <div class="price-red">
-                                                        <span>${{ $course->price }}</span>
-                                                        <div class="base"></div>
-                                                    </div>
-                                                @endif
+                                </div>
+                            @endforeach </div>
 
-                                                <a href={{ route('singlecourse', $course->id) }}>
-                                                    <h4>{{ $course->title }}</h4>
-                                                </a>
-                                                <p>{{ $course->description }}</p>
-                                                <div class="text-button">
-                                                    <a href={{ route('singlecourse', $course->id) }}>view more<i
-                                                            class="fa fa-arrow-right"></i></a>
+                            <div id="div_3"> @foreach ($courses as $course)
+                                <div class="col-md-4">
+                                    <div class="item course-item">
+                                        <a href={{ route('singlecourse', $course->id) }}><img
+                                                src={{ asset('images/' . $course->picture) }} alt=""></a>
+                                        <div class="down-content">
+                                            <img src={{ asset('images/courses/courses-icon.png') }} alt="">
+                                            <h6>Ernest Byrd</h6>
+                                            @if ($course->price == 0)
+                                                <div class="price-yellow">
+                                                    <span>Free</span>
+                                                    <div class="base"></div>
                                                 </div>
+                                            @else
+                                                <div class="price-red">
+                                                    <span>${{ $course->price }}</span>
+                                                    <div class="base"></div>
+                                                </div>
+                                            @endif
+
+                                            <a href={{ route('singlecourse', $course->id) }}>
+                                                <h4>{{ $course->title }}</h4>
+                                            </a>
+                                            <p>{{ $course->description }}</p>
+                                            <div class="text-button">
+                                                <a href={{ route('singlecourse', $course->id) }}>view more<i
+                                                        class="fa fa-arrow-right"></i></a>
                                             </div>
                                         </div>
                                     </div>
-                                @endforeach
-                            @endif
+                                </div>
+                            @endforeach </div>
+                        
+                            {{-- 
+                            
+
+
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    {{ $courses->links('vendor.pagination.custom') }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row row_cat" style="display: none;">
+
+                            @foreach ($courses->where('price', '=', 0) as $course)
+                                <div class="col-md-4">
+                                    <div class="item course-item">
+                                        <a href={{ route('singlecourse', $course->id) }}><img
+                                                src={{ asset('images/' . $course->picture) }} alt=""></a>
+                                        <div class="down-content">
+                                            <img src={{ asset('images/courses/courses-icon.png') }} alt="">
+                                            <h6>Ernest Byrd</h6>
+                                            @if ($course->price == 0)
+                                                <div class="price-yellow">
+                                                    <span>Free</span>
+                                                    <div class="base"></div>
+                                                </div>
+                                            @else
+                                                <div class="price-red">
+                                                    <span>${{ $course->price }}</span>
+                                                    <div class="base"></div>
+                                                </div>
+                                            @endif
+
+                                            <a href={{ route('singlecourse', $course->id) }}>
+                                                <h4>{{ $course->title }}</h4>
+                                            </a>
+                                            <p>{{ $course->description }}</p>
+                                            <div class="text-button">
+                                                <a href={{ route('singlecourse', $course->id) }}>view more<i
+                                                        class="fa fa-arrow-right"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach --}}
+
 
 
                             <div class="row">

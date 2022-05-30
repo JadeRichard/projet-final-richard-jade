@@ -39,7 +39,7 @@
 								<div class="single-teacher-item">
 									<div class="row">
 										<div class="col-md-5">
-											<img src={{ asset("images/teachers/teacher-1.png") }} alt="">
+											<img src={{ asset("images/" . $teachers->picture) }} alt="">
 											<div class="contact-form">
 												<h4>Contact me</h4>
 												<input type="text" id="name" name="s" placeholder="Full Name" value="">
@@ -53,8 +53,8 @@
 										<div class="col-md-7">
 											<div class="right-info">
 												<div class="name">
-													<h2>Samuel Delossantos</h2>
-													<span>Math Teacher</span>
+													<h2>{{ $teachers->name }}</h2>
+													<span>{{ $teachers->role }}</span>
 													<img src={{ asset("images/line-dec.png") }} alt="">
 												</div>
 												<div class="icons">
@@ -66,13 +66,13 @@
 													</ul>
 												</div>
 												<div class="description">
-													<p>Vinyl keffiyeh gluten-free, health goth stumptown chambray typewriter ugh. McSweeney gastropub cardigan, banjo Thundercats bitters health goth tofu freegan. Pop-up Pinter 90's farm-to-table locavore seitan McSweeney's.</p>
+													<p>{{ $teachers->description }}</p>
 													<h4>Biography</h4>
 													<p><em>Food truck four loko swag, try-hard Williamsburg you probably haven heard of them pork belly bitters.</em><br><br>Vinyl keffiyeh gluten-free, health goth stumptown chambray typewriter ugh. McSweeney gastropub cardigan, banjo Thundercats bitters health goth tofu freegan. Pop-up Pinter 90's farm-to-table locavore seitan McSweeney's.<br><br>Thundercats Shoreditch polaroid biodiesel put a bird on it. McSweeney's stumptown blog vinyl, pop-up crucifix Tumblr messenger bag hella fap disrupt meh. Cred butcher gluten-free twee Pinterest tofu banh mi, mustache typewriter chia.</p>
 													<ul>
-														<li><i class="fa fa-phone"></i>910-213-7890</li>
-														<li><i class="fa fa-envelope"></i><a href="#"> samuel@delossantos.com</a></li>
-														<li><i class="fa fa-skype"></i><a href="#">samueldelossantos1</a></li>
+														<li><i class="fa fa-phone"></i>{{ $teachers->telephone }}</li>
+														<li><i class="fa fa-envelope"></i><a href="#"> {{ $teachers->email }}</a></li>
+														<li><i class="fa fa-skype"></i><a href="#">{{ $teachers->skype }}</a></li>
 													</ul>
 												</div>
 											</div>

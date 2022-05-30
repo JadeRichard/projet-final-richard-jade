@@ -39,9 +39,9 @@
 							@foreach ($teachers as $teachers)
 							<div class="col-md-3">
 								<div class="teacher-item">
-									<img src={{ asset("images/" . $teachers->picture) }} alt="">
+									<a href={{ route('singleteacher', $teachers->id) }}><img src={{ asset("images/" . $teachers->picture) }} alt=""></a>
 									<div class="down-content">
-										<a href={{ route("single-teacher") }}><h4>{{ $teachers->name }}</h4></a>
+										<a href={{ route('singleteacher', $teachers->id) }}><h4>{{ $teachers->name }}</h4></a>
 										<span>{{ $teachers->role }}</span>
 										<p>Ugh chambray lumbersexual food artisan meditation sartorial post ironic fans wes</p>
 										<ul>
@@ -57,10 +57,11 @@
 
 							
 						</div>
-						<div class="row">
-							<div class="col-md-12">
-								{{ $teachers->links('vendor.pagination.custom') }}
-							</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-md-12">
+							{{-- {{ $teachers->links('vendor.pagination.custom') }} --}}
 						</div>
 					</div>
 				</section>

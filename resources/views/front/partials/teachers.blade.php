@@ -13,7 +13,7 @@
             <div class="col-md-3 col-sm-6">
                 <div class="teacher-item">
                     <div class="thumb-holder">
-                        <a href={{ route('single-teacher') }}><img
+                        <a href={{ route('singleteacher', $firstteacher->id) }}><img
                                 src="{{ asset('images/' . $firstteacher->picture) }}" alt=""></a>
                         <div class="hover-content">
                             <ul>
@@ -25,7 +25,7 @@
                         </div>
                     </div>
                     <div class="down-content">
-                        <a href={{ route('single-teacher') }}>
+                        <a href={{ route('singleteacher', $firstteacher->id) }}>
                             <h4>{{ $firstteacher->name }}</h4>
                         </a>
                         <span>{{ $firstteacher->role }}</span>
@@ -37,7 +37,7 @@
             <div class="col-md-3 col-sm-6">
                 <div class="teacher-item">
                     <div class="thumb-holder">
-                        <a href={{ route('single-teacher') }}><img
+                        <a href={{ route('singleteacher', $randomteacher_1->id) }}><img
                                 src="{{ asset('images/' . $randomteacher_1->picture) }}" alt=""></a>
                         <div class="hover-content">
                             <ul>
@@ -49,7 +49,7 @@
                         </div>
                     </div>
                     <div class="down-content">
-                        <a href={{ route('single-teacher') }}>
+                        <a href={{ route('singleteacher', $randomteacher_1->id) }}>
                             <h4>{{ $randomteacher_1->name }}</h4>
                         </a>
                         <span>{{ $randomteacher_1->role }}</span>
@@ -61,7 +61,7 @@
             <div class="col-md-3 col-sm-6">
                 <div class="teacher-item">
                     <div class="thumb-holder">
-                        <a href={{ route('single-teacher') }}><img
+                        <a href={{ route('singleteacher', $randomteacher_2->id) }}><img
                                 src="{{ asset('images/' . $randomteacher_2->picture) }}" alt=""></a>
                         <div class="hover-content">
                             <ul>
@@ -73,7 +73,7 @@
                         </div>
                     </div>
                     <div class="down-content">
-                        <a href={{ route('single-teacher') }}>
+                        <a href={{ route('singleteacher', $randomteacher_2->id) }}>
                             <h4>{{ $randomteacher_2->name }}</h4>
                         </a>
                         <span>{{ $randomteacher_2->role }}</span>
@@ -85,7 +85,7 @@
             <div class="col-md-3 col-sm-6">
                 <div class="teacher-item">
                     <div class="thumb-holder">
-                        <a href={{ route('single-teacher') }}><img
+                        <a href={{ route('singleteacher', $lastteacher->id) }}><img
                                 src="{{ asset('images/' . $lastteacher->picture) }}" alt=""></a>
                         <div class="hover-content">
                             <ul>
@@ -97,7 +97,7 @@
                         </div>
                     </div>
                     <div class="down-content">
-                        <a href={{ route('single-teacher') }}>
+                        <a href={{ route('singleteacher', $lastteacher->id) }}>
                             <h4>{{ $lastteacher->name }}</h4>
                         </a>
                         <span>{{ $lastteacher->role }}</span>

@@ -37,22 +37,11 @@ Route::get('/', [HomeController::class, 'index'])->name('/');
 Route::get('/courses', function () {
     $courses = Course::paginate(9);
     $coursescount = Course::all();
-    $coursesfree = Course::where('price', 0)->get();
-    $coursesoldest = Course::orderBy('created_at', 'asc')->get();
+    $coursesfree = Course::where('price', 0)->paginate(9);
+    $courseslongest = Course::orderBy('duration')->paginate(9);
 
-    // if select option 'category' is 'free', then show only free courses
-
-    if (request()->has('free')) {
-        $courses = Course::where('price', 0)->paginate(9);
-    }
-
-    // if select option is 'oldest', then show only oldest courses
-
-    if (request()->has('oldest')) {
-        $courses = Course::orderBy('created_at', 'asc')->paginate(9);
-    }
     
-    return view('front.pages.courses', compact('courses', 'coursescount', 'coursesfree', 'coursesoldest'));
+    return view('front.pages.courses', compact('courses', 'coursescount', 'coursesfree', 'courseslongest'));
 })->name('courses');
 
 Route::get('/courses/{id}/singlecourse', [CourseController::class, 'singlecourse'])->name('singlecourse');
@@ -64,15 +53,12 @@ Route::get('/events', function () {
 })->name('events');
 
 Route::get('/teachers', function () {
-    
     $teachers = Teacher::paginate(9);
     $teacherscount = Teacher::all();
     return view('front.pages.teachers', compact('teachers', 'teacherscount'));
 })->name('teachers');
 
-Route::get('/teachers/singleteacher', function () {
-    return view('front.pages.single-teacher', compact('teachers', 'teacherscount'));
-})->name('single-teacher');
+Route::get('/teachers/{id}/singleteacher', [TeacherController::class, 'singleteacher'])->name('singleteacher');
 
 Route::get('/news', function () {
     $articles = Article::paginate(4);

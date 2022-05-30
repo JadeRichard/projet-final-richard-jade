@@ -97,4 +97,10 @@ class TeacherController extends Controller
         $teachers->delete();
         return redirect()->route('teachers.index')->with('message', 'Element teacher deleted');
     }
+
+    public function singleteacher($id)
+    {
+        $teachers = Teacher::find($id);
+        return view('/front/pages/single-teacher', compact('teachers'));
+    }
 }

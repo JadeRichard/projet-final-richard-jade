@@ -36,33 +36,9 @@
 							<div class="col-md-12">
 								<div class="pre-featured">
 									<div class="info-text">
-										<h4>showing 1-9 of {{ count($eventscount) }} courses</h4>
+										<h4>showing 1-9 of {{ count($eventscount) }} events</h4>
 									</div>
-									<div class="right-content">
-										<div class="input-select">
-		                                    <select name="mark" id="mark">
-		                                        <option value="-1">Select Category</option>
-		                                          <option>Free</option>
-		                                          <option>Timing</option>
-		                                          <option>Mostly</option>
-		                                          <option>Latest</option>
-		                                    </select>
-		                                </div>
-		                                <div class="input-select">
-		                                    <select name="mark" id="mark">
-		                                        <option value="-1">Sorted by</option>
-		                                          <option>Price</option>
-		                                          <option>Useless</option>
-		                                          <option>Important</option>
-		                                    </select>
-		                                </div>
-		                                <div class="grid-list">
-		                                	<ul>
-		                                		<li><a href="#"><i class="fa fa-list"></i></a></li>
-		                                		<li><a href="#"><i class="fa fa-th-large"></i></a></li>
-		                                	</ul>
-		                                </div>
-									</div>
+									
 								</div>
 							</div>
 						</div>

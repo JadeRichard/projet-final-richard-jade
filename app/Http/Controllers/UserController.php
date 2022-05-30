@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Role;
+use App\Models\Teacher;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -26,6 +27,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $users = new User();
+        $teachers = new Teacher();
         $request->validate([
             'name' => 'required',
             'email' => 'required',
@@ -43,7 +45,29 @@ class UserController extends Controller
         $request->file('picture')->storePublicly('images/', 'public');
         $users->save();
 
+        /* $teachers->user_id = $users->id; */
+        $teachers->name = $request->name;
+        $teachers->email = $request->email;
+        $teachers->description = 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae fugiat sit non eum amet ipsa commodi iusto, animi praesentium adipisci neque veritatis architecto laboriosam! Quaerat placeat in voluptates eos eius, blanditiis optio iure fugit odit, sint alias accusantium totam enim!';
+        $teachers->telephone = '0X-XX-XX-XX';
+        $teachers->skype = 'skype';
+        $teachers->role = '///// Teacher';
+        $teachers->updated_at = now();
+        $teachers->picture = $request->file("picture")->hashName();
+        $teachers->save();
+
         $users->roles()->attach($request->roles, ['user_id' => $users->id]);
+
+        // if user role is teacher, create teacher model with default values 
+
+        if ($request->roles == 'teacher') {
+            $teachers = new Teacher();
+            $teachers->user_id = $users->id;
+            $teachers->name = $users->name;
+            $teachers->email = $users->email;
+            $teachers->password = $users->password;
+            $teachers->save();
+        }
 
         return redirect()->route('users.index')->with('message', 'Element user created');
     
@@ -80,6 +104,8 @@ class UserController extends Controller
             'user_id' => $users->id,
         ]);
 
+        
+
         return redirect()->route('users.index')->with('message', 'Element user updated');
 
     }
@@ -93,8 +119,10 @@ class UserController extends Controller
     public function destroy($id)
     {
         $users = User::find($id);
+        $teachers = Teacher::where('name', '=', $users->name)->first();
         $users->roles()->detach();
         $users->delete();
+        $teachers->delete();
         return redirect()->route('users.index')->with('message', 'Element user deleted');
     }
 }

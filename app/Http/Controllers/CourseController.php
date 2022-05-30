@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Course;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\View;
 
 class CourseController extends Controller
 {
@@ -119,4 +120,7 @@ class CourseController extends Controller
         $courses->delete();
         return redirect()->route('courses.index')->with('message', 'Element course deleted');
     }
+
+
+
 }

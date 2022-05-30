@@ -56,13 +56,12 @@
                                 @endcan
                                 <a class='btn btncus3 mx-2' style="background-color: #A12C2F; color: white;" href='{{ route('teachers.show', $item->id) }}' teacher='button'>Read</a>
                                 
-                            @can('delete', $item)
+                            
                             <form action="{{ route('teachers.destroy', $item->id) }}" method="POST">
                                 @csrf
                                 @method("DELETE")
                                 <button class="btn btncus2 mx-2" style="background-color: #A12C2F; color: white;" >Delete</button>
                             </form>
-                            @endcan
                             
                             </div>
                         </td>
