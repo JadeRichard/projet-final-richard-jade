@@ -60,12 +60,6 @@ Route::get('/teachers', function () {
 
 Route::get('/teachers/{id}/singleteacher', [TeacherController::class, 'singleteacher'])->name('singleteacher');
 
-Route::get('/news', function () {
-    $articles = Article::paginate(4);
-    $articlescount = Article::all();
-    return view('front.pages.news', compact('articles', 'articlescount'));
-})->name('news');
-
 
 Route::get('/news/{id}/singlepost', [ArticleController::class, 'singlepost'])->name('singlepost');
 Route::post('/news/{id}', [ArticleController::class, 'singlepostcreate'])->name('singlepostcreate');
@@ -78,6 +72,17 @@ Route::get('/contact', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::get('search', [ArticleController::class, 'search'])->name('search');
+
+
+
+// get the articlecontroller newspage function
+Route::get('/news', [ArticleController::class, 'newspage'])->name('news'); 
+Route::get('/news_search', [ArticleController::class, 'search'])->name('search'); 
+
+/* Route::get('/news', 'ArticleController@newspage')->name('news');
+Route::get('/news_manage', 'ArticleController@search'); */
 
 require __DIR__.'/auth.php';
 

@@ -142,4 +142,25 @@ class ArticleController extends Controller
         $articles->delete();
         return redirect()->route('articles.index')->with('message', 'Element article deleted');
     }
+
+    public function search(Request $request)
+    {
+        if($request->ajax()){
+            $search = $request->get('search');
+            $search = str_replace(' ', '%', $search);
+            $articles = Article::where('title', 'like', '%' . $search . '%')
+            ->orWhere('description_1', 'like', '%' . $search . '%')
+            ->paginate(4);
+            return view('/front/pages/news', compact('articles'));
+        }
+
+    }
+
+    public function newspage()
+    {
+        $articles = Article::paginate(4);
+        $articlescount = Article::all();
+        return view('front.pages.news', compact('articles', 'articlescount'));
+    }
+
 }

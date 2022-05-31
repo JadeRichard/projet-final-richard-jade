@@ -178,55 +178,7 @@
                                 </div>
                             @endforeach </div>
                         
-                            {{-- 
-                            
-
-
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    {{ $courses->links('vendor.pagination.custom') }}
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row row_cat" style="display: none;">
-
-                            @foreach ($courses->where('price', '=', 0) as $course)
-                                <div class="col-md-4">
-                                    <div class="item course-item">
-                                        <a href={{ route('singlecourse', $course->id) }}><img
-                                                src={{ asset('images/' . $course->picture) }} alt=""></a>
-                                        <div class="down-content">
-                                            <img src={{ asset('images/courses/courses-icon.png') }} alt="">
-                                            <h6>Ernest Byrd</h6>
-                                            @if ($course->price == 0)
-                                                <div class="price-yellow">
-                                                    <span>Free</span>
-                                                    <div class="base"></div>
-                                                </div>
-                                            @else
-                                                <div class="price-red">
-                                                    <span>${{ $course->price }}</span>
-                                                    <div class="base"></div>
-                                                </div>
-                                            @endif
-
-                                            <a href={{ route('singlecourse', $course->id) }}>
-                                                <h4>{{ $course->title }}</h4>
-                                            </a>
-                                            <p>{{ $course->description }}</p>
-                                            <div class="text-button">
-                                                <a href={{ route('singlecourse', $course->id) }}>view more<i
-                                                        class="fa fa-arrow-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach --}}
-
-
-
+                
                             <div class="row">
                                 <div class="col-md-12">
                                     {{ $courses->links('vendor.pagination.custom') }}
