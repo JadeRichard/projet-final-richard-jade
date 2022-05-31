@@ -20,7 +20,7 @@
                             @else                        
                                 <li><a href="{{ route('login') }}">Login</a></li>
                             @endauth
-                @endif
+                    @endif
                 </ul>
             </div>
             <nav class="main-navigation text-left hidden-xs hidden-sm">

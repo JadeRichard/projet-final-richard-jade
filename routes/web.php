@@ -7,6 +7,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PanelController;
 use App\Http\Controllers\PictureController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ServiceController;
@@ -34,13 +35,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('/');
 
+Route::post('/submitrequest', [PanelController::class, 'submitRequest'])->name('submitrequest');
+
 Route::get('/courses', function () {
     $courses = Course::paginate(9);
     $coursescount = Course::all();
     $coursesfree = Course::where('price', 0)->paginate(9);
     $courseslongest = Course::orderBy('duration')->paginate(9);
-
-    
     return view('front.pages.courses', compact('courses', 'coursescount', 'coursesfree', 'courseslongest'));
 })->name('courses');
 
@@ -73,16 +74,8 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('search', [ArticleController::class, 'search'])->name('search');
-
-
-
-// get the articlecontroller newspage function
 Route::get('/news', [ArticleController::class, 'newspage'])->name('news'); 
 Route::get('/news_search_ajax', [ArticleController::class, 'news_search_ajax'])->name('news_search_ajax'); 
-
-/* Route::get('/news', 'ArticleController@newspage')->name('news');
-Route::get('/news_manage', 'ArticleController@search'); */
 
 require __DIR__.'/auth.php';
 
@@ -112,3 +105,5 @@ Route::resource('/dashboard/categories', CategoryController::class);
 Route::resource('/dashboard/tags', TagController::class);
 // Comments 
 Route::resource('/dashboard/comments', CommentController::class);
+// Panels 
+Route::resource('/dashboard/panels', PanelController::class);

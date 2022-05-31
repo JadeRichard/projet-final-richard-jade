@@ -112,15 +112,21 @@
             <span class="tooltip">Pictures</span>
         </li>
         @endif
+        @if (auth()->user()->id == 1 || auth()->user()->roles()->first()->name == 'teacher')
+        <li>
+            <a href="{{ route('panels.index') }}">
+                <i class='bx bx-filter-alt' ></i>
+                <span class="links_name">Panels</span>
+            </a>
+            <span class="tooltip">Panels</span>
+        </li>
+        @endif
 
         <li class="profile">
-            <div class="profile-details">
-                <!--<img src="profile.jpg" alt="profileImg">-->
-
-            </div>
+            <div class="profile-details"></div>
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
-                <div :href="route('logout')" style="cursor: pointer" onclick="event.preventDefault();
+                <div :href="route('logout')" style="cursor: pointer; color:white; margin-left:8px;" onclick="event.preventDefault();
                           this.closest('form').submit();">
                     {{ __('Log Out') }}
             </form>

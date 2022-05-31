@@ -6,8 +6,9 @@
                     <div class="section-heading">
                         <h1>Welcome to Educa</h1>
                         <span>Twee Vice synth stumptown</span>
-                        <img src={{ asset("images/line-dec.png") }} alt="">
-                        <p>Twee Vice synth stumptown, distillery aesthetic slow-carb Intelligentsia bitters taxidermy<br>McSweeney's, flexitarian actually iPhone mlkshk brunch.</p>
+                        <img src={{ asset('images/line-dec.png') }} alt="">
+                        <p>Twee Vice synth stumptown, distillery aesthetic slow-carb Intelligentsia bitters
+                            taxidermy<br>McSweeney's, flexitarian actually iPhone mlkshk brunch.</p>
                     </div>
                     <div class="row">
 
@@ -21,15 +22,69 @@
                                 </div>
                             </div>
                         @endforeach
-                        
+
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="request-information">
-                        <div class="widget-heading">
+                        <div class="widget-heading" style="margin-bottom: 30px;">
                             <h4>Request Information</h4>
                         </div>
-                        <div class="search-form">
+
+                        @if (auth()->check())
+                            <div class="search-form">
+                                <form action="{{ route('submitrequest') }}" method='post'
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    <input type="text" name="name" value="{{ auth()->user()->name }}">
+                                    <input type="text" name="email" value="{{ auth()->user()->email }}">
+                                    <div class="select">
+                                    <select name="teacher" id="teacher">
+                                        <option value="-1">Teacher of Interests</option>
+                                        @foreach ($teachers as $teacher)
+                                            <option name="teacher" value="{{ $teacher->name }}">{{ $teacher->name }}</option>
+                                        @endforeach
+                                    </select>
+                                    </div>
+                                    <div class="select">
+                                    <select name="course" id="course">
+                                        <option value="-1">Course of Interests</option>
+                                        @foreach ($courses as $item)
+                                            <option name="course" value="{{ $item->title }}">{{ $item->title }}</option>
+                                        @endforeach
+                                    </select>
+                                    </div>
+                                    <div class="accent-button">
+                                        <button type="submit">{{-- <a href="#"> --}}Submit
+                                            Request{{-- </a> --}}</button>
+                                    </div>
+                                </form>
+                            </div>
+                        @else
+                            <div class="search-form">
+                                @if (Route::has('login'))
+                                    @auth
+                                        <button class="btn"
+                                            style="background-color: #EFBE37; color: white; text-transform: uppercase;"><a
+                                                href="{{ url('register') }}"
+                                                style="color: white;">Register</a></button><br><br>
+                                        <button class="btn"
+                                            style="background-color: #EFBE37; color: white; text-transform: uppercase;">><a
+                                                href="{{ route('login') }}" style="color: white;">Login</a></button>
+                                    @else
+                                        <button class="btn"
+                                            style="background-color: #EFBE37; color: white; text-transform: uppercase;">><a
+                                                href="{{ url('register') }}"
+                                                style="color: white;">Register</a></button><br><br>
+                                        <button class="btn"
+                                            style="background-color: #EFBE37; color: white; text-transform: uppercase;">><a
+                                                href="{{ route('login') }}" style="color: white;">Login</a></button>
+                                    @endauth
+                                @endif
+                            </div>
+                        @endif
+
+                        {{-- <div class="search-form">
                             <input type="text" id="name" name="s" placeholder="Full Name" value="">
                             <input type="text" id="address" name="s" placeholder="E-mail Address" value="">
                             <div class="select">
@@ -53,7 +108,7 @@
                             <div class="accent-button">
                                 <a href="#">Submit Request</a>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>

@@ -103,9 +103,6 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="side-bar">
-                                    <div class="search-box">
-                                        <input type="text" class="search" name="s" placeholder="Search..." value="">
-                                    </div>
                                     <div class="categories">
                                         <div class="widget-heading">
                                             <h4>Categories</h4>

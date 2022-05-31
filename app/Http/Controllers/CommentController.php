@@ -25,7 +25,6 @@ class CommentController extends Controller
     public function store(Request $request)
     {
         $comments = new Comment();
-        /* $articles = Article::find($id); */
         $request->validate([
              'content' => 'required',
         ]);
@@ -39,24 +38,6 @@ class CommentController extends Controller
         $comments->save();
         return redirect()->route('comments.index')->with('message', 'Element article created');
     }
-
-    /* public function postcomment(Request $request, $id)
-    {
-        $comments = new Comment();
-        $article = Article::find($id);
-        /* $request->validate([
-             'content' => 'required',
-        ]); 
-        $comments->article_id = $article->id;
-        $comments->user_id = auth()->user()->id;
-        $comments->name = auth()->user()->name;
-        $comments->email = auth()->user()->email;
-        $comments->content = $request->content;
-        $comments->time = Carbon::now();
-        $comments->updated_at = now();
-        $comments->save();
-        return redirect()->route('singlepost');
-    } */
 
      public function edit($id)
     {
@@ -85,7 +66,6 @@ class CommentController extends Controller
 
     public function show($id)
     {
-        
         $comments = Comment::find($id);
         return view('/back/comments/show', compact('comments'));
     } 
