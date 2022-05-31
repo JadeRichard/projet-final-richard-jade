@@ -33,6 +33,8 @@ class UserController extends Controller
             'email' => 'required',
             'password' => 'required',
         ]);
+        
+        
         $users->name = $request->name;
         $users->email = $request->email;
         $users->password = Hash::make($request->password);

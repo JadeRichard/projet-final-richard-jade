@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('role_user', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('role_id')->constrained('roles', 'id');
+            $table->foreignId('role_id')->constrained('roles', 'id')->default(4);
             $table->foreignId('user_id')->constrained('users', 'id');
             $table->timestamps();
         });

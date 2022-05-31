@@ -112,7 +112,7 @@
             <span class="tooltip">Pictures</span>
         </li>
         @endif
-        @if (auth()->user()->id == 1 || auth()->user()->roles()->first()->name == 'teacher')
+        @if (auth()->user()->id == 1 || auth()->user()->roles()->first()->name == 'teacher' || auth()->user()->roles()->first()->name == 'member')
         <li>
             <a href="{{ route('panels.index') }}">
                 <i class='bx bx-filter-alt' ></i>

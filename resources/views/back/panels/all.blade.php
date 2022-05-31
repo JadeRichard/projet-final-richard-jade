@@ -35,6 +35,9 @@
                 </tr>
             </thead>
             <tbody>
+
+                @if (auth()->user()->id == 1)
+
                 @foreach ($panels as $item)
                     <tr>
                         <td style="text-align: center;">{{ $item->teacher }}</td>
@@ -72,6 +75,86 @@
                         </td>
                     </tr>
                 @endforeach
+                    
+                @elseif (auth()->user()->roles()->first()->name == "teacher")
+            
+                @foreach ($panels->where("teacher", "=", auth()->user()->name) as $item)
+                    <tr>
+                        <td style="text-align: center;">{{ $item->teacher }}</td>
+                        <td style="text-align: center;">{{ $item->course }}</td>
+                        <td style="text-align: center;">{{ $item->request }}</td>
+                        <td style="text-align: center;">{{ $item->name }}</td>
+                        <td style="text-align: center;">{{ $item->email }}</td>
+                        <td style="text-align: center;">{{ $item->date }}</td>
+                        <td style="text-align: center;">{{ $item->time }}</td>
+
+                        @if ($item->is_validated == 1)
+                        <td style="text-align: center;"><button class="badge rounded-pill bg-success"
+                            style="border: 1px solid white;">Yes</button></td>
+                        @else
+                        <td style="text-align: center;"><button class="badge rounded-pill bg-danger"
+                            style="border: 1px solid white;">No</button></td>
+                        @endif
+
+                        <td style="text-align: center;">
+                            <div class='d-flex justify-content-center'>
+
+                                <a class='btn btncus3 mx-2' style="background-color: #A12C2F; color: white;"
+                                    href='{{ route('panels.edit', $item->id) }}' panel='button'>Edit</a>
+                                <a class='btn btncus3 mx-2' style="background-color: #A12C2F; color: white;"
+                                    href='{{ route('panels.show', $item->id) }}' panel='button'>Read</a>
+
+                                <form action="{{ route('panels.destroy', $item->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btncus2 mx-2"
+                                        style="background-color: #A12C2F; color: white;">Delete</button>
+                                </form>
+
+                            </div>
+                        </td>
+                    </tr>
+                @endforeach
+                @else
+                @foreach ($panels->where("name", "=", auth()->user()->name) as $item)
+                <tr>
+                    <td style="text-align: center;">{{ $item->teacher }}</td>
+                    <td style="text-align: center;">{{ $item->course }}</td>
+                    <td style="text-align: center;">{{ $item->request }}</td>
+                    <td style="text-align: center;">{{ $item->name }}</td>
+                    <td style="text-align: center;">{{ $item->email }}</td>
+                    <td style="text-align: center;">{{ $item->date }}</td>
+                    <td style="text-align: center;">{{ $item->time }}</td>
+
+                    @if ($item->is_validated == 1)
+                    <td style="text-align: center;"><button class="badge rounded-pill bg-success"
+                        style="border: 1px solid white;">Yes</button></td>
+                    @else
+                    <td style="text-align: center;"><button class="badge rounded-pill bg-danger"
+                        style="border: 1px solid white;">No</button></td>
+                    @endif
+
+                    <td style="text-align: center;">
+                        <div class='d-flex justify-content-center'>
+                            @can('update', $item)
+                            <a class='btn btncus3 mx-2' style="background-color: #A12C2F; color: white;"
+                                href='{{ route('panels.edit', $item->id) }}' panel='button'>Edit</a>
+                            @endcan
+                            <a class='btn btncus3 mx-2' style="background-color: #A12C2F; color: white;"
+                                href='{{ route('panels.show', $item->id) }}' panel='button'>Read</a>
+                            @can('delete', $item)
+                            <form action="{{ route('panels.destroy', $item->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btncus2 mx-2"
+                                    style="background-color: #A12C2F; color: white;">Delete</button>
+                            </form>
+                            @endcan
+                        </div>
+                    </td>
+                </tr>
+            @endforeach
+                @endif
             </tbody>
         </table>
 
