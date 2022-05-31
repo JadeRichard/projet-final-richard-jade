@@ -79,7 +79,7 @@ Route::get('search', [ArticleController::class, 'search'])->name('search');
 
 // get the articlecontroller newspage function
 Route::get('/news', [ArticleController::class, 'newspage'])->name('news'); 
-Route::get('/news_search', [ArticleController::class, 'search'])->name('search'); 
+Route::get('/news_search_ajax', [ArticleController::class, 'news_search_ajax'])->name('news_search_ajax'); 
 
 /* Route::get('/news', 'ArticleController@newspage')->name('news');
 Route::get('/news_manage', 'ArticleController@search'); */

@@ -36,48 +36,22 @@
                                 <div class="classic-posts">
 
 
-                                    @foreach ($articles as $news)
-                                        <div class="classic-item" id="result">
-                                            <a href={{ route('singlepost', $news->id) }}><img
-                                                    src={{ asset('images/' . $news->picture) }} alt=""></a>
-                                            <ul>
-                                                <li>Posted: <em>{{ $news->date }}</em></li>
-                                                <li>By: <em>{{ $news->user->name }}</em></li>
-                                                <li>Comments: <em>{{ count($news->comments) }}</em></li>
-                                            </ul>
-                                            <a href={{ route('singlepost', $news->id) }}>
-                                                <h4>{{ $news->title }}</h4>
-                                            </a>
-                                            <p>{{ $news->description_1 }}</p>
-                                            <div class="buttons">
-                                                <div class="accent-button">
-                                                    <a href={{ route('singlepost', $news->id) }}>Continue Reading</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endforeach
+                                    @include('front.pages.search.search_data')
 
-                                    <div class="pagination-navigation">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                {{ $articles->links('vendor.pagination.custom') }}
-                                            </div>
-                                        </div>
-                                    </div>
+
                                 </div>
                             </div>
 
                             <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-
+							
                             <script type="text/javascript">
                                 $(document).ready(function() {
-
+								var BASE_URL = `{{ url('/') }}`;
                                     function fetch_data(search = "") {
                                         $.ajax({
-											url: BASE_URL + '/search/' + search,
-                                            /* url: BASE_URL + "/news_search?search=" + search, */
+											url : BASE_URL + "/news_search_ajax?search=" + search,
                                             success: function(data) {
-                                                $('.x_content tbody').html(data);
+                                                $('.classic-posts').html(data);
                                             }
                                         })
                                     }
@@ -94,10 +68,8 @@
                             <div class="col-md-4">
                                 <div class="side-bar">
                                     <div class="search-box">
-                                        <form action="#" method="get">
+                                        
                                             <input type="text" name="s" placeholder="Search..." id="search_i">
-                                            <button type="submit"><i class="fa fa-search"></i></button>
-                                        </form>
                                     </div>
                                     <div class="categories">
                                         <div class="widget-heading">

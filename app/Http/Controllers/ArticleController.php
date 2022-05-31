@@ -143,7 +143,7 @@ class ArticleController extends Controller
         return redirect()->route('articles.index')->with('message', 'Element article deleted');
     }
 
-    public function search(Request $request)
+    public function news_search_ajax(Request $request)
     {
         if($request->ajax()){
             $search = $request->get('search');
@@ -151,7 +151,7 @@ class ArticleController extends Controller
             $articles = Article::where('title', 'like', '%' . $search . '%')
             ->orWhere('description_1', 'like', '%' . $search . '%')
             ->paginate(4);
-            return view('/front/pages/news', compact('articles'));
+            return view('/front.pages.search.search_data', compact('articles'));
         }
 
     }
