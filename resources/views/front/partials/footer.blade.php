@@ -48,15 +48,16 @@
             </div>
             <div class="col-md-3">
                 <div class="footer-widget">
-                    <div class="newsletters">
+                    <form class="newsletters" action='{{ route('newsletter.subscribe') }}' method="GET">
                         <h2>Newsletters</h2>
                         <div class="line-dec"></div>
                         <p>Subsrcibe to our newsletter for latest updates about our site for universe.</p>
-                        <input type="text" class="email" name="s" placeholder="Email Address..." value="">
+
+                        <input type="text" class="email" name="email" placeholder="Email Address..." value="">
                         <div class="accent-button">
-                            <a href="#">Subscribe</a>
+                            <button type="submit">Subscribe</button>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>

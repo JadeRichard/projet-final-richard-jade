@@ -11,6 +11,7 @@ use App\Http\Controllers\PanelController;
 use App\Http\Controllers\PictureController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\UserController;
@@ -62,8 +63,11 @@ Route::get('/teachers', function () {
 Route::get('/teachers/{id}/singleteacher', [TeacherController::class, 'singleteacher'])->name('singleteacher');
 
 
+Route::get('/news', [ArticleController::class, 'newspage'])->name('news'); 
+Route::get('/news_search_ajax', [ArticleController::class, 'news_search_ajax'])->name('news_search_ajax'); 
 Route::get('/news/{id}/singlepost', [ArticleController::class, 'singlepost'])->name('singlepost');
 Route::post('/news/{id}', [ArticleController::class, 'singlepostcreate'])->name('singlepostcreate');
+
 
 
 Route::get('/contact', function () {
@@ -74,10 +78,10 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/news', [ArticleController::class, 'newspage'])->name('news'); 
-Route::get('/news_search_ajax', [ArticleController::class, 'news_search_ajax'])->name('news_search_ajax'); 
-
 require __DIR__.'/auth.php';
+
+// Mail
+Route::get('/newsletter', [SubscriberController::class, 'subscriber'])->name('newsletter.subscribe');
 
 // ----- CRUD ----- //
 
