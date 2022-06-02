@@ -7,6 +7,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\PanelController;
 use App\Http\Controllers\PictureController;
 use App\Http\Controllers\RoleController;
@@ -19,7 +20,11 @@ use App\Mail\Subscribe;
 use App\Models\Article;
 use App\Models\Course;
 use App\Models\Event;
+use App\Models\Subscriber;
 use App\Models\Teacher;
+use GuzzleHttp\Psr7\Request;
+use Illuminate\Http\Client\Request as ClientRequest;
+use Illuminate\Http\Request as HttpRequest;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
@@ -39,6 +44,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('/');
 
 Route::post('/submitrequest', [PanelController::class, 'submitRequest'])->name('submitrequest');
+
+Route::post('/sendmessage', [MessageController::class, 'sendMessage'])->name('sendmessage');
 
 Route::get('/courses', function () {
     $courses = Course::paginate(9);
@@ -85,11 +92,16 @@ require __DIR__.'/auth.php';
 // Mail
 /* Route::get('/newsletter', [SubscriberController::class, 'subscriber']); */
 
-Route::get('/send-mail', function () {
+Route::get('/send-mail', function (HttpRequest $request) {
+    $email = $request->all()['email'];
+        $subscriber = Subscriber::create([
+            'email' => $email
+        ]
+    ); 
 
-    Mail::to('newuser@example.com')->send(new Subscribe(''));
+    Mail::to($email)->send(new Subscribe(''));
 
-    return 'A message has been sent to Mailtrap!';
+    return redirect()->back();
 
 })->name('newsletter.subscribe');
 

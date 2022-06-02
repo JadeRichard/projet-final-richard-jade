@@ -24,7 +24,7 @@
 										<li><i class="fa fa-angle-right"></i></li>
 										<li><a href="#">Pages</a></li>
 										<li><i class="fa fa-angle-right"></i></li>
-										<li><a href="our-teachers.html">Single Teacher</a></li>
+										<li><a href="#">{{ $teachers->name }}</a></li>
 									</ul>
 								</div>
 							</div>	
@@ -42,6 +42,7 @@
 											<img src={{ asset("images/" . $teachers->picture) }} alt="">
 											<div class="contact-form">
 												<h4>Contact me</h4>
+												<form action="{{ route('sendmessage'), $teachers->id }}"></form>
 												<input type="text" id="name" name="s" placeholder="Full Name" value="">
 												<input type="text" id="address" name="s" placeholder="E-mail Address" value="">
 												<textarea id="message" class="message" name="message" placeholder="Write message"></textarea>

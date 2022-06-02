@@ -30,17 +30,9 @@ class Subscribe extends Mailable
      */
     public function build()
     {
-        return $this
+        return $this->from('educa@newsletter.com', 'Newsletter')
                 ->subject('Thank you for subscribing to our newsletter')
                 ->markdown('emails.subscribers');
-                
-        /* return $this->from('mail@example.com', 'Mailtrap')
-            ->subject('Mailtrap Confirmation')
-            ->markdown('mails.exmpl')
-            ->with([
-                'name' => 'New Mailtrap User',
-                'link' => '/inboxes/'
-            ]); */
     }
 
     
