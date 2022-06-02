@@ -68,7 +68,6 @@
                             <div class="col-md-4">
                                 <div class="side-bar">
                                     <div class="search-box">
-                                        
                                             <input type="text" name="s" placeholder="Search..." id="search_i">
                                     </div>
                                     <div class="categories">
