@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('email');
             $table->text('message');
-            $table->string('to');
-            $table->foreignId('user_id')->nullable();
+            $table->string('to')->nullable();
+            $table->foreignId('teacher_id')->nullable();
             $table->timestamps();
         });
     }

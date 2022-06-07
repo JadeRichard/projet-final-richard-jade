@@ -122,6 +122,16 @@
         </li>
         @endif
 
+        @if (auth()->user()->id == 1 || auth()->user()->roles()->first()->name == 'teacher' || auth()->user()->roles()->first()->name == 'member')
+        <li>
+            <a href="{{ route('messages.index') }}">
+                <i class='bx bx-filter-alt' ></i>
+                <span class="links_name">Messages</span>
+            </a>
+            <span class="tooltip">Messages</span>
+        </li>
+        @endif
+
         <li class="profile">
             <div class="profile-details"></div>
             <form method="POST" action="{{ route('logout') }}">

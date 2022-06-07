@@ -45,7 +45,7 @@ Route::get('/', [HomeController::class, 'index'])->name('/');
 
 Route::post('/submitrequest', [PanelController::class, 'submitRequest'])->name('submitrequest');
 
-Route::post('/sendmessage', [MessageController::class, 'sendMessage'])->name('sendmessage');
+Route::post('/sendmessage/{id}', [TeacherController::class, 'sendMessage'])->name('sendmessage');
 
 Route::get('/courses', function () {
     $courses = Course::paginate(9);
@@ -134,3 +134,5 @@ Route::resource('/dashboard/tags', TagController::class);
 Route::resource('/dashboard/comments', CommentController::class);
 // Panels 
 Route::resource('/dashboard/panels', PanelController::class);
+// Messages 
+Route::resource('/dashboard/messages', MessageController::class);

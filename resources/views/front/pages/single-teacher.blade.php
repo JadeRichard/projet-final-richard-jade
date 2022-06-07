@@ -42,13 +42,20 @@
 											<img src={{ asset("images/" . $teachers->picture) }} alt="">
 											<div class="contact-form">
 												<h4>Contact me</h4>
-												<form action="{{ route('sendmessage'), $teachers->id }}"></form>
-												<input type="text" id="name" name="s" placeholder="Full Name" value="">
-												<input type="text" id="address" name="s" placeholder="E-mail Address" value="">
+												<form action="{{ route('sendmessage', $teachers->id )}}" method='post'>
+												@csrf
+												@if (auth()->check())
+												<input type="text" id="name" name="name" placeholder="Full Name" value="{{ auth()->user()->name }}">
+												<input type="text" id="address" name="email" placeholder="E-mail Address" value="{{ auth()->user()->email }}">
+												@else
+												<input type="text" id="name" name="name" placeholder="Full Name" value="">
+												<input type="text" id="address" name="email" placeholder="E-mail Address" value="">
+												@endif
 												<textarea id="message" class="message" name="message" placeholder="Write message"></textarea>
 												<div class="accent-button">
-													<a href="#">Send Message</a>
+													<button type="submit">Send</button>
 												</div>
+											</form>
 											</div>
 										</div>
 										<div class="col-md-7">

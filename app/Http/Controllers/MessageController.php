@@ -10,26 +10,9 @@ class MessageController extends Controller
     
     public function index()
     {
-        return view('messages.index');
+        $messages = Message::all();
+        return view('/back/messages/all', compact('messages'));
     }
-    
-    public function store(Request $request)
-    {
-        $message = new Message();
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'teacher' => 'required',
-            'message' => 'required',
-        ]);
-        $message->name = auth()->user()->name;
-        $message->email = auth()->user()->email;
-        $message->teacher = $request->teacher;
-        $message->message = $request->message;
-
-        $message->save();
-    }
-    
 
     public function show(Message $message)
     {
@@ -39,8 +22,7 @@ class MessageController extends Controller
     public function destroy(Message $message)
     {
         $message->delete();
-
-        return redirect()->route('messages.index');
+        return redirect()->route('messages.index')->with('message', 'Message deleted.');
     }
 
 }

@@ -11,9 +11,9 @@ class Message extends Model
 
     protected $table = 'messages';
 
-    public function user()
+    public function teacher()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Teacher::class);
     }
 
 }

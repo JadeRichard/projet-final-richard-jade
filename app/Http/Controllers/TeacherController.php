@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Message;
 use App\Models\Teacher;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
@@ -101,6 +103,31 @@ class TeacherController extends Controller
     public function singleteacher($id)
     {
         $teachers = Teacher::find($id);
-        return view('/front/pages/single-teacher', compact('teachers'));
+        $messages = Message::all();
+        return view('/front/pages/single-teacher', compact('teachers', 'messages'));
+    }
+
+    public function sendMessage(Request $request, $id)
+    {
+        $messages = new Message();
+        $teachers = Teacher::find($id);
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'message' => 'required',
+        ]);
+        if(auth()->check()){
+            $messages->name = auth()->user()->name;
+            $messages->email = auth()->user()->email;
+        } else {
+            $messages->name = $request->name;
+            $messages->email = $request->email;
+        }
+        $messages->teacher_id = $teachers->id;
+        $messages->message = $request->message;
+        $messages->to = $messages->teacher->name;
+
+        $messages->save();
+        return redirect()->back();
     }
 }
