@@ -38,7 +38,7 @@
 									<div class="contact-item">
 										<i class="fa fa-map-marker"></i>
 										<h4>Address Info</h4>
-										<p>Bloomfield Way Stockton, Springs ME 04981</p>
+										<p>{{ $maps[0]->location }}</p>
 									</div>
 									<div class="contact-item">
 										<i class="fa fa-envelope-o"></i>
@@ -65,7 +65,9 @@
 										<h4>Location Map</h4>
 									</div>
 									<div class="content-map">
-										<div id="map"></div>
+										<iframe width="450" height="340" id="gmap_canvas"
+										src="https://maps.google.com/maps?q={{ $maps[0]->location }}&t=h&z=21&ie=UTF8&iwloc=&output=embed&iwloc=B"
+										frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
 									</div>
 								</div>
 							</div>
@@ -75,7 +77,22 @@
 										<h4>Contact Us</h4>
 									</div>
 									<div class="message-content">
-										<div class="row">
+										<form action="{{ route('sendmessage', $user->id )}}" method='post'>
+											@csrf
+											@if (auth()->check())
+											<input type="text" id="name" name="name" placeholder="Full Name" value="{{ auth()->user()->name }}">
+											<input type="text" id="address" name="email" placeholder="E-mail Address" value="{{ auth()->user()->email }}">
+											@else
+											<input type="text" id="name" name="name" placeholder="Full Name" value="">
+											<input type="text" id="address" name="email" placeholder="E-mail Address" value="">
+											@endif
+											<textarea id="message" class="message" name="message" placeholder="Write message"></textarea>
+											<div class="accent-button">
+												<button type="submit">Send</button>
+											</div>
+										</form>
+
+										{{-- <div class="row">
 											<div class="col-md-6">
 												<input type="text" id="name" name="s" placeholder="Full Name" value="">
 											</div>
@@ -88,7 +105,7 @@
 										</div>
 										<div class="accent-button">
 											<a href="#">Submit Message</a>
-										</div>
+										</div> --}}
 									</div>
 								</div>
 							</div>

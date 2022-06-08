@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('panels', function (Blueprint $table) {
-            $table->id();
+            $table->id()->onDelete('cascade');
             $table->text('request')->nullable();
             $table->text('name')->nullable();
             $table->text('email')->nullable();

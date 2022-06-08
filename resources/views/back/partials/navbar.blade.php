@@ -132,6 +132,16 @@
         </li>
         @endif
 
+        @if (auth()->user()->id == 1)
+        <li>
+            <a href="{{ route('map') }}">
+                <i class='bx bx-square' ></i>
+                <span class="links_name">Maps</span>
+            </a>
+            <span class="tooltip">Maps</span>
+        </li>
+        @endif
+
         <li class="profile">
             <div class="profile-details"></div>
             <form method="POST" action="{{ route('logout') }}">

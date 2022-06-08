@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('pictures', function (Blueprint $table) {
-            $table->id();
+            $table->id()->onDelete('cascade');
             $table->string('title');
             $table->string('picture');
             $table->timestamps();

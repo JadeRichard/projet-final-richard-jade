@@ -14,12 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('messages', function (Blueprint $table) {
-            $table->id();
+            $table->id()->onDelete('cascade');
             $table->string('name');
             $table->string('email');
             $table->text('message');
             $table->string('to')->nullable();
             $table->foreignId('teacher_id')->nullable();
+            $table->foreignId('user_id')->nullable();
             $table->timestamps();
         });
     }

@@ -111,6 +111,7 @@ class TeacherController extends Controller
     {
         $messages = new Message();
         $teachers = Teacher::find($id);
+        $user = User::first();
         $request->validate([
             'name' => 'required',
             'email' => 'required',
@@ -124,6 +125,7 @@ class TeacherController extends Controller
             $messages->email = $request->email;
         }
         $messages->teacher_id = $teachers->id;
+        $messages->user_id = $user->id;
         $messages->message = $request->message;
         $messages->to = $messages->teacher->name;
 

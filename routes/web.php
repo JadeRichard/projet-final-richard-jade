@@ -7,23 +7,22 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MapController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\PanelController;
 use App\Http\Controllers\PictureController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ServiceController;
-use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\UserController;
 use App\Mail\Subscribe;
-use App\Models\Article;
 use App\Models\Course;
 use App\Models\Event;
+use App\Models\Map;
 use App\Models\Subscriber;
 use App\Models\Teacher;
-use GuzzleHttp\Psr7\Request;
-use Illuminate\Http\Client\Request as ClientRequest;
+use App\Models\User;
 use Illuminate\Http\Request as HttpRequest;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
@@ -46,6 +45,12 @@ Route::get('/', [HomeController::class, 'index'])->name('/');
 Route::post('/submitrequest', [PanelController::class, 'submitRequest'])->name('submitrequest');
 
 Route::post('/sendmessage/{id}', [TeacherController::class, 'sendMessage'])->name('sendmessage');
+
+// ROUTE FOR MAP
+Route::get('/dashboard/map', [MapController::class, 'index'])->name('map');
+//ROUTE FOR UPDATE MAP
+Route::post('/dashboard/map/{id}/edit', [MapController::class, 'edit'])->name('map.edit');
+Route::post('/dashboard/map/{id}/update', [MapController::class, 'update'])->name('map.update');
 
 Route::get('/courses', function () {
     $courses = Course::paginate(9);
@@ -74,13 +79,15 @@ Route::get('/teachers/{id}/singleteacher', [TeacherController::class, 'singletea
 
 Route::get('/news', [ArticleController::class, 'newspage'])->name('news'); 
 Route::get('/news_search_ajax', [ArticleController::class, 'news_search_ajax'])->name('news_search_ajax'); 
-Route::get('/news/{id}/singlepost', [ArticleController::class, 'singlepost'])->name('singlepost');
+Route::post('/news/{id}/singlepost', [ArticleController::class, 'singlepost'])->name('singlepost');
 Route::post('/news/{id}', [ArticleController::class, 'singlepostcreate'])->name('singlepostcreate');
 
 
 
 Route::get('/contact', function () {
-    return view('front.pages.contact');
+    $maps = Map::all();
+    $user = User::first();
+    return view('front.pages.contact', compact('maps', 'user'));
 })->name('contact');
 
 Route::get('/dashboard', function () {

@@ -13,11 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('services', function (Blueprint $table) {
-            $table->id()->onDelete('cascade');
-            $table->string('title');
-            $table->string('description');
-            $table->text('icon');
+        Schema::create('maps', function (Blueprint $table) {
+            $table->id();
+            $table->text('location');
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('services');
+        Schema::dropIfExists('maps');
     }
 };

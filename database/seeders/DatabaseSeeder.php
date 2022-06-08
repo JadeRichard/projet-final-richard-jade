@@ -31,6 +31,7 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             TagSeeder::class,
             CommentSeeder::class,
+            MapSeeder::class,
         ]);
 
         // call the ArticleCategoryFactory

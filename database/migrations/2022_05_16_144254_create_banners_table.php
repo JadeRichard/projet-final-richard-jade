@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('banners', function (Blueprint $table) {
-            $table->id();
+            $table->id()->onDelete('cascade');
             $table->text('title');
             $table->text('accent');
             $table->text('description');

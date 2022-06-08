@@ -122,9 +122,18 @@ class UserController extends Controller
     {
         $users = User::find($id);
         $teachers = Teacher::where('name', '=', $users->name)->first();
-        $users->roles()->detach();
-        $users->delete();
-        $teachers->delete();
+
+        if ($users->id == 1){
+            return redirect()->route('users.index')->with('message', 'Cannot delete the admin');
+        } else if ($users->roles == 'teacher') {
+            $users->roles()->detach();
+            $teachers->delete();
+            $users->delete();
+        }
+        else {
+            $users->roles()->detach();
+            $users->delete();
+        }
         return redirect()->route('users.index')->with('message', 'Element user deleted');
     }
 }
