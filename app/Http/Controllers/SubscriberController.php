@@ -11,7 +11,21 @@ use Illuminate\Support\Facades\Validator;
 
 class SubscriberController extends Controller
 {
-    public function subscriber(Request $request) 
+
+    public function subscriber(Request $request)
+    {
+        $email = $request->all()['email'];
+        $subscriber = Subscriber::create([
+            'email' => $email,
+        ]);
+
+        Mail::to($email)->send(new Subscribe($subscriber));
+
+        return redirect()->back()->with('message', 'You have been subscribed successfully');
+
+    }
+
+   /*  public function subscriber(Request $request) 
     {   
     $validator = Validator::make($request->all(), [
          'email' => 'required',
@@ -31,6 +45,6 @@ class SubscriberController extends Controller
         Mail::to($email)->send(new Subscribe($email));
         return redirect()->back();
     }
-    }
+    } */
 }
                     

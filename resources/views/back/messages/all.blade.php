@@ -36,7 +36,7 @@
 
                 @foreach ($messages as $item)
                     <tr>
-                        <td style="text-align: center;">{{ $item->teacher->name }}</td>
+                        <td style="text-align: center;">{{ $item->to }}</td>
                         <td style="text-align: center;">{{ $item->name }}</td>
                         <td style="text-align: center;">{{ $item->email }}</td>
                         <td style="text-align: center;">{{ $item->message }}</td>
@@ -62,7 +62,8 @@
             
                 @foreach ($messages->where("to", "=", auth()->user()->name) as $item)
                     <tr>
-                        <td style="text-align: center;">{{ $item->teacher->name }}</td>
+                        <td style="text-align: center;">{{ $item->to }}</td>
+                        {{-- <td style="text-align: center;">{{ $item->teacher->name }}</td> --}}
                         <td style="text-align: center;">{{ $item->name }}</td>
                         <td style="text-align: center;">{{ $item->email }}</td>
                         <td style="text-align: center;">{{ $item->message }}</td>

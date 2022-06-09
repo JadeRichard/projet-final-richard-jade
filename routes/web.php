@@ -13,6 +13,7 @@ use App\Http\Controllers\PanelController;
 use App\Http\Controllers\PictureController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\UserController;
@@ -45,6 +46,7 @@ Route::get('/', [HomeController::class, 'index'])->name('/');
 Route::post('/submitrequest', [PanelController::class, 'submitRequest'])->name('submitrequest');
 
 Route::post('/sendmessage/{id}', [TeacherController::class, 'sendMessage'])->name('sendmessage');
+Route::post('/contact/{id}', [MessageController::class, 'sendMessage'])->name('contactmessage');
 
 // ROUTE FOR MAP
 Route::get('/dashboard/map', [MapController::class, 'index'])->name('map');
@@ -96,10 +98,7 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-// Mail
-/* Route::get('/newsletter', [SubscriberController::class, 'subscriber']); */
-
-Route::get('/send-mail', function (HttpRequest $request) {
+/* Route::get('/send-mail', function (HttpRequest $request) {
     $email = $request->all()['email'];
         $subscriber = Subscriber::create([
             'email' => $email
@@ -110,7 +109,11 @@ Route::get('/send-mail', function (HttpRequest $request) {
 
     return redirect()->back();
 
-})->name('newsletter.subscribe');
+})->name('newsletter.subscribe'); */
+
+Route::get('/send-mail', [SubscriberController::class, 'subscriber'])->name('newsletter.subscribe');
+
+
 
 
 // ----- CRUD ----- //

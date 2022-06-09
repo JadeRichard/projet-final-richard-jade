@@ -77,7 +77,7 @@
 										<h4>Contact Us</h4>
 									</div>
 									<div class="message-content">
-										<form action="{{ route('sendmessage', $user->id )}}" method='post'>
+										<form action="{{ route('contactmessage', $user->id )}}" method='post'>
 											@csrf
 											@if (auth()->check())
 											<input type="text" id="name" name="name" placeholder="Full Name" value="{{ auth()->user()->name }}">
