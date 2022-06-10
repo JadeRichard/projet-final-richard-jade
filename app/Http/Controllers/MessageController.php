@@ -11,24 +11,26 @@ class MessageController extends Controller
     
     public function index()
     {
+        $this->authorize('is-teacher', Message::class);
         $messages = Message::all();
         return view('/back/messages/all', compact('messages'));
     }
 
     public function show(Message $message)
     {
+        $this->authorize('is-teacher', Message::class);
         return view('messages.show', compact('message'));
     }
 
     public function destroy(Message $message)
     {
+        $this->authorize('is-admin', Message::class);
         $message->delete();
         return redirect()->route('messages.index')->with('message', 'Message deleted.');
     }
 
     public function sendMessage(Request $request, $id)
     { 
-        
         $messages = new Message();
         $request->validate([
             'name' => 'required',

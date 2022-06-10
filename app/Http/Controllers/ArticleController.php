@@ -9,6 +9,7 @@ use App\Models\Tag;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Gate;
 
 class ArticleController extends Controller
 {
@@ -20,6 +21,7 @@ class ArticleController extends Controller
 
     public function create()
     {
+        Gate::authorize('create-redactor', Article::class);
         $articles = Article::all();
         $categories = Category::all();
         $tags = Tag::all();
@@ -61,6 +63,7 @@ class ArticleController extends Controller
 
     public function edit($id)
     {
+        Gate::authorize('is-redactor', Article::class);
         $articles = Article::find($id);
         $categories = Category::all();
         $tags = Tag::all();
@@ -106,7 +109,6 @@ class ArticleController extends Controller
 
     public function singlepost($id)
     {
-        /* dd($id); */
         $articles = Article::find($id);
         return view('/front/pages/single-post', compact('articles'));
     }
@@ -137,6 +139,7 @@ class ArticleController extends Controller
 
     public function destroy($id)
     {
+        Gate::authorize('is-redactor', Article::class);
         $articles = Article::find($id);
         $articles->categories()->detach();
         $articles->tags()->detach();

@@ -13,12 +13,14 @@ class EventController extends Controller
 {
     public function index()
     {
+        $this->authorize('is-admin', Event::class);
         $events = Event::all();
         return view('/back/events/all', compact('events'));
     }
 
     public function create()
     {
+        $this->authorize('is-admin', Event::class);
         $events = Event::all();
         return view('/back/events/create', compact('events'));
     }
@@ -46,17 +48,13 @@ class EventController extends Controller
         $events->picture = $request->file("picture")->hashName();
         $request->file('picture')->storePublicly('images/', 'public');
         $events->save();
-        /* $users = User::where('role', 'member')->get(); */
-        /* foreach ($users as $user) {
-            Mail::to($user->email)->send(new Newevent($events));
-            /* Mail::to($user->email)->send(new Event($events)); 
-        } */
         return redirect()->route('events.index')->with('message', 'Element event created');
     
     }
 
     public function edit($id)
     {
+        $this->authorize('is-admin', Event::class);
         $events = Event::find($id);
         return view('/back/events/edit', compact('events'));
     }
@@ -90,12 +88,14 @@ class EventController extends Controller
 
     public function show($id)
     {
+        $this->authorize('is-admin', Event::class);
         $events = Event::find($id);
         return view('/back/events/show', compact('events'));
     }
 
     public function destroy($id)
     {
+        $this->authorize('is-admin', Event::class);
         $events = Event::find($id);
         $events->delete();
         return redirect()->route('events.index')->with('message', 'Element event deleted');

@@ -7,18 +7,21 @@ use App\Models\Teacher;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
     public function index()
     {
+        Gate::authorize('is-admin', User::class);
         $users = User::all();
         return view('/back/users/all', compact('users'));
     }
 
     public function create()
     {
+        Gate::authorize('is-admin', User::class);
         $users = User::all();
         $roles = Role::all();
         return view('/back/users/create', compact('users', 'roles'));
@@ -77,6 +80,7 @@ class UserController extends Controller
 
     public function edit($id)
     {
+        Gate::authorize('is-admin', User::class);
         $users = User::find($id);
         $roles = Role::all();
         return view('/back/users/edit', compact('users', 'roles'));
@@ -114,12 +118,14 @@ class UserController extends Controller
 
     public function show($id)
     {
+        Gate::authorize('is-admin', User::class);
         $users = User::find($id);
         return view('/back/users/show', compact('users'));
     }
 
     public function destroy($id)
     {
+        Gate::authorize('is-admin', User::class);
         $users = User::find($id);
         $teachers = Teacher::where('name', '=', $users->name)->first();
 

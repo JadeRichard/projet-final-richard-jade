@@ -65,6 +65,7 @@ class RoleController extends Controller
 
     public function destroy($id)
     {
+        $this->authorize('is-admin', Role::class);
         $roles = Role::find($id);
         $roles->users()->detach();
         $roles->delete();

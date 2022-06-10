@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\User;
+use App\Models\Article;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 
@@ -27,19 +29,25 @@ class AuthServiceProvider extends ServiceProvider
 
         Gate::define('is-admin', function ($user) {
 
-            return $user->id == 1;
+            return $user->roles->first()->name == 'admin';
         
         });
 
         Gate::define('is-teacher', function ($user) {
 
-            return $user->role == 'teacher';
+            return $user->roles->first()->name == 'teacher' || $user->roles->first()->name == 'admin';
         
         });
 
-        Gate::define('is-redactor', function ($user) {
+        Gate::define('is-redactor', function (User $user) {
+            
+            return $user->roles->first()->name == 'redactor' || $user->roles->first()->name == 'admin';
+        
+        });
 
-            return $user->role == 'redactor';
+        Gate::define('create-redactor', function ($user) {
+
+            return $user->roles->first()->name == 'redactor' || $user->roles->first()->name == 'admin';
         
         });
         

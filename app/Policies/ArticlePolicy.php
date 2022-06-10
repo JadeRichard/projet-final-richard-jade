@@ -53,7 +53,7 @@ class ArticlePolicy
      */
     public function update(User $user, Article $article)
     {
-        return $user->id == $article->user_id || auth()->user()->id == 1;
+        return auth()->user()->id == $article->user_id || auth()->user()->id == 1;
     }
 
     /**

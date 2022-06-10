@@ -71,6 +71,7 @@ class CategoryController extends Controller
 
     public function destroy($id)
     {
+        $this->authorize('is-admin', Category::class);
         $categories = Category::find($id);
         $categories->articles()->detach();
         $categories->courses()->detach();

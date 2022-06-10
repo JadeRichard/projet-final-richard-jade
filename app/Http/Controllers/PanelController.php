@@ -13,12 +13,6 @@ class PanelController extends Controller
         return view('/back/panels/all', compact('panels'));
     }
 
-    public function create()
-    {
-        $panels = Panel::all();
-        return view('/back/panels/create', compact('panels'));
-    }
-
     public function store(Request $request)
     {
         $panels = new Panel();
@@ -67,6 +61,7 @@ class PanelController extends Controller
 
     public function edit($id)
     {
+        $this->authorize('is-teacher', Panel::class);
         $panels = Panel::find($id);
         return view('/back/panels/edit', compact('panels'));
     }
@@ -74,7 +69,6 @@ class PanelController extends Controller
     public function update(Request $request, $id)
     {
         $panels = Panel::find($id);
-        
         $panels->date = $request->date;
         $panels->time = $request->time;
         $panels->is_validated = $request->is_validated;
@@ -85,6 +79,7 @@ class PanelController extends Controller
 
     public function destroy($id)
     {
+        $this->authorize('is-admin', Panel::class);
         $panels = Panel::find($id);
         $panels->delete();
         return redirect()->route('panels.index')->with('message', 'Element panel deleted');
@@ -92,6 +87,7 @@ class PanelController extends Controller
 
     public function show($id)
     {
+        $this->authorize('is-teacher', Panel::class);
         $panels = Panel::find($id);
         return view('/back/panels/show', compact('panels'));
     }

@@ -69,6 +69,7 @@ class TagController extends Controller
 
     public function destroy($id)
     {
+        $this->authorize('is-admin', Tag::class);
         $tags = Tag::find($id);
         $tags->articles()->detach();
         $tags->delete();

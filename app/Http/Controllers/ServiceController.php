@@ -78,6 +78,7 @@ class ServiceController extends Controller
 
     public function destroy($id)
     {
+        $this->authorize('is-admin', Service::class);
         $services = Service::find($id);
         $servicesarray = Service::all();
         if (count($servicesarray) > 1) {

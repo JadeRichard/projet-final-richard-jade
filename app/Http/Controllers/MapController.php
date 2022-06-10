@@ -10,12 +10,14 @@ class MapController extends Controller
     
     public function index()
     {
+        $this->authorize('is-admin', Map::class);
         $maps = Map::all();
         return view('/back/maps/all', compact('maps'));
     }
 
     public function edit($id)
     {
+        $this->authorize('is-admin', Map::class);
         $maps = Map::find($id);
         return view('/back/maps/edit', compact('maps'));
     }

@@ -11,13 +11,14 @@ class CommentController extends Controller
 {
     public function index()
     {
-        
+        $this->authorize('is-admin', Comment::class);
         $comments = Comment::all();
         return view('/back/comments/all', compact('comments'));
     } 
 
     public function create()
     {
+        $this->authorize('is-admin', Comment::class);
         $comments = Comment::all();
         return view('/back/comments/create', compact('comments'));
     }
@@ -41,6 +42,7 @@ class CommentController extends Controller
 
      public function edit($id)
     {
+        $this->authorize('is-admin', Comment::class);
         $comments = Comment::find($id);
         return view('/back/comments/edit', compact('comments'));
     }
@@ -66,12 +68,14 @@ class CommentController extends Controller
 
     public function show($id)
     {
+        $this->authorize('is-admin', Comment::class);
         $comments = Comment::find($id);
         return view('/back/comments/show', compact('comments'));
     } 
 
     public function destroy($id)
     {
+        $this->authorize('is-admin', Comment::class);
         $comments = Comment::find($id);
         $comments->delete();
         return redirect()->route('comments.index')->with('message', 'Element comment deleted');

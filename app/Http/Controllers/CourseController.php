@@ -12,12 +12,14 @@ class CourseController extends Controller
 {
     public function index()
     {
+        $this->authorize('is-redactor', Course::class);
         $courses = Course::all();
         return view('/back/courses/all', compact('courses'));
     }
 
     public function create()
     {
+        $this->authorize('is-redactor', Course::class);
         $courses = Course::all();
         $categories = Category::all();
         return view('/back/courses/create', compact('courses', 'categories'));
@@ -61,6 +63,7 @@ class CourseController extends Controller
 
     public function edit($id)
     {
+        $this->authorize('is-redactor', Course::class);
         $courses = Course::find($id);
         $categories = Category::all();
         return view('/back/courses/edit', compact('courses', 'categories'));
@@ -103,6 +106,7 @@ class CourseController extends Controller
 
     public function show($id)
     {
+        $this->authorize('is-redactor', Course::class);
         $courses = Course::find($id);
         return view('/back/courses/show', compact('courses'));
     }
@@ -115,6 +119,7 @@ class CourseController extends Controller
 
     public function destroy($id)
     {
+        $this->authorize('is-admin', Course::class);
         $courses = Course::find($id);
         $courses->categories()->detach();
         $courses->delete();

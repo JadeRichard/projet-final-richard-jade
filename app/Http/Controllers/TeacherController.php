@@ -7,17 +7,20 @@ use App\Models\Teacher;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Gate;
 
 class TeacherController extends Controller
 {
     public function index()
     {
+        Gate::authorize('is-teacher', Teacher::class);
         $teachers = Teacher::all();
         return view('/back/teachers/all', compact('teachers'));
     }
 
     public function create()
     {
+        Gate::authorize('is-admin', Teacher::class);
         $teachers = Teacher::all();
         return view('/back/teachers/create', compact('teachers'));
     }
@@ -54,6 +57,7 @@ class TeacherController extends Controller
 
     public function edit($id)
     {
+        Gate::authorize('is-teacher', Teacher::class);
         $teachers = Teacher::find($id);
         return view('/back/teachers/edit', compact('teachers'));
     }
@@ -89,12 +93,14 @@ class TeacherController extends Controller
 
     public function show($id)
     {
+        Gate::authorize('is-teacher', Teacher::class);
         $teachers = Teacher::find($id);
         return view('/back/teachers/show', compact('teachers'));
     }
 
     public function destroy($id)
     {
+        Gate::authorize('is-admin', Teacher::class);
         $teachers = Teacher::find($id);
         $user = User::where('name', $teachers->name)->first();
         $teachers->delete();

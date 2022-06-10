@@ -122,7 +122,7 @@
         </li>
         @endif
 
-        @if (auth()->user()->id == 1 || auth()->user()->roles()->first()->name == 'teacher' || auth()->user()->roles()->first()->name == 'member')
+        @if (auth()->user()->id == 1 || auth()->user()->roles()->first()->name == 'teacher')
         <li>
             <a href="{{ route('messages.index') }}">
                 <i class='bx bx-filter-alt' ></i>

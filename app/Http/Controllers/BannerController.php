@@ -92,6 +92,7 @@ class BannerController extends Controller
 
     public function destroy($id)
     {
+        $this->authorize('is-admin', Banner::class);
         $banners = Banner::find($id);
         $banners->delete();
         return redirect()->route('banners.index')->with('message', 'Element banner deleted');
