@@ -43,14 +43,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('/');
 
-Route::post('/submitrequest', [PanelController::class, 'submitRequest'])->name('submitrequest');
 
+// MESSAGES
 Route::post('/sendmessage/{id}', [TeacherController::class, 'sendMessage'])->name('sendmessage');
 Route::post('/contact/{id}', [MessageController::class, 'sendMessage'])->name('contactmessage');
+Route::post('/submitrequest', [PanelController::class, 'submitRequest'])->name('submitrequest');
 
-// ROUTE FOR MAP
+//MAP
 Route::get('/dashboard/map', [MapController::class, 'index'])->name('map');
-//ROUTE FOR UPDATE MAP
 Route::post('/dashboard/map/{id}/edit', [MapController::class, 'edit'])->name('map.edit');
 Route::post('/dashboard/map/{id}/update', [MapController::class, 'update'])->name('map.update');
 
@@ -79,11 +79,6 @@ Route::get('/teachers', function () {
 Route::get('/teachers/{id}/singleteacher', [TeacherController::class, 'singleteacher'])->name('singleteacher');
 
 
-Route::get('/news', [ArticleController::class, 'newspage'])->name('news'); 
-Route::get('/news_search_ajax', [ArticleController::class, 'news_search_ajax'])->name('news_search_ajax'); 
-Route::post('/news/{id}/singlepost', [ArticleController::class, 'singlepost'])->name('singlepost');
-Route::post('/news/{id}', [ArticleController::class, 'singlepostcreate'])->name('singlepostcreate');
-
 
 
 Route::get('/contact', function () {
@@ -98,20 +93,13 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-/* Route::get('/send-mail', function (HttpRequest $request) {
-    $email = $request->all()['email'];
-        $subscriber = Subscriber::create([
-            'email' => $email
-        ]
-    ); 
-
-    Mail::to($email)->send(new Subscribe(''));
-
-    return redirect()->back();
-
-})->name('newsletter.subscribe'); */
 
 Route::get('/send-mail', [SubscriberController::class, 'subscriber'])->name('newsletter.subscribe');
+
+Route::get('/news', [ArticleController::class, 'newspage'])->name('news'); 
+Route::get('/news_search_ajax', [ArticleController::class, 'news_search_ajax'])->name('news_search_ajax'); 
+Route::get('/news/{id}/singlepost', [ArticleController::class, 'singlepost'])->name('singlepost');
+Route::post('/news/{id}', [ArticleController::class, 'singlepostcreate'])->name('singlepostcreate');
 
 
 

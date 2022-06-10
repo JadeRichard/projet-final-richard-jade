@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('date');
             $table->string('picture');
             $table->boolean('is_published')->default(true)->nullable();
-            $table->foreignId('user_id')->nullable();
+            $table->foreignId('user_id')->nullable()->onDelete('cascade');
             $table->timestamps();
         });
     }

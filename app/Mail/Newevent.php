@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class Subscribe extends Mailable
+class Newevent extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -31,9 +31,7 @@ class Subscribe extends Mailable
     public function build()
     {
         return $this->from('educa@newsletter.com', 'Newsletter')
-                ->subject('Thank you for subscribing to our newsletter !')
-                ->markdown('emails.subscribers');
+                ->subject('New event !')
+                ->markdown('emails.newevents');
     }
-
-    
 }

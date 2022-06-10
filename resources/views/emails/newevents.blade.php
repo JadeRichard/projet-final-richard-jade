@@ -17,9 +17,7 @@ Thanks,<br>
     <div style="width: 80%; height: 50vh; background-color: white; padding: 30px;">
         Hello,<br><br>
 
-        Thank you for your subscription to our Newsletter with your email address, <span style="color:rgb(216, 136, 111)">{{ $email->email }}</span>!<br><br>
-
-        You will receive updates on our latest courses, books, and events.<br><br>
+        A new event has been created ! It's called and is set to begin on the <br><br>
 
         Thanks, Educa. <br><br>
     </div>

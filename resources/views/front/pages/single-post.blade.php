@@ -80,6 +80,7 @@
                                         <form action='{{ route('singlepostcreate', $articles->id) }}' method='post'
                                             enctype="multipart/form-data">
                                             @csrf
+                                            @method('POST')
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <input type="text" id="name" name="name" placeholder="Full Name"

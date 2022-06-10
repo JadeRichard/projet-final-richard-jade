@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\Subscribe;
 use App\Models\Subscriber;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -21,7 +22,7 @@ class SubscriberController extends Controller
 
         Mail::to($email)->send(new Subscribe($subscriber));
 
-        return redirect()->back()->with('message', 'You have been subscribed successfully');
+        return redirect()->route('/');
 
     }
 

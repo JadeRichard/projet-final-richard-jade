@@ -96,7 +96,9 @@ class TeacherController extends Controller
     public function destroy($id)
     {
         $teachers = Teacher::find($id);
+        $user = User::where('name', $teachers->name)->first();
         $teachers->delete();
+        $user->delete();
         return redirect()->route('teachers.index')->with('message', 'Element teacher deleted');
     }
 

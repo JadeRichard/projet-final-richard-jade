@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Newevent;
 use App\Models\Event;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Mail;
 
 class EventController extends Controller
 {
@@ -43,6 +46,11 @@ class EventController extends Controller
         $events->picture = $request->file("picture")->hashName();
         $request->file('picture')->storePublicly('images/', 'public');
         $events->save();
+        /* $users = User::where('role', 'member')->get(); */
+        /* foreach ($users as $user) {
+            Mail::to($user->email)->send(new Newevent($events));
+            /* Mail::to($user->email)->send(new Event($events)); 
+        } */
         return redirect()->route('events.index')->with('message', 'Element event created');
     
     }

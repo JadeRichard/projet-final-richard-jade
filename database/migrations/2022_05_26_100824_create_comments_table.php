@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id()->onDelete('cascade');
-            $table->unsignedBigInteger('user_id')->nullable();
-            $table->unsignedBigInteger('article_id');
+            $table->unsignedBigInteger('user_id')->nullable()->onDelete('cascade');
+            $table->unsignedBigInteger('article_id')->onDelete('cascade');
             $table->string('picture')->nullable();
             $table->text('name');
             $table->text('email');

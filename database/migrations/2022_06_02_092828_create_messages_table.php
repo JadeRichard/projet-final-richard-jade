@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('email');
             $table->text('message');
             $table->string('to')->nullable();
-            $table->foreignId('teacher_id')->nullable();
-            $table->foreignId('user_id')->nullable();
+            $table->foreignId('teacher_id')->nullable()->onDelete('cascade');
+            $table->foreignId('user_id')->nullable()->onDelete('cascade');
             $table->timestamps();
         });
     }

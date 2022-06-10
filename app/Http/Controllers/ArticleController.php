@@ -106,6 +106,7 @@ class ArticleController extends Controller
 
     public function singlepost($id)
     {
+        /* dd($id); */
         $articles = Article::find($id);
         return view('/front/pages/single-post', compact('articles'));
     }

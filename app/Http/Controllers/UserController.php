@@ -125,7 +125,7 @@ class UserController extends Controller
 
         if ($users->id == 1){
             return redirect()->route('users.index')->with('message', 'Cannot delete the admin');
-        } else if ($users->roles == 'teacher') {
+        } else if ($users->roles->first()->name == 'teacher') {
             $users->roles()->detach();
             $teachers->delete();
             $users->delete();

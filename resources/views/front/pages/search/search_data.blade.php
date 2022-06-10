@@ -1,6 +1,7 @@
 @foreach ($articles as $news)
     <div class="classic-item" id="result">
-        <a href={{ route('singlepost', $news->id) }}><img src={{ asset('images/' . $news->picture) }} alt=""></a>
+        <a href={{ route('singlepost', $news->id) }}>
+            <img src={{ asset('images/' . $news->picture) }} alt=""></a>
         <ul>
             <li>Posted: <em>{{ $news->date }}</em></li>
             <li>By: <em>{{ $news->user->name }}</em></li>

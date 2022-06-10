@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Mail\Subscribe;
 use App\Models\Subscriber;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
@@ -10,6 +11,7 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Rules;
 
 class RegisteredUserController extends Controller
@@ -49,10 +51,16 @@ class RegisteredUserController extends Controller
         ]);
 
         $user->roles()->attach(4);
-
+        
         event(new Registered($user));
 
         Auth::login($user);
+
+        $email = $request->all()['email'];
+        $subscriber = Subscriber::create([
+            'email' => $email
+        ]);
+        Mail::to($email)->send(new Subscribe($subscriber));
 
         return redirect(RouteServiceProvider::HOME);
     }
