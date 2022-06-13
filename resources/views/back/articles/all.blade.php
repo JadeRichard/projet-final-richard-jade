@@ -68,7 +68,11 @@
                             <td style="text-align: center;">{{ $item->user->name }}</td>
 
                             @if (auth()->user()->id == 1)
-                                <td style="text-align: center;">{{ $item->is_published }}</td>
+                                @if ($item->is_published == true)
+                                <td style="text-align: center;">Yes</td>
+                            @else
+                                <td style="text-align: center;">No</td>
+                            @endif
                             @endif
 
                             <td style="text-align: center;">
@@ -142,7 +146,11 @@
                             <td style="text-align: center;">{{ $item->user->name }}</td>
 
                             @if (auth()->user()->id == 1)
-                                <td style="text-align: center;">{{ $item->is_published }}</td>
+                                @if ($item->is_published == true)
+                                <td style="text-align: center;">Yes</td>
+                            @else
+                                <td style="text-align: center;">No</td>
+                            @endif
                             
 
                             <td style="text-align: center;">

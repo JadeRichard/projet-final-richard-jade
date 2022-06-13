@@ -55,8 +55,8 @@
                                     </select>
                                     </div>
                                     <div class="accent-button">
-                                        <button type="submit">{{-- <a href="#"> --}}Submit
-                                            Request{{-- </a> --}}</button>
+                                        <button type="submit" style="background-color: #EFBE37; color: white; text-transform: uppercase; padding: 10px; border: none; margin-top: 15px" >Submit
+                                            Request</button>
                                     </div>
                                 </form>
                             </div>

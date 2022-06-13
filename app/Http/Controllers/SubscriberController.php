@@ -15,6 +15,13 @@ class SubscriberController extends Controller
 
     public function subscriber(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'email' => 'required',
+       ]);
+   
+       if ($validator->fails()) {
+           return redirect()->back();
+       }
         $email = $request->all()['email'];
         $subscriber = Subscriber::create([
             'email' => $email,

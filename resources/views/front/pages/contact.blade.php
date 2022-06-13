@@ -88,24 +88,10 @@
 											@endif
 											<textarea id="message" class="message" name="message" placeholder="Write message"></textarea>
 											<div class="accent-button">
-												<button type="submit">Send</button>
+												<button type="submit" style="background-color: #EFBE37; color: white; text-transform: uppercase; padding: 10px; border: none; " >Send</button>
 											</div>
 										</form>
 
-										{{-- <div class="row">
-											<div class="col-md-6">
-												<input type="text" id="name" name="s" placeholder="Full Name" value="">
-											</div>
-											<div class="col-md-6">
-												<input type="text" id="address" name="s" placeholder="E-mail Address" value="">
-											</div>
-											<div class="col-md-12">
-												<textarea id="message" class="message" name="message" placeholder="Write message"></textarea>
-											</div>
-										</div>
-										<div class="accent-button">
-											<a href="#">Submit Message</a>
-										</div> --}}
 									</div>
 								</div>
 							</div>

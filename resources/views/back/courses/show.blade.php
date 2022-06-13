@@ -10,6 +10,9 @@
                     <th scope='col'style="text-align: center;">Title</th>
                     <th scope='col'style="text-align: center;">Description</th>
                     <th scope='col'style="text-align: center;">Picture</th>
+                    <th scope='col'style="text-align: center;">Picture 2</th>
+                    <th scope='col'style="text-align: center;">Picture 3</th>
+                    <th scope='col'style="text-align: center;">Picture 4</th>
                     <th scope='col'style="text-align: center;">Date</th>
                     <th scope='col'style="text-align: center;">Duration</th>
                     <th scope='col'style="text-align: center;">Price</th>
@@ -25,6 +28,9 @@
                     <td style="text-align: center;">{{ $courses->title }}</td>
                     <td style="text-align: center;">{{ $courses->description }}</td>
                     <td style="text-align: center;"><img src='{{ asset("images/". $courses->picture) }}' width='100px' height='100px' alt='' class='img-fluid'></td>
+                    <td style="text-align: center;"><img src='{{ asset("images/". $courses->picture_2) }}' width='100px' height='100px' alt='' class='img-fluid'></td>
+                    <td style="text-align: center;"><img src='{{ asset("images/". $courses->picture_3) }}' width='100px' height='100px' alt='' class='img-fluid'></td>
+                    <td style="text-align: center;"><img src='{{ asset("images/". $courses->picture_4) }}' width='100px' height='100px' alt='' class='img-fluid'></td>
                     <td style="text-align: center;">{{ $courses->date }}</td>
                     <td style="text-align: center;">{{ $courses->duration }}</td>
                     <td style="text-align: center;">{{ $courses->price }}</td>

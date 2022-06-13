@@ -19,6 +19,9 @@
                     <th scope='col'style="text-align: center;">Title</th>
                     <th scope='col'style="text-align: center;">Description</th>
                     <th scope='col'style="text-align: center;">Picture</th>
+                    <th scope='col'style="text-align: center;">Picture 2</th>
+                    <th scope='col'style="text-align: center;">Picture 3</th>
+                    <th scope='col'style="text-align: center;">Picture 4</th>
                     <th scope='col'style="text-align: center;">Date</th>
                     <th scope='col'style="text-align: center;">Duration</th>
                     <th scope='col'style="text-align: center;">Price</th>
@@ -41,6 +44,9 @@
                         <td style="text-align: center;"> <input type="text" name="title" value="{{ $courses->title }}"></td>
                         <td style="text-align: center;"> <input type="text" name="description" value="{{ $courses->description }}"></td>
                         <td style="text-align: center;"> <input type="file" name="picture" value="{{ $courses->picture }}"></td>
+                        <td style="text-align: center;"> <input type="file" name="picture_2" value="{{ $courses->picture_2 }}"></td>
+                        <td style="text-align: center;"> <input type="file" name="picture_3" value="{{ $courses->picture_3 }}"></td>
+                        <td style="text-align: center;"> <input type="file" name="picture_4" value="{{ $courses->picture_4 }}"></td>
                         <td style="text-align: center;"> <input type="text" name="date" value="{{ $courses->date }}"></td>
                         <td style="text-align: center;"> <input type="text" name="duration" value="{{ $courses->duration }}"></td>
                         <td style="text-align: center;"> <input type="number" name="price" value="{{ $courses->price }}"></td>

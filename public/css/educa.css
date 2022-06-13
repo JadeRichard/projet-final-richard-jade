@@ -165,7 +165,7 @@ p {
 .site-header .header-info ul li:last-child {
   border-left: none;
 }
-.site-header .header-info ul li:last-child a {
+.site-header .header-info ul li a {
   background-color: #a12c2f;
   padding: 15px 20px;
   font-family: 'Montserrat', sans-serif;

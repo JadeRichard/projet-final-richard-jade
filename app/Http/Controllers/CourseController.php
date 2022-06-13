@@ -52,8 +52,26 @@ class CourseController extends Controller
         if (File::exists($destination)) {
             File::delete($destination);
         }
+        $destination_2 = "images/" . $courses->picture_2;
+        if (File::exists($destination_2)) {
+            File::delete($destination_2);
+        }
+        $destination_3 = "images/" . $courses->picture_3;
+        if (File::exists($destination_3)) {
+            File::delete($destination_3);
+        }
+        $destination_4 = "images/" . $courses->picture_4;
+        if (File::exists($destination_4)) {
+            File::delete($destination_4);
+        }
         $courses->picture = $request->file("picture")->hashName();
         $request->file('picture')->storePublicly('images/', 'public');
+        $courses->picture_2 = $request->file("picture_2")->hashName();
+        $request->file('picture_2')->storePublicly('images/', 'public');
+        $courses->picture_3 = $request->file("picture_3")->hashName();
+        $request->file('picture_3')->storePublicly('images/', 'public');
+        $courses->picture_4 = $request->file("picture_4")->hashName();
+        $request->file('picture_4')->storePublicly('images/', 'public');
         $courses->save();
 
         $courses->categories()->attach($request->categories, ['course_id' => $courses->id]);
@@ -95,8 +113,26 @@ class CourseController extends Controller
         if (File::exists($destination)) {
             File::delete($destination);
         }
+        $destination_2 = "images/" . $courses->picture_2;
+        if (File::exists($destination_2)) {
+            File::delete($destination_2);
+        }
+        $destination_3 = "images/" . $courses->picture_3;
+        if (File::exists($destination_3)) {
+            File::delete($destination_3);
+        }
+        $destination_4 = "images/" . $courses->picture_4;
+        if (File::exists($destination_4)) {
+            File::delete($destination_4);
+        }
         $courses->picture = $request->file("picture")->hashName();
         $request->file('picture')->storePublicly('images/', 'public');
+        $courses->picture_2 = $request->file("picture_2")->hashName();
+        $request->file('picture_2')->storePublicly('images/', 'public');
+        $courses->picture_3 = $request->file("picture_3")->hashName();
+        $request->file('picture_3')->storePublicly('images/', 'public');
+        $courses->picture_4 = $request->file("picture_4")->hashName();
+        $request->file('picture_4')->storePublicly('images/', 'public');
         $courses->save();
 
         $courses->categories()->attach($request->categories, ['course_id' => $courses->id]);

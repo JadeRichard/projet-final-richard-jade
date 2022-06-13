@@ -32,12 +32,14 @@ class DatabaseSeeder extends Seeder
             TagSeeder::class,
             CommentSeeder::class,
             MapSeeder::class,
+            ArticleCategorySeeder::class,
+            ArticleTagSeeder::class,
+            CategoryCourseSeeder::class,
         ]);
 
         // call the ArticleCategoryFactory
-        ArticleCategory::factory(20)->create();
-        ArticleTag::factory(20)->create();
-        CategoryCourse::factory(25)->create();
+        /* ArticleCategory::factory(20)->create();
+        ArticleTag::factory(20)->create(); */
         
 
     }

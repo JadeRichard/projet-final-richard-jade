@@ -19,6 +19,9 @@
                     <th scope='col' style="text-align: center;">Title</th>
                     <th scope='col' style="text-align: center;">Description</th>
                     <th scope='col' style="text-align: center;">Picture</th>
+                    <th scope='col' style="text-align: center;">Picture 2</th>
+                    <th scope='col' style="text-align: center;">Picture 3</th>
+                    <th scope='col' style="text-align: center;">Picture 4</th>
                     <th scope='col' style="text-align: center;">Date</th>
                     <th scope='col' style="text-align: center;">Duration</th>
                     <th scope='col' style="text-align: center;">Price</th>
@@ -42,6 +45,9 @@
                     <td style="text-align: center;"> <input type="text" name="description"
                             value="{{ old('description') }}"></td>
                     <td style="text-align: center;"> <input type="file" name="picture" value=""></td>
+                    <td style="text-align: center;"> <input type="file" name="picture_2" value=""></td>
+                    <td style="text-align: center;"> <input type="file" name="picture_3" value=""></td>
+                    <td style="text-align: center;"> <input type="file" name="picture_4" value=""></td>
                     <td style="text-align: center;"> <input type="text" name="date" value="{{ old('date') }}"></td>
                     <td style="text-align: center;"> <input type="text" name="duration" value="{{ old('duration') }}">
                     </td>
