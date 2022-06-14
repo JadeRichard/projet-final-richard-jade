@@ -2266,12 +2266,17 @@ section.gallery-four .item .thumb-holder:hover .hover-content {
 .single-course .course-item .courses-slider .flex-control-thumbs {
   text-align: center;
 }
+
 .single-course .course-item .courses-slider .flex-control-thumbs li {
   width: 162px;
   margin: 30px 5px;
   float: none;
   display: inline-block;
   cursor: pointer;
+}
+
+.single-course .course-item .courses-slider .flex-control-thumbs li img{
+  width: 162px;
 }
 @media (max-width: 991px) {
   .single-course .course-item .courses-slider .flex-control-thumbs li {

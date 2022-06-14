@@ -76,6 +76,19 @@
                                     <label style="padding-left: 15px" for='checkboxis_published'>No</label>
                                 </div>
                             </td>
+                            <td style="text-align: center;">
+                                <div class='form-check'>
+                                    <input type='checkbox' id='checkboxis_popular' class='form-check-input'
+                                        name='is_popular' value='1'>
+                                    <label style="padding-left: 15px" for='checkboxis_popular'>Yes</label>
+                                </div>
+
+                                <div class='form-check'>
+                                    <input type='checkbox' id='checkboxis_popular' class='form-check-input'
+                                        name='is_popular' value='0'>
+                                    <label style="padding-left: 15px" for='checkboxis_popular'>No</label>
+                                </div>
+                            </td>
                         @endif
 
                         <td style="text-align: center;"><button class="btn btncus2" type='submit'

@@ -160,11 +160,17 @@ class ArticleController extends Controller
 
     }
 
-    public function newspage()
+    public function newspage(Request $request)
     {
         $articles = Article::paginate(4);
         $articlescount = Article::all();
-        return view('front.pages.news', compact('articles', 'articlescount'));
+        $categories = Category::all();
+        $tags = Tag::all();
+
+        
+
+        return view('front.pages.news', compact('articles', 'articlescount', 'categories', 'tags'));
     }
+
 
 }

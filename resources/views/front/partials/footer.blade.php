@@ -55,7 +55,7 @@
 
                         <input type="text" class="email" name="email" placeholder="Email Address..." value="">
                         <div class="accent-button">
-                            <button type="submit">Subscribe</button>
+                            <button type="submit" style="background-color: #EFBE37; color: white; text-transform: uppercase; padding: 10px; border: none; margin-top: 15px" >Subscribe</button>
                         </div>
                     </form>
                 </div>

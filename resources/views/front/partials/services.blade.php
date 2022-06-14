@@ -83,32 +83,7 @@
                                 @endif
                             </div>
                         @endif
-
-                        {{-- <div class="search-form">
-                            <input type="text" id="name" name="s" placeholder="Full Name" value="">
-                            <input type="text" id="address" name="s" placeholder="E-mail Address" value="">
-                            <div class="select">
-                                <select name="mark" id="campus">
-                                    <option value="-1">Campus of Interests</option>
-                                      <option>Nearby</option>
-                                      <option>High Classes</option>
-                                      <option>Short Time</option>
-                                      <option>Long Time</option>
-                                </select>
-                            </div>
-                            <div class="select">
-                                <select name="mark" id="program">
-                                    <option value="-1">Program of Interests</option>
-                                      <option>Wroking Process</option>
-                                      <option>Archivements</option>
-                                      <option>Social</option>
-                                      <option>Profits</option>
-                                </select>
-                            </div>
-                            <div class="accent-button">
-                                <a href="#">Submit Request</a>
-                            </div>
-                        </div> --}}
+                        
                     </div>
                 </div>
             </div>

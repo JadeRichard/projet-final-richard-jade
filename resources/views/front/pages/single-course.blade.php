@@ -22,7 +22,7 @@
 									<ul>
 										<li class="active"><a href={{ route("/") }}>Home</a></li>
 										<li><i class="fa fa-angle-right"></i></li>
-										<li><a href="courses-grid.html">Single Course</a></li>
+										<li><a href="courses-grid.html">{{ $courses->title }}</a></li>
 									</ul>
 								</div>
 							</div>	
@@ -41,8 +41,8 @@
 												<div class="up-content">
 													<a href="single-course.html"><h4>{{ $courses->title }}</h4></a>
 													<p>Plaid you probably haven't heard of them fashion axe meditation</p>
-													<img src="{{ asset('images/' . $courses->picture) }}" alt="">
-													<h6>Ernest Byrd</h6>
+													<img src="{{ asset('images/' . $courses->user->picture) }}" alt="" style="width: 64px !important;" > 
+													<h6>{{ $courses->user->name }}</h6>
 													<div class="price-red">
 														<span>Free</span>
 														<div id="base"></div>
@@ -50,17 +50,17 @@
 												</div>
 												<div class="courses-slider">
 													<ul class="slides">
-													    <li data-thumb={{ asset("images/courses/courses-icon-2.png") }}>
+													    <li data-thumb={{ asset('images/' . $courses->picture) }} height="100px">
 													      <img src="{{ asset('images/' . $courses->picture) }}" alt="" />
 													    </li>
-													    <li data-thumb={{ asset("images/courses/courses-icon-2.png") }}>
-													      <img src={{ asset("images/courses/courses-1.png") }} alt="" />
+													    <li data-thumb={{ asset('images/' . $courses->picture_2) }} height="100px">
+													      <img src={{ asset('images/' . $courses->picture_2) }} alt="" />
 													    </li>
-													    <li data-thumb={{ asset("images/courses/courses-icon-2.png") }}>
-													      <img src={{ asset("images/courses/courses-1.png") }} alt="" />
+													    <li data-thumb={{ asset('images/' . $courses->picture_3) }} height="100px">
+													      <img src={{ asset('images/' . $courses->picture_3) }} alt="" />
 													    </li>
-													    <li data-thumb={{ asset("images/courses/courses-icon-2.png") }}>
-													      <img src={{ asset("images/courses/courses-1.png") }} alt="" />
+													    <li data-thumb={{ asset('images/' . $courses->picture_4) }}>
+													      <img src={{ asset('images/' . $courses->picture_4) }} alt="" />
 													    </li>
 													</ul>
 												</div>

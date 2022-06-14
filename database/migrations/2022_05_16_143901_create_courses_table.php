@@ -26,8 +26,9 @@ return new class extends Migration
             $table->float('price');
             $table->string('study_level');
             $table->string('discipline');
-            $table->boolean('popular')->default(false)->nullable();
+            $table->boolean('is_popular')->default(false)->nullable();
             $table->boolean('is_published')->default(true)->nullable();
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
         });
     }

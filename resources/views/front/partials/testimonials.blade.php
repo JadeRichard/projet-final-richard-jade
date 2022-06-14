@@ -35,23 +35,23 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="news-item">
-                            <a href="single-post.html"><img src="{{ asset("images/" . $lastarticles[0]->picture) }}" style="height: 130px;" alt=""></a>
+                            <a href="{{ route('singlepost', $lastarticles[0]->id ) }}"><img src="{{ asset("images/" . $lastarticles[0]->picture) }}" style="height: 130px;" alt=""></a>
                             <ul>
                                 <li>{{ $lastarticles[0]->date }}</li>
                                 <li>By {{ $lastarticles[0]->user->name }}</li>
-                                <li>2 Comments</li>
+                                <li>{{ count($lastarticles[0]->comments) }} comment.s</li>
                             </ul>
-                            <a href="single-post.html"><h4>{{ $lastarticles[0]->title }}</h4></a>
+                            <a href="{{ route('singlepost', $lastarticles[0]->id ) }}"><h4>{{ $lastarticles[0]->title }}</h4></a>
                             <p>{{ $lastarticles[0]->description_1 }}</p>
                         </div>
                         <div class="news-item">
-                            <a href="single-post.html"><img src="{{ asset("images/" . $lastarticles[1]->picture) }}" style="height: 130px;" alt=""></a>
+                            <a href="{{ route('singlepost', $lastarticles[1]->id ) }}"><img src="{{ asset("images/" . $lastarticles[1]->picture) }}" style="height: 130px;" alt=""></a>
                             <ul>
                                 <li>{{ $lastarticles[1]->date }}</li>
                                 <li>By {{ $lastarticles[1]->user->name }}</li>
-                                <li>2 Comments</li>
+                                <li>{{ count($lastarticles[1]->comments) }} comment.s</li>
                             </ul>
-                            <a href="single-post.html"><h4>{{ $lastarticles[1]->title }}</h4></a>
+                            <a href="{{ route('singlepost', $lastarticles[1]->id ) }}"><h4>{{ $lastarticles[1]->title }}</h4></a>
                             <p>{{ $lastarticles[1]->description_1 }}</p>
                         </div>
                     </div>

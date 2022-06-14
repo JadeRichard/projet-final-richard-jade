@@ -15,13 +15,6 @@ class SubscriberController extends Controller
 
     public function subscriber(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'email' => 'required',
-       ]);
-   
-       if ($validator->fails()) {
-           return redirect()->back();
-       }
         $email = $request->all()['email'];
         $subscriber = Subscriber::create([
             'email' => $email,
@@ -33,26 +26,24 @@ class SubscriberController extends Controller
 
     }
 
-   /*  public function subscriber(Request $request) 
-    {   
-    $validator = Validator::make($request->all(), [
-         'email' => 'required',
-    ]);
+   /*  $email = Validator::make($request->all(), [
+            'email' => 'required|email|unique:subscribers',
+        ]);
+        
+        if ($email->fails()) 
+        {
+            return redirect()->back();
+        } 
+        else 
+        {
+            $subscriber = Subscriber::create([
+                'email' => $email,
+            ]);
+    
+            Mail::to($email)->send(new Subscribe($subscriber));
+        }
+        
 
-    if ($validator->fails()) {
-        return new JsonResponse(['success' => false, 'message' => $validator->errors()], 422);
-    }  
-
-    $email = $request->all()['email'];
-        $subscriber = Subscriber::create([
-            'email' => $email
-        ]
-    ); 
-
-    if ($subscriber) {
-        Mail::to($email)->send(new Subscribe($email));
-        return redirect()->back();
-    }
-    } */
+        return redirect()->route('/');  */
 }
                     

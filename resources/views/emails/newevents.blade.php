@@ -17,7 +17,7 @@ Thanks,<br>
     <div style="width: 80%; height: 50vh; background-color: white; padding: 30px;">
         Hello,<br><br>
 
-        A new event has been created ! It's called and is set to begin on the <br><br>
+        A new event has been created ! <br><br>
 
         Thanks, Educa. <br><br>
     </div>

@@ -84,8 +84,8 @@
                                         <a href={{ route('singlecourse', $course->id) }}><img
                                                 src={{ asset('images/' . $course->picture) }} alt=""></a>
                                         <div class="down-content">
-                                            <img src={{ asset('images/courses/courses-icon.png') }} alt="">
-                                            <h6>Ernest Byrd</h6>
+                                            <img src={{ asset('images/' . $course->user->picture) }} style="width: 64px !important; " alt="">
+                                            <h6>{{ $course->user->name }}</h6>
                                             @if ($course->price == 0)
                                                 <div class="price-yellow">
                                                     <span>Free</span>
@@ -118,8 +118,8 @@
                                         <a href={{ route('singlecourse', $course->id) }}><img
                                                 src={{ asset('images/' . $course->picture) }} alt=""></a>
                                         <div class="down-content">
-                                            <img src={{ asset('images/courses/courses-icon.png') }} alt="">
-                                            <h6>Ernest Byrd</h6>
+                                            <img src={{ asset('images/' . $course->user->picture) }} style="width: 64px !important; " alt="">
+                                            <h6>{{ $course->user->name }}</h6>
                                             @if ($course->price == 0)
                                                 <div class="price-yellow">
                                                     <span>Free</span>
@@ -151,8 +151,8 @@
                                         <a href={{ route('singlecourse', $course->id) }}><img
                                                 src={{ asset('images/' . $course->picture) }} alt=""></a>
                                         <div class="down-content">
-                                            <img src={{ asset('images/courses/courses-icon.png') }} alt="">
-                                            <h6>Ernest Byrd</h6>
+                                            <img src={{ asset('images/' . $course->user->picture) }} style="width: 64px !important; " alt="">
+                                            <h6>{{ $course->user->name }}</h6>
                                             @if ($course->price == 0)
                                                 <div class="price-yellow">
                                                     <span>Free</span>

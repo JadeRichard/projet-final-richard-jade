@@ -57,7 +57,7 @@
                                                     @endif
                                                     <textarea id="message" class="message" name="message" placeholder="Write message"></textarea>
                                                     <div class="accent-button">
-                                                        <button type="submit">Send</button>
+                                                        <button type="submit" style="background-color: #EFBE37; color: white; text-transform: uppercase; padding: 15px 25px 15px 25px; border: none;">Send</button>
                                                     </div>
                                                 </form>
                                             </div>

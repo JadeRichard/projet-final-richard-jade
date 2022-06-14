@@ -43,6 +43,7 @@
                     <th scope='col' style="text-align: center;">Categories</th>
                     @if (auth()->user()->id == 1)
                         <th scope='col' style="text-align: center;">Is published</th>
+                        <th scope='col' style="text-align: center;">Is popular</th>
                     @endif
                     <th scope='col' style="text-align: center;">Action</th>
                 </tr>
@@ -79,6 +80,11 @@
                         </td>
                         @if (auth()->user()->id == 1)
                             @if ($item->is_published == true)
+                                <td style="text-align: center;">Yes</td>
+                            @else
+                                <td style="text-align: center;">No</td>
+                            @endif
+                            @if ($item->is_popular == true)
                                 <td style="text-align: center;">Yes</td>
                             @else
                                 <td style="text-align: center;">No</td>
@@ -123,6 +129,7 @@
                     <th scope='col' style="text-align: center;">Categories</th>
                     @if (auth()->user()->id == 1)
                         <th scope='col' style="text-align: center;">Is published</th>
+                        <th scope='col' style="text-align: center;">Is popular</th>
                     @endif
                     <th scope='col' style="text-align: center;">Action</th>
                 </tr>
@@ -153,6 +160,11 @@
                         </td>
                         @if (auth()->user()->id == 1)
                             @if ($item->is_published == true)
+                                <td style="text-align: center;">Yes</td>
+                            @else
+                                <td style="text-align: center;">No</td>
+                            @endif
+                            @if ($item->is_popular == true)
                                 <td style="text-align: center;">Yes</td>
                             @else
                                 <td style="text-align: center;">No</td>

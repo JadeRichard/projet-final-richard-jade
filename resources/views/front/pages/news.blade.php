@@ -43,13 +43,14 @@
                             </div>
 
                             <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-							
+
                             <script type="text/javascript">
                                 $(document).ready(function() {
-								var BASE_URL = `{{ url('/') }}`;
+                                    var BASE_URL = `{{ url('/') }}`;
+
                                     function fetch_data(search = "") {
                                         $.ajax({
-											url : BASE_URL + "/news_search_ajax?search=" + search,
+                                            url: BASE_URL + "/news_search_ajax?search=" + search,
                                             success: function(data) {
                                                 $('.classic-posts').html(data);
                                             }
@@ -65,22 +66,91 @@
                                 });
                             </script>
 
+                            <script type="text/javascript"> 
+                            
+                                function outSearch() {
+                                    var search = document.getElementsByClassName('classic-item first_filter');
+                                    console.log(search);
+                                    // put it on display none
+                                    for (var i = 0; i < search.length; i++) {
+                                        search[i].style.display = "none";
+                                    }
+                                }
+
+                                function filterCat() {
+
+                                    // get e target
+                                    var target = event.target.innerHTML;
+                                    var doc = document.getElementById('category_' + target);
+
+                                    // get all divs
+                                    var divs = document.querySelectorAll('.categoryfilter');
+                                    
+
+                                    // loop through all divs
+                                    divs.forEach(element => {
+                                        if (element.id == 'category_' + target) {
+                                            element.style.display = 'block';
+                                        } else {
+                                            element.style.display = 'none';
+                                        }
+                                        console.log(element);
+                                        
+                                    });
+
+
+                                    console.log(doc);
+                                    console.log(target);
+                                    outSearch();
+                                    //
+                                }
+
+                                function filterTag() {
+
+                                    // get e target
+                                    var target = event.target.innerHTML;
+                                    var doc = document.getElementById('tag_' + target);
+
+                                    // get all divs
+                                    var divs = document.querySelectorAll('.tagfilter');
+                                    
+
+                                    // loop through all divs
+                                    divs.forEach(element => {
+                                        if (element.id == 'tag_' + target) {
+                                            element.style.display = 'block';
+                                        } else {
+                                            element.style.display = 'none';
+                                        }
+                                        console.log(element);
+                                        
+                                    });
+
+                                    console.log(doc);
+                                    console.log(target);
+                                    outSearch();
+
+                                    //
+                                }
+
+
+                                
+                            </script>
+
                             <div class="col-md-4">
                                 <div class="side-bar">
                                     <div class="search-box">
-                                            <input type="text" name="s" placeholder="Search..." id="search_i">
+                                        <input type="text" name="s" placeholder="Search..." id="search_i">
                                     </div>
                                     <div class="categories">
                                         <div class="widget-heading">
                                             <h4>Categories</h4>
                                         </div>
-                                        <ul>
-                                            <li><a href="#"><i class="fa fa-angle-right"></i>Design</a></li>
-                                            <li><a href="#"><i class="fa fa-angle-right"></i>International</a></li>
-                                            <li><a href="#"><i class="fa fa-angle-right"></i>Learning</a></li>
-                                            <li><a href="#"><i class="fa fa-angle-right"></i>Read</a></li>
-                                            <li><a href="#"><i class="fa fa-angle-right"></i>Education</a></li>
-                                            <li><a href="#"><i class="fa fa-angle-right"></i>Finance</a></li>
+                                        <ul id="category_ul">
+                                            @foreach ($categories as $category)
+                                                <li><i class="fa fa-angle-right"></i><a href="#" onclick="filterCat() "
+                                                        id="category {{ $category->id }}">{{ $category->name }}</a></li>
+                                            @endforeach
                                         </ul>
                                     </div>
                                     <div class="tags">
@@ -88,15 +158,9 @@
                                             <h4>Tags</h4>
                                         </div>
                                         <ul>
-                                            <li><a href="#">Photography</a></li>
-                                            <li><a href="#">Design</a></li>
-                                            <li><a href="#">Envanto</a></li>
-                                            <li><a href="#">Course</a></li>
-                                            <li><a href="#">Education</a></li>
-                                            <li><a href="#">College</a></li>
-                                            <li><a href="#">Teachers</a></li>
-                                            <li><a href="#">Read</a></li>
-                                            <li><a href="#">Excursions</a></li>
+                                            @foreach ($tags as $tag)
+                                                <li><a href="#" onclick="filterTag()">{{ $tag->name }}</a></li>
+                                            @endforeach
                                         </ul>
                                     </div>
 

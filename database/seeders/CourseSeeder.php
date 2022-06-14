@@ -27,7 +27,8 @@ class CourseSeeder extends Seeder
             "price" => 20,
             "study_level" => "Master",
             "discipline" => "Artificial Intelligence",
-            "popular" => true,
+            "is_popular" => true,
+            "user_id" => 2,
         ]);
         DB::table('courses')->insert([
             'title' => 'Electrical Engineering',
@@ -41,7 +42,8 @@ class CourseSeeder extends Seeder
             "price" => 50,
             "study_level" => "Bachelor",
             "discipline" => "Electrical Engineering",
-            "popular" => true,
+            "is_popular" => true,
+            "user_id" => 5,
         ]);
         DB::table('courses')->insert([
             'title' => 'What can you do with a business degree ?',
@@ -55,7 +57,8 @@ class CourseSeeder extends Seeder
             "price" => 48.99,
             "study_level" => "Business Degree",
             "discipline" => "Finance",
-            "popular" => true,
+            "is_popular" => true,
+            "user_id" => 2,
         ]);
         DB::table('courses')->insert([
             'title' => 'Electrical Engineering',
@@ -69,7 +72,8 @@ class CourseSeeder extends Seeder
             "price" => 0,
             "study_level" => "Bachelor",
             "discipline" => "Electrical Engineering",
-            "popular" => true,
+            "is_popular" => true,
+            "user_id" => 6,
         ]);
         DB::table('courses')->insert([
             'title' => 'How to become a powerful speaker',
@@ -83,7 +87,8 @@ class CourseSeeder extends Seeder
             "price" => 20,
             "study_level" => "Master",
             "discipline" => "Artificial Intelligence",
-            "popular" => true,
+            "is_popular" => true,
+            "user_id" => 2,
         ]);
         DB::table('courses')->insert([
             'title' => 'Electrical Engineering',
@@ -97,7 +102,8 @@ class CourseSeeder extends Seeder
             "price" => 0,
             "study_level" => "Bachelor",
             "discipline" => "Electrical Engineering",
-            "popular" => true,
+            "is_popular" => true,
+            "user_id" => 7,
         ]);
         DB::table('courses')->insert([
             'title' => 'How to become a powerful speaker',
@@ -111,7 +117,8 @@ class CourseSeeder extends Seeder
             "price" => 20,
             "study_level" => "Master",
             "discipline" => "Artificial Intelligence",
-            "popular" => true,
+            "is_popular" => true,
+            "user_id" => 8,
         ]);
         DB::table('courses')->insert([
             'title' => 'Electrical Engineering',
@@ -125,7 +132,8 @@ class CourseSeeder extends Seeder
             "price" => 50,
             "study_level" => "Bachelor",
             "discipline" => "Electrical Engineering",
-            "popular" => false,
+            "is_popular" => false,
+            "user_id" => 2,
         ]);
         DB::table('courses')->insert([
             'title' => 'What can you do with a business degree ?',
@@ -139,7 +147,8 @@ class CourseSeeder extends Seeder
             "price" => 48.99,
             "study_level" => "Business Degree",
             "discipline" => "Finance",
-            "popular" => false,
+            "is_popular" => false,
+            "user_id" => 2,
         ]);
         DB::table('courses')->insert([
             'title' => 'Electrical Engineering',
@@ -153,7 +162,8 @@ class CourseSeeder extends Seeder
             "price" => 0,
             "study_level" => "Bachelor",
             "discipline" => "Electrical Engineering",
-            "popular" => false,
+            "is_popular" => false,
+            "user_id" => 9,
         ]);
         DB::table('courses')->insert([
             'title' => 'How to become a powerful speaker',
@@ -167,7 +177,8 @@ class CourseSeeder extends Seeder
             "price" => 20,
             "study_level" => "Master",
             "discipline" => "Artificial Intelligence",
-            "popular" => false,
+            "is_popular" => false,
+            "user_id" => 2,
         ]);
         DB::table('courses')->insert([
             'title' => 'Electrical Engineering',
@@ -181,7 +192,8 @@ class CourseSeeder extends Seeder
             "price" => 0,
             "study_level" => "Bachelor",
             "discipline" => "Electrical Engineering",
-            "popular" => false,
+            "is_popular" => false,
+            "user_id" => 10,
         ]);
     }
 }
