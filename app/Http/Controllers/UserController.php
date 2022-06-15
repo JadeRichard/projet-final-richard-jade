@@ -42,6 +42,7 @@ class UserController extends Controller
         $users->email = $request->email;
         $users->password = Hash::make($request->password);
         $users->updated_at = now();
+        $users->is_registered = false;
         $destination = "images/" . $users->picture;
         if (File::exists($destination)) {
             File::delete($destination);
@@ -104,12 +105,27 @@ class UserController extends Controller
         }
         $users->picture = $request->file("picture")->hashName();
         $request->file('picture')->storePublicly('images/', 'public');
+        $users->roles()->detach();
+        if ($request->roles[0] == '2') {
+            $teachers = new Teacher();
+            $teachers->name = $users->name;
+            $teachers->email = $users->email;
+            $teachers->description = 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae fugiat sit non eum amet ipsa commodi iusto, animi praesentium adipisci neque veritatis architecto laboriosam! Quaerat placeat in voluptates eos eius, blanditiis optio iure fugit odit, sint alias accusantium totam enim!';
+            $teachers->telephone = '0X-XX-XX-XX';
+            $teachers->skype = 'skype';
+            $teachers->role = '///// Teacher';
+            $teachers->picture = $users->picture;
+            $teachers->save();
+            $findteacher = Teacher::where('name', $users->name)->first();
+            $findteacher->delete();
+            
+        }
+        $users->roles()->attach($request->roles, ['user_id' => $users->id]);
         $users->save();
 
-        $users->roles()->sync($request->roles, [
-            'user_id' => $users->id,
-        ]);
+        // if user role is teacher, create teacher model with default values 
 
+        
         
 
         return redirect()->route('users.index')->with('message', 'Element user updated');

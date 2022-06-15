@@ -20,9 +20,9 @@
             </div>
         @endif
         
-        @can('create', App\Models\Teacher::class)
+        {{-- @can('create', App\Models\Teacher::class)
         <a href="{{ route('teachers.create') }}" class="btn btncus mb-5" style="background-color: #A12C2F; color: white;">Create</a>
-        @endcan
+        @endcan --}}
 
         <table class='table'>
             <thead>

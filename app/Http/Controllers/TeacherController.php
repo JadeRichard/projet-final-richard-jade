@@ -25,35 +25,6 @@ class TeacherController extends Controller
         return view('/back/teachers/create', compact('teachers'));
     }
 
-    public function store(Request $request)
-    {
-        $teachers = new Teacher();
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'description' => 'required',
-            'picture' => 'required',
-            'telephone' => 'required',
-            'skype' => 'required',
-            'role' => 'required',
-        ]);
-        $teachers->name = $request->name;
-        $teachers->email = $request->email;
-        $teachers->description = $request->description;
-        $teachers->telephone = $request->telephone;
-        $teachers->skype = $request->skype;
-        $teachers->role = $request->role;
-        $teachers->updated_at = now();
-        $destination = "images/" . $teachers->picture;
-        if (File::exists($destination)) {
-            File::delete($destination);
-        }
-        $teachers->picture = $request->file("picture")->hashName();
-        $request->file('picture')->storePublicly('images/', 'public');
-        $teachers->save();
-        return redirect()->route('teachers.index')->with('message', 'Element teacher created');
-    
-    }
 
     public function edit($id)
     {
@@ -65,6 +36,7 @@ class TeacherController extends Controller
     public function update(Request $request, $id)
     {
         $teachers = Teacher::find($id);
+        $user = User::where('name', $teachers->name)->first();
         $request->validate([
             'name' => 'required',
             'email' => 'required',
@@ -88,6 +60,9 @@ class TeacherController extends Controller
         $teachers->picture = $request->file("picture")->hashName();
         $request->file('picture')->storePublicly('images/', 'public');
         $teachers->save();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->save();
         return redirect()->route('teachers.index')->with('message', 'Element teacher updated');
     }
 

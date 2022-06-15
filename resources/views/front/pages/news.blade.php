@@ -74,7 +74,7 @@
                                     // put it on display none
                                     for (var i = 0; i < search.length; i++) {
                                         search[i].style.display = "none";
-                                    }
+                                    }   
                                 }
 
                                 function filterCat() {

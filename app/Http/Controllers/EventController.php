@@ -28,6 +28,14 @@ class EventController extends Controller
     public function store(Request $request)
     {
         $events = new Event();
+        $users = User::all();
+        $mailtoallusers = [];
+        foreach ($users as $user) {
+            $mailtoallusers[] = $user->email;
+        }
+        Mail::to($mailtoallusers)->send(new Newevent($events));
+
+
         $request->validate([
             'title' => 'required',
             'description' => 'required',

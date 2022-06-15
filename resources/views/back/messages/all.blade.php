@@ -23,7 +23,7 @@
         <table class='table'>
             <thead>
                 <tr>
-                    <th scope='col' style="text-align: center;">Teacher</th>
+                    <th scope='col' style="text-align: center;">Recipient </th>
                     <th scope='col' style="text-align: center;">Name</th>
                     <th scope='col' style="text-align: center;">Email</th>
                     <th scope='col' style="text-align: center;">Message</th>
